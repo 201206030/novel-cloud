@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    include: [common]
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.106.243.172:8848
