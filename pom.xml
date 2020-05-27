@@ -13,6 +13,7 @@
         <module>novel-monitor</module>
         <module>novel-user</module>
         <module>novel-gen</module>
+        <module>novel-book</module>
     </modules>
     <packaging>pom</packaging>
 
