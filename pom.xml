@@ -13,7 +13,6 @@
         <module>novel-monitor</module>
         <module>novel-user</module>
         <module>novel-gen</module>
-        <module>novel-book</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -127,12 +126,6 @@
                 <version>${swagger.version}</version>
             </dependency>
 
-            <!--监控-->
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-server</artifactId>
-                <version>${admin-starter-server.version}</version>
-            </dependency>
 
             <!--集成SpringBoot Admin监控-->
             <dependency>
