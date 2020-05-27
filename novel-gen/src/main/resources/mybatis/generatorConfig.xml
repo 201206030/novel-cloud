@@ -9,7 +9,7 @@
             <property name="addRemarkComments" value="true"/>
         </commentGenerator>
         <jdbcConnection
-                connectionURL="jdbc:mysql://127.0.0.1:3306/novel_plus?tinyInt1isBit=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai&amp;nullCatalogMeansCurrent=true"
+                connectionURL="jdbc:mysql://127.0.0.1:3306/novel_cloud?tinyInt1isBit=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai&amp;nullCatalogMeansCurrent=true"
                 driverClass="com.mysql.jdbc.Driver" password="test123456"
                 userId="root" />
 
@@ -46,7 +46,7 @@
         </javaClientGenerator>
 
         <!--生成全部表tableName设为%-->
-        <table tableName="user" />
+        <table tableName="user_feedback" />
 
         <!-- 指定数据库表 -->
         <!--<table schema="jly" tableName="job_position" domainObjectName="JobPositionTest"/>-->

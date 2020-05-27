@@ -13,6 +13,13 @@
         <module>novel-monitor</module>
         <module>novel-user</module>
         <module>novel-gen</module>
+        <module>novel-book</module>
+        <module>novel-news</module>
+        <module>novel-home</module>
+        <module>novel-pay</module>
+        <module>novel-search</module>
+        <module>novel-author</module>
+
     </modules>
     <packaging>pom</packaging>
 
@@ -56,6 +63,10 @@
 
         <novel-common.version>1.0.0</novel-common.version>
         <novel-user-api.version>1.0.0</novel-user-api.version>
+        <novel-book-api.version>1.0.0</novel-book-api.version>
+        <novel-news-api.version>1.0.0</novel-news-api.version>
+        <novel-pay-api.version>1.0.0</novel-pay-api.version>
+        <novel-author-api.version>1.0.0</novel-author-api.version>
     </properties>
 
     <dependencies>
@@ -86,6 +97,26 @@
                 <groupId>com.java2nb.novel</groupId>
                 <artifactId>user-api</artifactId>
                 <version>${novel-user-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.java2nb.novel</groupId>
+                <artifactId>book-api</artifactId>
+                <version>${novel-book-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.java2nb.novel</groupId>
+                <artifactId>news-api</artifactId>
+                <version>${novel-news-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.java2nb.novel</groupId>
+                <artifactId>pay-api</artifactId>
+                <version>${novel-pay-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.java2nb.novel</groupId>
+                <artifactId>author-api</artifactId>
+                <version>${novel-author-api.version}</version>
             </dependency>
 
 
@@ -233,6 +264,8 @@
 
         </dependencies>
     </dependencyManagement>
+
+
 
 
 

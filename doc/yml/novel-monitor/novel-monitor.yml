@@ -1,0 +1,19 @@
+server:
+  port: 529
+
+spring:
+  security: # 配置登录用户名和密码
+    user:
+      name: novel-plus
+      password: 123456
+  boot:  # 不显示admin-server的监控信息
+    admin:
+      discovery:
+        ignored-services: ${spring.application.name}
+
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.106.243.172:8848
+        namespace: 3960c71a-62ac-4b8f-8c30-bba8e8143a0c

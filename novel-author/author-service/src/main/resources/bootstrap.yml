@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: author-service
+  cloud:
+    nacos:
+      config:
+        ext‐config[0]:
+          data‐id: novel-jwt.yml
+          group: novel-common
+          refresh: true
+  profiles:
+    active: dev
+

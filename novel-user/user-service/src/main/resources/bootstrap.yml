@@ -4,7 +4,10 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 47.106.243.172:8848
-        file-extension: yml
-        group: dev
-        namespace: a77986d7-c528-4367-afcb-7b9efee75564
+        ext‐config[0]:
+          data‐id: novel-jwt.yml
+          group: novel-common
+          refresh: true
+  profiles:
+    active: dev
+

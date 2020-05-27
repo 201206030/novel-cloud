@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: novel-home
+  profiles:
+    active: dev

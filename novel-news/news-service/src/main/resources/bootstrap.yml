@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: news-service
+  profiles:
+    active: dev

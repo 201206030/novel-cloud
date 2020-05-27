@@ -1,49 +1,49 @@
-package com.java2nb.novel.user.entity;
+package com.java2nb.novel.author.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import javax.annotation.Generated;
 
-public class User {
+public class Author {
     @ApiModelProperty(value = "主键")
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Long id;
 
-    @ApiModelProperty(value = "登录名")
+    @ApiModelProperty(value = "用户ID")
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    private String username;
+    private Long userId;
 
-    @ApiModelProperty(value = "登录密码")
+    @ApiModelProperty(value = "邀请码")
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    private String password;
+    private String inviteCode;
 
-    @ApiModelProperty(value = "昵称")
+    @ApiModelProperty(value = "笔名")
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    private String nickName;
+    private String penName;
 
-    @ApiModelProperty(value = "用户头像")
+    @ApiModelProperty(value = "手机号码")
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    private String userPhoto;
+    private String telPhone;
 
-    @ApiModelProperty(value = "用户性别，0：男，1：女")
+    @ApiModelProperty(value = "QQ或微信账号")
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    private Byte userSex;
+    private String chatAccount;
 
-    @ApiModelProperty(value = "账户余额")
+    @ApiModelProperty(value = "电子邮箱")
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    private Long accountBalance;
+    private String email;
 
-    @ApiModelProperty(value = "用户状态，0：正常")
+    @ApiModelProperty(value = "作品方向，0：男频，1：女频")
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    private Byte workDirection;
+
+    @ApiModelProperty(value = "0：正常，1：封禁")
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Byte status;
 
     @ApiModelProperty(value = "创建时间")
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Date createTime;
-
-    @ApiModelProperty(value = "更新时间")
-    @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    private Date updateTime;
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     public Long getId() {
@@ -56,63 +56,73 @@ public class User {
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public String getUsername() {
-        return username;
+    public Long getUserId() {
+        return userId;
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public String getPassword() {
-        return password;
+    public String getInviteCode() {
+        return inviteCode;
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setInviteCode(String inviteCode) {
+        this.inviteCode = inviteCode == null ? null : inviteCode.trim();
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public String getNickName() {
-        return nickName;
+    public String getPenName() {
+        return penName;
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public void setNickName(String nickName) {
-        this.nickName = nickName == null ? null : nickName.trim();
+    public void setPenName(String penName) {
+        this.penName = penName == null ? null : penName.trim();
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public String getUserPhoto() {
-        return userPhoto;
+    public String getTelPhone() {
+        return telPhone;
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public void setUserPhoto(String userPhoto) {
-        this.userPhoto = userPhoto == null ? null : userPhoto.trim();
+    public void setTelPhone(String telPhone) {
+        this.telPhone = telPhone == null ? null : telPhone.trim();
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public Byte getUserSex() {
-        return userSex;
+    public String getChatAccount() {
+        return chatAccount;
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public void setUserSex(Byte userSex) {
-        this.userSex = userSex;
+    public void setChatAccount(String chatAccount) {
+        this.chatAccount = chatAccount == null ? null : chatAccount.trim();
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public Long getAccountBalance() {
-        return accountBalance;
+    public String getEmail() {
+        return email;
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public void setAccountBalance(Long accountBalance) {
-        this.accountBalance = accountBalance;
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public Byte getWorkDirection() {
+        return workDirection;
+    }
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public void setWorkDirection(Byte workDirection) {
+        this.workDirection = workDirection;
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
@@ -133,15 +143,5 @@ public class User {
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
-    }
-
-    @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    @Generated("org.mybatis.generator.api.MyBatisGenerator")
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 }
