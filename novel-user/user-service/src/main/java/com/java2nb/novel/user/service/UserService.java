@@ -6,7 +6,10 @@ import com.java2nb.novel.user.entity.User;
 import com.java2nb.novel.user.form.UserForm;
 
 /**
- * @author 11797
+ * 用户服务接口
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/28
  */
 public interface UserService {
 

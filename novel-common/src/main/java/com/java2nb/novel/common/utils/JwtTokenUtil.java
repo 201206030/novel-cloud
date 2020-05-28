@@ -8,6 +8,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -18,6 +19,7 @@ import java.util.Map;
  * @author 11797
  */
 @Component
+@ConditionalOnProperty(prefix = "jwt", name = "secret")
 @Slf4j
 public class JwtTokenUtil {
 

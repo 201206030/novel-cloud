@@ -1,0 +1,82 @@
+PUT /novel
+{
+  "mappings" : {
+    "book" : {
+      "properties" : {
+        "id" : {
+          "type" : "long"
+        },
+        "authorId" : {
+          "type" : "long"
+        },
+        "authorName" : {
+          "type" : "text",
+          "analyzer": "ik_smart",
+          "boost": 1.9
+        },
+
+        "bookName" : {
+          "type" : "text",
+          "analyzer": "ik_smart",
+          "boost": 2
+        },
+
+        "bookDesc" : {
+          "type" : "text",
+          "analyzer": "ik_smart",
+          "boost": 0.1
+        },
+
+        "bookStatus" : {
+          "type" : "short"
+        },
+
+        "catId" : {
+          "type" : "integer"
+        },
+
+        "catName" : {
+          "type" : "text",
+          "analyzer": "ik_smart",
+          "boost": 1.0
+        },
+
+        "lastIndexId" : {
+          "type" : "long"
+        },
+
+        "lastIndexName" : {
+          "type" : "text",
+          "analyzer": "ik_smart",
+          "boost": 0.1
+        },
+
+        "lastIndexUpdateTime" : {
+          "type": "keyword"
+        },
+
+        "picUrl" : {
+          "type" : "keyword"
+        },
+
+        "score" : {
+          "type" : "float"
+        },
+
+        "wordCount" : {
+          "type" : "integer"
+        },
+
+        "workDirection" : {
+          "type" : "short"
+        },
+
+        "visitCount" : {
+          "type": "long"
+        }
+
+
+      }
+    }
+  }
+}

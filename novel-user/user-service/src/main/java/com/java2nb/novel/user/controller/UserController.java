@@ -26,7 +26,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("user")
 @RequiredArgsConstructor
-@EnableSwagger2
 @Slf4j
 @Api(tags = "用户相关接口")
 public class UserController extends BaseController {

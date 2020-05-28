@@ -21,7 +21,10 @@ import static org.mybatis.dynamic.sql.SqlBuilder.isEqualTo;
 import static org.mybatis.dynamic.sql.select.SelectDSL.select;
 
 /**
- * @author 11797
+ * 小说服务接口实现
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/28
  */
 @Service
 @Slf4j

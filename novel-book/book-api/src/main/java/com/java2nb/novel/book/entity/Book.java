@@ -42,7 +42,7 @@ public class Book {
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private String bookDesc;
 
-    @ApiModelProperty(value = "评分，预留字段")
+    @ApiModelProperty(value = "评分")
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Float score;
 

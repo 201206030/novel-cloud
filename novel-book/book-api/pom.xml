@@ -15,18 +15,9 @@
         <dependency>
             <groupId>com.java2nb.novel</groupId>
             <artifactId>novel-common</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-cache</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-redis</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
+
 
 
 </project>

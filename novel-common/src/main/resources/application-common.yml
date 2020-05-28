@@ -14,9 +14,7 @@ mybatis:
 logging:
   config: classpath:logback-boot.xml
 
-jwt:
-  secret: novel!1025
-  expiration: 604800
+
 
 
 

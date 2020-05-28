@@ -5,6 +5,7 @@ import com.java2nb.novel.user.entity.User;
 import com.java2nb.novel.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -15,6 +16,7 @@ import springfox.documentation.annotations.ApiIgnore;
  * @since 2020/5/27
  */
 @RestController
+@RequestMapping("api/user")
 @RequiredArgsConstructor
 @ApiIgnore
 public class UserApi {
@@ -25,7 +27,7 @@ public class UserApi {
     /**
      * 根据用户名密码查询记录
      * */
-    @GetMapping("api/queryByUsernameAndPassword")
+    @GetMapping("queryByUsernameAndPassword")
     public User queryByUsernameAndPassword(String username, String password){
         return userService.queryByUsernameAndPassword(username,password);
 

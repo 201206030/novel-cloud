@@ -1,0 +1,177 @@
+2020-05-28 09:44:07,815 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'pay-service.yml', group: 'pay-service'
+2020-05-28 09:44:08,042 INFO (PropertySourceBootstrapConfiguration.java:101)- Located property source: CompositePropertySource {name='NACOS', propertySources=[NacosPropertySource {name='pay-service-dev.yml'}, NacosPropertySource {name='pay-service-common.yml'}, NacosPropertySource {name='pay-service.yml'}]}
+2020-05-28 09:44:13,077 INFO (SpringApplication.java:652)- The following profiles are active: common,dev
+2020-05-28 09:44:13,077 INFO (SpringApplication.java:652)- The following profiles are active: common,dev
+2020-05-28 09:44:14,809 WARN (EndpointId.java:131)- Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2020-05-28 09:44:14,813 WARN (EndpointId.java:131)- Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2020-05-28 09:44:14,865 WARN (EndpointId.java:131)- Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-05-28 09:44:15,229 INFO (GenericScope.java:295)- BeanFactory id=bf29abd5-cd37-3089-951c-c9ab3b65584c
+2020-05-28 09:44:15,412 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2925879b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-28 09:44:15,456 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$453f8a98] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-28 09:44:15,864 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 650 (http)
+2020-05-28 09:44:15,903 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2020-05-28 09:44:15,903 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.24]
+2020-05-28 09:44:16,332 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2020-05-28 09:44:16,335 INFO (ServletWebServerApplicationContext.java:284)- Root WebApplicationContext: initialization completed in 3238 ms
+2020-05-28 09:44:16,749 WARN (URLConfigurationSource.java:121)- No URLs will be polled as dynamic configuration sources.
+2020-05-28 09:44:16,750 INFO (URLConfigurationSource.java:122)- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-05-28 09:44:16,764 INFO (DynamicPropertyFactory.java:281)- DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@5b14f482
+2020-05-28 09:44:17,304 INFO (NacosNamingService.java:198)- initializer namespace from System Property :null
+2020-05-28 09:44:17,306 INFO (NacosNamingService.java:208)- initializer namespace from System Environment :null
+2020-05-28 09:44:17,307 INFO (NacosNamingService.java:217)- initializer namespace from Credential Module null
+2020-05-28 09:44:17,910 INFO (EndpointLinksResolver.java:58)- Exposing 21 endpoint(s) beneath base path '/actuator'
+2020-05-28 09:44:18,020 INFO (PropertySourcedRequestMappingHandlerMapping.java:69)- Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-05-28 09:44:18,043 WARN (URLConfigurationSource.java:121)- No URLs will be polled as dynamic configuration sources.
+2020-05-28 09:44:18,044 INFO (URLConfigurationSource.java:122)- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-05-28 09:44:18,231 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-28 09:44:19,165 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService
+2020-05-28 09:44:19,423 INFO (DocumentationPluginsBootstrapper.java:147)- Context refreshed
+2020-05-28 09:44:19,448 INFO (DocumentationPluginsBootstrapper.java:150)- Found 1 custom documentation plugin(s)
+2020-05-28 09:44:19,528 INFO (ApiListingReferenceScanner.java:41)- Scanning for api listing references
+2020-05-28 09:44:19,617 INFO (TomcatWebServer.java:202)- Tomcat started on port(s): 650 (http) with context path ''
+2020-05-28 09:44:19,623 INFO (BeatReactor.java:62)- [BEAT] adding beat: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":false,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0} to beat map.
+2020-05-28 09:44:19,672 INFO (NamingProxy.java:170)- [REGISTER-SERVICE] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c registering service DEFAULT_GROUP@@pay-service with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"weight":1.0}
+2020-05-28 09:44:19,800 INFO (NacosServiceRegistry.java:64)- nacos registry, pay-service 172.20.10.2:650 register finished
+2020-05-28 09:44:19,810 INFO (StartupInfoLogger.java:59)- Started PayApplication in 29.07 seconds (JVM running for 36.057)
+2020-05-28 09:44:19,810 INFO (StartupInfoLogger.java:59)- Started PayApplication in 29.07 seconds (JVM running for 36.057)
+2020-05-28 09:44:19,833 INFO (ClientWorker.java:184)- [fixed-47.106.243.172_8848-3960c71a-62ac-4b8f-8c30-bba8e8143a0c] [subscribe] pay-service-common.yml+pay-service+3960c71a-62ac-4b8f-8c30-bba8e8143a0c
+2020-05-28 09:44:19,834 INFO (CacheData.java:78)- [fixed-47.106.243.172_8848-3960c71a-62ac-4b8f-8c30-bba8e8143a0c] [add-listener] ok, tenant=3960c71a-62ac-4b8f-8c30-bba8e8143a0c, dataId=pay-service-common.yml, group=pay-service, cnt=1
+2020-05-28 09:44:19,835 INFO (ClientWorker.java:184)- [fixed-47.106.243.172_8848-3960c71a-62ac-4b8f-8c30-bba8e8143a0c] [subscribe] pay-service-dev.yml+pay-service+3960c71a-62ac-4b8f-8c30-bba8e8143a0c
+2020-05-28 09:44:19,835 INFO (CacheData.java:78)- [fixed-47.106.243.172_8848-3960c71a-62ac-4b8f-8c30-bba8e8143a0c] [add-listener] ok, tenant=3960c71a-62ac-4b8f-8c30-bba8e8143a0c, dataId=pay-service-dev.yml, group=pay-service, cnt=1
+2020-05-28 09:44:19,836 INFO (ClientWorker.java:184)- [fixed-47.106.243.172_8848-3960c71a-62ac-4b8f-8c30-bba8e8143a0c] [subscribe] pay-service.yml+pay-service+3960c71a-62ac-4b8f-8c30-bba8e8143a0c
+2020-05-28 09:44:19,836 INFO (CacheData.java:78)- [fixed-47.106.243.172_8848-3960c71a-62ac-4b8f-8c30-bba8e8143a0c] [add-listener] ok, tenant=3960c71a-62ac-4b8f-8c30-bba8e8143a0c, dataId=pay-service.yml, group=pay-service, cnt=1
+2020-05-28 09:44:20,078 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2020-05-28 09:44:20,086 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-28 09:44:20,086 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2020-05-28 09:44:20,157 INFO (FrameworkServlet.java:546)- Completed initialization in 70 ms
+2020-05-28 09:44:20,256 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$453f8a98] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-28 09:44:20,806 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2020-05-28 09:44:20,891 INFO (NacosPropertySourceBuilder.java:87)- Loading nacos data, dataId: 'pay-service.yml', group: 'pay-service'
+2020-05-28 09:44:21,122 INFO (PropertySourceBootstrapConfiguration.java:101)- Located property source: CompositePropertySource {name='NACOS', propertySources=[NacosPropertySource {name='pay-service-dev.yml'}, NacosPropertySource {name='pay-service-common.yml'}, NacosPropertySource {name='pay-service.yml'}]}
+2020-05-28 09:44:29,691 INFO (SpringApplication.java:652)- The following profiles are active: common,dev
+2020-05-28 09:44:29,714 INFO (StartupInfoLogger.java:59)- Started application in 9.719 seconds (JVM running for 45.961)
+2020-05-28 09:44:29,856 INFO (HikariDataSource.java:350)- HikariPool-1 - Shutdown initiated...
+2020-05-28 09:44:29,864 INFO (HikariDataSource.java:352)- HikariPool-1 - Shutdown completed.
+2020-05-28 09:44:29,866 INFO (RefreshEventListener.java:73)- Refresh keys changed: []
+2020-05-28 09:44:29,867 INFO (CacheData.java:190)- [fixed-47.106.243.172_8848-3960c71a-62ac-4b8f-8c30-bba8e8143a0c] [notify-ok] dataId=pay-service.yml, group=pay-service, md5=542410732d9cfa6d3cc49814a9602803, listener=org.springframework.cloud.alibaba.nacos.refresh.NacosContextRefresher$1@750c0b12 
+2020-05-28 09:44:29,867 INFO (CacheData.java:216)- [fixed-47.106.243.172_8848-3960c71a-62ac-4b8f-8c30-bba8e8143a0c] [notify-listener] time cost=9884ms in ClientWorker, dataId=pay-service.yml, group=pay-service, md5=542410732d9cfa6d3cc49814a9602803, listener=org.springframework.cloud.alibaba.nacos.refresh.NacosContextRefresher$1@750c0b12 
+2020-05-28 09:44:32,327 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:44:36,237 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:44:37,327 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:44:42,329 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:44:46,491 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:44:47,333 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:44:52,336 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:44:55,190 INFO (HostReactor.java:163)- new ips(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:44:55,205 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:44:55,206 INFO (EventDispatcher.java:61)- [LISTENER] adding DEFAULT_GROUP@@pay-service with  to listener map
+2020-05-28 09:44:56,397 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:44:56,601 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:44:57,341 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:02,342 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:06,526 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:45:06,721 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:07,344 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:12,348 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:16,684 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:45:16,838 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:17,351 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:22,355 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:26,839 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:45:26,948 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:27,360 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:32,364 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:37,017 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:45:37,049 WARN (HostReactor.java:110)- out of date data received, old-t: 1590630326958, new-t: 0
+2020-05-28 09:45:37,050 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:37,366 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:38,199 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:39,445 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:40,598 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:41,719 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:42,368 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:42,839 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:44,068 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:45,198 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:46,363 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:47,161 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:45:47,369 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:47,479 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:48,604 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:49,704 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:50,798 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:51,908 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:52,371 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:53,029 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:54,149 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:55,278 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:55,459 INFO (EventDispatcher.java:75)- [LISTENER] removing DEFAULT_GROUP@@author-service with  from listener map
+2020-05-28 09:45:55,594 INFO (HostReactor.java:163)- new ips(1) service: DEFAULT_GROUP@@book-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#620#DEFAULT#DEFAULT_GROUP@@book-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":620,"serviceName":"DEFAULT_GROUP@@book-service","weight":1.0}]
+2020-05-28 09:45:55,596 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@book-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#620#DEFAULT#DEFAULT_GROUP@@book-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":620,"serviceName":"DEFAULT_GROUP@@book-service","weight":1.0}]
+2020-05-28 09:45:55,597 INFO (EventDispatcher.java:61)- [LISTENER] adding DEFAULT_GROUP@@book-service with  to listener map
+2020-05-28 09:45:56,440 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:56,740 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@book-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#620#DEFAULT#DEFAULT_GROUP@@book-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":620,"serviceName":"DEFAULT_GROUP@@book-service","weight":1.0}]
+2020-05-28 09:45:57,320 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:45:57,375 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:45:57,580 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:45:59,061 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:00,200 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:01,347 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:02,380 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:46:02,468 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:03,618 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:04,758 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:05,907 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:06,948 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@book-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#620#DEFAULT#DEFAULT_GROUP@@book-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":620,"serviceName":"DEFAULT_GROUP@@book-service","weight":1.0}]
+2020-05-28 09:46:07,007 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:07,384 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:46:07,429 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:46:08,240 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:09,522 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:10,683 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:11,798 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:12,388 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:46:12,917 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:14,148 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:15,348 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:16,442 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:17,108 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@book-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#620#DEFAULT#DEFAULT_GROUP@@book-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":620,"serviceName":"DEFAULT_GROUP@@book-service","weight":1.0}]
+2020-05-28 09:46:17,391 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:46:17,518 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:46:17,537 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:18,677 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:19,797 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:20,916 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:22,037 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:22,395 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:46:23,157 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:24,390 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:25,508 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:26,643 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:27,237 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@book-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#620#DEFAULT#DEFAULT_GROUP@@book-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":620,"serviceName":"DEFAULT_GROUP@@book-service","weight":1.0}]
+2020-05-28 09:46:27,400 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:46:27,642 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:46:27,756 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:28,867 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:29,959 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:31,107 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:32,257 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:32,403 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:46:33,397 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:34,683 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:35,907 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:37,076 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:37,348 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@book-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#620#DEFAULT#DEFAULT_GROUP@@book-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":620,"serviceName":"DEFAULT_GROUP@@book-service","weight":1.0}]
+2020-05-28 09:46:37,409 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:46:37,777 INFO (HostReactor.java:195)- current ips:(1) service: DEFAULT_GROUP@@pay-service -> [{"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceId":"172.20.10.2#650#DEFAULT#DEFAULT_GROUP@@pay-service","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}]
+2020-05-28 09:46:38,306 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:39,510 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:40,686 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:41,797 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:42,413 INFO (NamingProxy.java:222)- [BEAT] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c sending beat to server: {"cluster":"DEFAULT","ip":"172.20.10.2","metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":650,"scheduled":true,"serviceName":"DEFAULT_GROUP@@pay-service","weight":1.0}
+2020-05-28 09:46:42,801 INFO (NacosServiceRegistry.java:76)- De-registering from Nacos Server now...
+2020-05-28 09:46:42,802 INFO (BeatReactor.java:68)- [BEAT] removing beat: DEFAULT_GROUP@@pay-service:172.20.10.2:650 from beat map.
+2020-05-28 09:46:42,805 INFO (NamingProxy.java:192)- [DEREGISTER-SERVICE] 3960c71a-62ac-4b8f-8c30-bba8e8143a0c deregistering service DEFAULT_GROUP@@pay-service with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"ip":"172.20.10.2","metadata":{},"port":650,"weight":1.0}
+2020-05-28 09:46:42,917 INFO (HostReactor.java:195)- current ips:(0) service: DEFAULT_GROUP@@author-service -> []
+2020-05-28 09:46:42,936 INFO (NacosServiceRegistry.java:95)- De-registration finished.
+2020-05-28 09:46:42,942 INFO (ExecutorConfigurationSupport.java:208)- Shutting down ExecutorService 'applicationTaskExecutor'

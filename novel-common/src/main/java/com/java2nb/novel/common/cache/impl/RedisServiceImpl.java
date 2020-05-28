@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author xxy
  */
-@ConditionalOnProperty(prefix = "cache", name = "type", havingValue = "redis")
+@ConditionalOnProperty(prefix = "spring.redis", name = "host", matchIfMissing = false)
 @RequiredArgsConstructor
 @Service
 public class RedisServiceImpl implements CacheService {
