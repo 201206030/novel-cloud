@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author 11797
  */
 @RestController
-@RequestMapping("user")
+@RequestMapping("search")
 @RequiredArgsConstructor
 @Slf4j
 @Api(tags = "搜索相关接口")
