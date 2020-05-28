@@ -1,6 +1,7 @@
 package com.java2nb.novel.book.mapper;
 
 import com.java2nb.novel.book.entity.BookComment;
+import com.java2nb.novel.book.vo.BookCommentVO;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 import org.mybatis.dynamic.sql.SqlBuilder;
@@ -181,4 +182,5 @@ public interface BookCommentMapper {
                 .build()
                 .execute();
     }
+
 }

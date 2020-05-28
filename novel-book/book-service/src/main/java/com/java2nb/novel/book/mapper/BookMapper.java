@@ -307,4 +307,8 @@ public interface BookMapper {
                 .build()
                 .execute();
     }
+
+    void addVisitCount(@Param("bookId") Long bookId, @Param("visitCount") Integer visitCount);
+
+    List<Book> listRecBookByCatId(@Param("catId") Integer catId);
 }

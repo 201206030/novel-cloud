@@ -5,6 +5,8 @@ import com.java2nb.novel.common.bean.UserDetails;
 import com.java2nb.novel.user.entity.User;
 import com.java2nb.novel.user.form.UserForm;
 
+import java.util.List;
+
 /**
  * 用户服务接口
  * @author xiongxiaoyang
@@ -29,4 +31,10 @@ public interface UserService {
     UserDetails login(UserForm form);
 
 
+    /**
+     * 根据用户名ID集合查询用户集合信息
+     * @param ids 用户ID集合
+     * @return 用户集合对象
+     * */
+    List<User> queryById(List<Long> ids);
 }

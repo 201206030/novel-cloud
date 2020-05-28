@@ -4,10 +4,10 @@ package com.java2nb.novel.user.controller.api;
 import com.java2nb.novel.user.entity.User;
 import com.java2nb.novel.user.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
+
+import java.util.List;
 
 /**
  * 用户微服务API接口（内部调用）
@@ -31,6 +31,16 @@ public class UserApi {
     public User queryByUsernameAndPassword(String username, String password){
         return userService.queryByUsernameAndPassword(username,password);
 
+    }
+
+    /**
+     * 根据用户名ID集合查询用户集合信息
+     * @param ids 用户ID集合
+     * @return 用户集合对象
+     * */
+    @GetMapping("queryById")
+    List<User> queryById(@RequestBody List<Long> ids){
+        return userService.queryById(ids);
     }
 
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.java2nb.novel.book.mapper.BookMapper">
+
+
+    <update id="addVisitCount" >
+        update book set visit_count = visit_count + ${visitCount}
+        where id = #{bookId}
+    </update>
+
+    <select id="listRecBookByCatId" parameterType="int" resultType="com.java2nb.novel.book.entity.Book">
+        select id,pic_url,book_name,book_desc
+        from book
+        where cat_id = #{catId}
+        order by RAND() LIMIT 4
+    </select>
+
+
+    <update id="addCommentCount" parameterType="long">
+        update book set comment_count = comment_count+1
+        where  id = #{bookId}
+    </update>
+
+    <select id="queryNetworkPicBooks" resultType="com.java2nb.novel.book.entity.Book">
+        select
+        id,pic_url from book
+        where pic_url like 'http%'
+        and pic_url not like concat('%',#{localPicPrefix},'%')
+        limit #{limit}
+    </select>
+
+    <select id="selectIdsByScoreAndRandom" parameterType="int" resultType="com.java2nb.novel.book.entity.Book">
+
+       select id,book_name,author_name,pic_url,book_desc,score from book ORDER BY score,RAND() LIMIT #{limit};
+   </select>
+
+</mapper>

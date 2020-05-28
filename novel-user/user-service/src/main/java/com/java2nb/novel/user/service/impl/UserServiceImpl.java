@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import static org.mybatis.dynamic.sql.SqlBuilder.isEqualTo;
+import static org.mybatis.dynamic.sql.SqlBuilder.isIn;
 import static org.mybatis.dynamic.sql.select.SelectDSL.select;
 
 /**
@@ -61,5 +62,15 @@ public class UserServiceImpl implements UserService {
         userDetails.setNickName(user.getNickName());
         userDetails.setUsername(form.getUsername());
         return userDetails;
+    }
+
+    @Override
+    public List<User> queryById(List<Long> ids) {
+        return userMapper.selectMany(
+                select(UserDynamicSqlSupport.id,UserDynamicSqlSupport.username,
+                        UserDynamicSqlSupport.userPhoto)
+        .from(UserDynamicSqlSupport.user)
+        .where(UserDynamicSqlSupport.id,isIn(ids)).build()
+                        .render(RenderingStrategies.MYBATIS3));
     }
 }
