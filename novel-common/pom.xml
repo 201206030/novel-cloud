@@ -109,7 +109,11 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-
+        <!-- 替换默认的HttpURLConnection不支持@RequestBody+ RequestMethod.GET模式-->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+        </dependency>
 
 
 

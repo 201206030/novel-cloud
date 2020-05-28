@@ -2,6 +2,7 @@ package com.java2nb.novel.book.api;
 
 import com.java2nb.novel.book.entity.Book;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
@@ -23,4 +24,14 @@ public interface BookApi {
      * */
     @GetMapping("api/book/queryBookByMinUpdateTime")
     List<Book> queryBookByMinUpdateTime(@RequestParam("minDate") Date minDate,@RequestParam("limit") int limit);
+
+    /**
+     * 根据小说ID集合查询书籍列表
+     * @param ids 小说ID集合
+     * @return 书籍列表
+     * */
+    @GetMapping("api/book/queryBookByIds")
+    List<Book> queryBookByIds(@RequestBody List<Long> ids);
+
+
 }

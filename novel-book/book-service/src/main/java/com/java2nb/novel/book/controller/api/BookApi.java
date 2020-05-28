@@ -5,9 +5,7 @@ import com.java2nb.novel.book.service.BookService;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.Date;
@@ -37,6 +35,17 @@ public class BookApi {
     List<Book> queryBookByMinUpdateTime(Date minDate, int limit){
 
         return bookService.queryBookByMinUpdateTime(minDate,limit);
+    }
+
+    /**
+     * 根据小说ID集合查询书籍列表
+     * @param ids 小说ID集合
+     * @return 书籍列表
+     * */
+    @GetMapping("queryBookByIds")
+    List<Book> queryBookByIds(@RequestBody List<Long> ids){
+
+        return bookService.queryBookByIds(ids);
     }
 
 

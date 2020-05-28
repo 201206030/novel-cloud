@@ -21,4 +21,11 @@ public interface BookService {
      * @return 书籍列表
      * */
     List<Book> queryBookByMinUpdateTime(Date minDate, int limit);
+
+    /**
+     * 根据小说ID集合查询书籍列表
+     * @param ids 小说ID集合
+     * @return 书籍列表
+     * */
+    List<Book> queryBookByIds(List<Long> ids);
 }

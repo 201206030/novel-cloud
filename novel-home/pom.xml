@@ -14,7 +14,11 @@
     <dependencies>
         <dependency>
             <groupId>com.java2nb.novel</groupId>
-            <artifactId>novel-common</artifactId>
+            <artifactId>book-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.java2nb.novel</groupId>
+            <artifactId>news-api</artifactId>
         </dependency>
 
         <dependency>

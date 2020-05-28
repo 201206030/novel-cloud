@@ -14,14 +14,16 @@ import org.springframework.web.bind.annotation.*;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @author 11797
+ * 搜索微服务对外接口
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/28
  */
 @RestController
 @RequestMapping("search")
 @RequiredArgsConstructor
 @Slf4j
 @Api(tags = "搜索相关接口")
-
 public class SearchController {
 
     private final SearchService searchService;

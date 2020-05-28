@@ -3,9 +3,10 @@ package com.java2nb.novel.news.entity;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.annotation.Generated;
+import java.io.Serializable;
 import java.util.Date;
 
-public class News {
+public class News implements Serializable {
     @ApiModelProperty(value = "主键")
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
     private Long id;

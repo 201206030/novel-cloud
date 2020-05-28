@@ -13,6 +13,7 @@ import java.util.List;
 
 import static com.java2nb.novel.book.mapper.BookDynamicSqlSupport.book;
 import static org.mybatis.dynamic.sql.SqlBuilder.isGreaterThan;
+import static org.mybatis.dynamic.sql.SqlBuilder.isIn;
 import static org.mybatis.dynamic.sql.select.SelectDSL.select;
 
 /**
@@ -36,5 +37,16 @@ public class BookServiceImpl implements BookService {
                 .limit(limit)
                 .build()
                 .render(RenderingStrategies.MYBATIS3));
+    }
+
+    @Override
+    public List<Book> queryBookByIds(List<Long> ids) {
+        return bookMapper.selectMany(select(BookDynamicSqlSupport.id,BookDynamicSqlSupport.bookName,BookDynamicSqlSupport.authorName,
+                BookDynamicSqlSupport.picUrl,BookDynamicSqlSupport.bookDesc,BookDynamicSqlSupport.score)
+                .from(book)
+                .where(BookDynamicSqlSupport.id,isIn(ids))
+                        .build()
+                        .render(RenderingStrategies.MYBATIS3)
+        );
     }
 }
