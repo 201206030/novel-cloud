@@ -33,5 +33,14 @@ public interface BookApi {
     @GetMapping("api/book/queryBookByIds")
     List<Book> queryBookByIds(@RequestBody List<Long> ids);
 
+    /**
+     * 小说排行数据查询列表
+     * @param type 排行类型，1：更新排行，2：新书排行，3评论排行
+     * @param limit 查询数量
+     * @return 书籍列表
+     * */
+    @GetMapping("api/book/listRank")
+    List<Book> listRank(@RequestParam("type") Byte type, @RequestParam("limit") Integer limit);
+
 
 }

@@ -2,8 +2,10 @@ package com.java2nb.novel.home.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.java2nb.novel.book.entity.Book;
+import com.java2nb.novel.book.vo.BookVO;
 import com.java2nb.novel.common.cache.CacheKey;
 import com.java2nb.novel.common.cache.CacheService;
+import com.java2nb.novel.common.utils.BeanUtil;
 import com.java2nb.novel.common.utils.Constants;
 import com.java2nb.novel.home.entity.HomeBook;
 import com.java2nb.novel.home.entity.HomeFriendLink;
@@ -108,6 +110,37 @@ public class HomeServiceImpl implements HomeService {
         if(result == null || result.size() == 0) {
             result = newsFeignClient.listLastIndexNews(2);
             cacheService.setObject(CacheKey.INDEX_NEWS_KEY,result);
+        }
+        return result;
+    }
+
+    @Override
+    public List<Book> listClickRank() {
+        List<Book> result = (List<Book>) cacheService.getObject(CacheKey.INDEX_CLICK_BANK_BOOK_KEY);
+        if (result == null || result.size() == 0) {
+            result = bookFeignClient.listRank((byte) 0, 10);
+            cacheService.setObject(CacheKey.INDEX_CLICK_BANK_BOOK_KEY, result, 5000);
+        }
+        return result;
+    }
+
+    @Override
+    public List<Book> listNewRank() {
+        List<Book> result = (List<Book>) cacheService.getObject(CacheKey.INDEX_NEW_BOOK_KEY);
+        if (result == null || result.size() == 0) {
+            result = bookFeignClient.listRank((byte) 1, 10);
+            cacheService.setObject(CacheKey.INDEX_NEW_BOOK_KEY, result, 3600);
+        }
+        return result;
+    }
+
+    @Override
+    public List<BookVO> listUpdateRank() {
+        List<BookVO> result = (List<BookVO>) cacheService.getObject(CacheKey.INDEX_UPDATE_BOOK_KEY);
+        if (result == null || result.size() == 0) {
+            List<Book> bookPOList = bookFeignClient.listRank((byte) 2, 23);
+            result = BeanUtil.copyList(bookPOList, BookVO.class);
+            cacheService.setObject(CacheKey.INDEX_UPDATE_BOOK_KEY, result, 60 * 10);
         }
         return result;
     }

@@ -1,7 +1,8 @@
 package com.java2nb.novel.home.service;
 
 
-import com.java2nb.novel.home.entity.HomeBook;
+import com.java2nb.novel.book.entity.Book;
+import com.java2nb.novel.book.vo.BookVO;
 import com.java2nb.novel.home.entity.HomeFriendLink;
 import com.java2nb.novel.home.vo.HomeBookVO;
 import com.java2nb.novel.news.entity.News;
@@ -34,4 +35,22 @@ public interface HomeService {
      * @return 新闻列表集合
      * */
     List<News> listIndexNews();
+
+    /**
+     * 首页点击榜单查询接口
+     * @return 小说数据集合
+     * */
+    List<Book> listClickRank();
+
+    /**
+     * 首页新书榜单查询接口
+     * @return 小说数据集合
+     * */
+    List<Book> listNewRank();
+
+    /**
+     * 首页更新榜单查询接口
+     * @return 小说数据集合
+     * */
+    List<BookVO> listUpdateRank();
 }

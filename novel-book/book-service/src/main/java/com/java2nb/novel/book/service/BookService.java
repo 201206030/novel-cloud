@@ -1,7 +1,6 @@
 package com.java2nb.novel.book.service;
 
 import com.java2nb.novel.book.entity.Book;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Date;
 import java.util.List;
@@ -28,4 +27,12 @@ public interface BookService {
      * @return 书籍列表
      * */
     List<Book> queryBookByIds(List<Long> ids);
+
+    /**
+     * 小说排行数据查询列表
+     * @param type 排行类型，1：更新排行，2：新书排行，3评论排行
+     * @param limit 查询数量
+     * @return 书籍列表
+     * */
+    List<Book> listRank(Byte type, Integer limit);
 }

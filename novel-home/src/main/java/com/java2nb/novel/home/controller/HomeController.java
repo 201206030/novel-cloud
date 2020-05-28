@@ -1,5 +1,7 @@
 package com.java2nb.novel.home.controller;
 
+import com.java2nb.novel.book.entity.Book;
+import com.java2nb.novel.book.vo.BookVO;
 import com.java2nb.novel.common.bean.PageBean;
 import com.java2nb.novel.common.bean.ResultBean;
 import com.java2nb.novel.home.entity.HomeFriendLink;
@@ -57,5 +59,31 @@ public class HomeController {
         return ResultBean.ok(homeService.listIndexNews());
     }
 
+
+    /**
+     * 首页点击榜单查询接口
+     * */
+    @ApiOperation("首页点击榜单查询接口")
+    @GetMapping("listClickRank")
+    public ResultBean<List<Book>> listClickRank(){
+        return ResultBean.ok(homeService.listClickRank());
+    }
+    /**
+     * 首页新书榜单查询接口
+     * */
+    @ApiOperation("首页点击榜单查询接口")
+    @GetMapping("listNewRank")
+    public ResultBean<List<Book>> listNewRank(){
+        return ResultBean.ok(homeService.listNewRank());
+    }
+
+    /**
+     * 首页更新榜单查询接口
+     * */
+    @ApiOperation("首页点击榜单查询接口")
+    @GetMapping("listUpdateRank")
+    public ResultBean<List<BookVO>> listUpdateRank(){
+        return ResultBean.ok(homeService.listUpdateRank());
+    }
 
 }
