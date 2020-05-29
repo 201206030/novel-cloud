@@ -115,16 +115,16 @@ novel-cloud
    ![image-20200529173322783](./assert/image-20200529173322783.png)
 
 2. 开发环境配置，请确保开发机器上已安装如下软件环境。
-   - [ ] Java开发工具包jdk1.8+
-   - [ ] IDE（Eclipse或IntelliJ IDEA）
+   - [x] Java开发工具包jdk1.8+
+   - [x] IDE（Eclipse或IntelliJ IDEA）
    - [ ] 
-   - [ ] 项目管理工具maven
-   - [ ] 微服务注册中心/配置中心nacos
-   - [ ] 分布式缓存服务Redis
-   - [ ] 搜索引擎服务ElasticSearch
-   - [ ] ElasticSearch可视化客户端Kibana
-   - [ ] 消息中间件RabbitMq
-   - [ ] 数据库服务Mysql
+   - [x] 项目管理工具maven
+   - [x] 微服务注册中心/配置中心nacos
+   - [x] 分布式缓存服务Redis
+   - [x] 搜索引擎服务ElasticSearch
+   - [x] ElasticSearch可视化客户端Kibana
+   - [x] 消息中间件RabbitMq
+   - [x] 数据库服务Mysql
 
 3. 登陆nacos配置中心导入下载源码中的配置文件。
 
