@@ -60,7 +60,9 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> queryBookByIds(List<Long> ids) {
-        return bookMapper.selectMany(select(BookDynamicSqlSupport.id,BookDynamicSqlSupport.bookName,BookDynamicSqlSupport.authorName,
+        return bookMapper.selectMany(select(BookDynamicSqlSupport.id,BookDynamicSqlSupport.catId,BookDynamicSqlSupport.catName,
+                BookDynamicSqlSupport.bookName,BookDynamicSqlSupport.authorName,
+                BookDynamicSqlSupport.lastIndexId,BookDynamicSqlSupport.lastIndexName,BookDynamicSqlSupport.lastIndexUpdateTime,
                 BookDynamicSqlSupport.picUrl,BookDynamicSqlSupport.bookDesc,BookDynamicSqlSupport.score)
                 .from(book)
                 .where(BookDynamicSqlSupport.id,isIn(ids))

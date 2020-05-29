@@ -60,4 +60,13 @@ public class BookApi {
     }
 
 
+    /**
+     * 根据小说ID查询书籍
+     * @param id 小说ID
+     * @return 书籍对象
+     * */
+    @GetMapping("queryBookById")
+    Book queryBookById(@RequestParam("id") Long id){
+        return bookService.queryBookDetail(id);
+    }
 }

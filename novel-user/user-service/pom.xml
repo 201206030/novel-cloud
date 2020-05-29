@@ -17,6 +17,10 @@
             <groupId>com.java2nb.novel</groupId>
             <artifactId>user-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.java2nb.novel</groupId>
+            <artifactId>book-api</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>

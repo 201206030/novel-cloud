@@ -42,5 +42,13 @@ public interface BookApi {
     @GetMapping("api/book/listRank")
     List<Book> listRank(@RequestParam("type") Byte type, @RequestParam("limit") Integer limit);
 
+    /**
+     * 根据小说ID查询书籍
+     * @param id 小说ID
+     * @return 书籍对象
+     * */
+    @GetMapping("api/book/queryBookById")
+    Book queryBookById(@RequestParam("id") Long id);
+
 
 }
