@@ -8,7 +8,7 @@
 
 #### 介绍
 
-基于[小说精品屋-plus](https://www.oschina.net/p/novel-plus)构建的Spring Cloud 微服务小说门户平台，可用于学习和商用。采用了Spring Boot 2 、Spring Cloud Greenwich、 MyBatis3DynamicSql、Redis、Mq、Elasticsearch、Docker等流行技术，集成了Nacos注册中心/配置中心、Spring Cloud Gateway网关、Spring Boot Admin监控中心等基础服务。前端计划使用Vue开发，目前还在 **<u>开发中</u>**，感兴趣的可以提前关注。
+基于[小说精品屋-plus](https://www.oschina.net/p/novel-plus)构建的Spring Cloud 微服务小说门户平台，可用于学习和商用。采用了Spring Boot 2 、Spring Cloud Greenwich、 MyBatis3DynamicSql、Redis、Mq、Elasticsearch、Docker等流行技术，集成了Nacos注册中心/配置中心、Spring Cloud Gateway网关、Spring Boot Admin监控中心等基础服务。前端计划使用Vue开发,后台接口一期开发已完成（充值/作家专区除外的所有接口）。
 
 #### 演示地址
 

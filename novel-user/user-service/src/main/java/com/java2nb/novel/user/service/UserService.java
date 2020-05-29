@@ -147,4 +147,5 @@ public interface UserService {
      * @param newPassword 新密码
      * */
     void updatePassword(Long userId, String oldPassword, String newPassword);
+
 }

@@ -6,6 +6,8 @@ import com.java2nb.novel.book.feign.UserFeignClient;
 import com.java2nb.novel.book.mapper.*;
 import com.java2nb.novel.book.service.BookService;
 import com.java2nb.novel.book.vo.BookCommentVO;
+import com.java2nb.novel.common.enums.ResponseStatus;
+import com.java2nb.novel.common.exception.BusinessException;
 import com.java2nb.novel.common.utils.BeanUtil;
 import com.java2nb.novel.user.entity.User;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +17,7 @@ import org.mybatis.dynamic.sql.render.RenderingStrategies;
 import org.mybatis.dynamic.sql.select.render.SelectStatementProvider;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.orderbyhelper.OrderByHelper;
 
 import java.util.*;
@@ -166,7 +169,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookCommentVO> listCommentByPage(Long userId, Long bookId, int page, int pageSize) {
+    public List<BookCommentVO> listBookCommentByPage(Long bookId, int page, int pageSize) {
         //分页查询小说评论数据
         PageHelper.startPage(page, pageSize);
         List<BookComment> bookCommentList = bookCommentMapper.selectMany(
@@ -279,5 +282,42 @@ public class BookServiceImpl implements BookService {
 
 
         return result;
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void addBookComment(Long userId, BookComment comment) {
+        //判断该用户是否已评论过该书籍
+        SelectStatementProvider selectStatement = select(count(BookCommentDynamicSqlSupport.id))
+                .from(BookCommentDynamicSqlSupport.bookComment)
+                .where(BookCommentDynamicSqlSupport.createUserId, isEqualTo(userId))
+                .and(BookCommentDynamicSqlSupport.bookId, isEqualTo(comment.getBookId()))
+                .build()
+                .render(RenderingStrategies.MYBATIS3);
+        if (bookCommentMapper.count(selectStatement) > 0) {
+            throw new BusinessException(ResponseStatus.HAS_COMMENTS);
+        }
+        //增加评论
+        comment.setCreateUserId(userId);
+        comment.setCreateTime(new Date());
+        bookCommentMapper.insertSelective(comment);
+        //增加书籍评论数
+        bookMapper.addCommentCount(comment.getBookId());
+
+    }
+
+    @Override
+    public List<BookComment> listUserCommentByPage(Long userId, int page, int pageSize) {
+        PageHelper.startPage(page, pageSize);
+        return bookCommentMapper.selectMany(
+                select(BookCommentDynamicSqlSupport.id,BookCommentDynamicSqlSupport.bookId,
+                        BookCommentDynamicSqlSupport.createUserId,
+                        BookCommentDynamicSqlSupport.commentContent,BookCommentDynamicSqlSupport.replyCount,
+                        BookCommentDynamicSqlSupport.createTime)
+                        .from(BookCommentDynamicSqlSupport.bookComment)
+                        .where(BookCommentDynamicSqlSupport.createUserId,isEqualTo(userId))
+                        .orderBy(BookCommentDynamicSqlSupport.createTime.descending())
+                        .build()
+                        .render(RenderingStrategies.MYBATIS3));
     }
 }

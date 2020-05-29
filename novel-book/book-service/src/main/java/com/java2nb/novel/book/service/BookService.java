@@ -1,9 +1,6 @@
 package com.java2nb.novel.book.service;
 
-import com.java2nb.novel.book.entity.Book;
-import com.java2nb.novel.book.entity.BookCategory;
-import com.java2nb.novel.book.entity.BookContent;
-import com.java2nb.novel.book.entity.BookIndex;
+import com.java2nb.novel.book.entity.*;
 import com.java2nb.novel.book.vo.BookCommentVO;
 
 import java.util.Date;
@@ -84,13 +81,12 @@ public interface BookService {
 
     /**
      *分页查询书籍评论列表
-     * @param userId 用户ID
      * @param bookId 书籍ID
      * @param page 页码
      * @param pageSize 分页大小
      * @return 评论集合
      * */
-    List<BookCommentVO> listCommentByPage(Long userId, Long bookId, int page, int pageSize);
+    List<BookCommentVO> listBookCommentByPage( Long bookId, int page, int pageSize);
 
     /**
      * 查询目录列表
@@ -124,4 +120,20 @@ public interface BookService {
      * @return  上一章节和下一章节目录ID数据
      * */
     Map<String,Long> queryPreAndNextBookIndexId(Long bookId, Integer indexNum);
+
+    /**
+     * 新增评价
+     * @param userId 用户ID
+     * @param comment 评论内容
+     * */
+    void addBookComment(Long userId, BookComment comment);
+
+    /**
+     * 分页查询用户评论
+     * @param userId 用户ID
+     * @param page 查询页码
+     * @param pageSize 分页大小
+     * @return 评论数据
+     * */
+    List<BookComment> listUserCommentByPage(Long userId, int page, int pageSize);
 }

@@ -311,4 +311,6 @@ public interface BookMapper {
     void addVisitCount(@Param("bookId") Long bookId, @Param("visitCount") Integer visitCount);
 
     List<Book> listRecBookByCatId(@Param("catId") Integer catId);
+
+    void addCommentCount(@Param("bookId") Long bookId);
 }

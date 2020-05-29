@@ -1,5 +1,7 @@
 package com.java2nb.novel.user.controller;
 
+import com.github.pagehelper.PageInfo;
+import com.java2nb.novel.book.entity.BookComment;
 import com.java2nb.novel.common.base.BaseController;
 import com.java2nb.novel.common.bean.PageBean;
 import com.java2nb.novel.common.bean.ResultBean;
@@ -9,6 +11,7 @@ import com.java2nb.novel.common.enums.ResponseStatus;
 import com.java2nb.novel.common.utils.RandomValidateCodeUtil;
 import com.java2nb.novel.user.entity.User;
 import com.java2nb.novel.user.entity.UserFeedback;
+import com.java2nb.novel.user.feign.BookFeignClient;
 import com.java2nb.novel.user.form.UserForm;
 import com.java2nb.novel.user.service.UserService;
 import com.java2nb.novel.user.vo.BookReadHistoryVO;
@@ -40,6 +43,8 @@ public class UserController extends BaseController {
     private final CacheService cacheService;
 
     private final UserService userService;
+
+    private final BookFeignClient bookFeignClient;
 
     /**
      * 登陆
@@ -272,6 +277,33 @@ public class UserController extends BaseController {
         }
         userService.updatePassword(userDetails.getId(),oldPassword,newPassword1);
         return ResultBean.ok();
+    }
+
+    /**
+     * 发布评价
+     * */
+    @ApiOperation("发布评价接口")
+    @PostMapping("addBookComment")
+    public ResultBean addBookComment(BookComment comment, HttpServletRequest request) {
+        UserDetails userDetails = getUserDetails(request);
+        if (userDetails == null) {
+            return ResultBean.fail(ResponseStatus.NO_LOGIN);
+        }
+        bookFeignClient.addBookComment(userDetails.getId(),comment);
+        return ResultBean.ok();
+    }
+
+    /**
+     * 用户书评分页查询
+     * */
+    @ApiOperation("用户书评分页查询接口")
+    @GetMapping("listCommentByPage")
+    public ResultBean<PageBean<BookComment>> listCommentByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "5") int pageSize,HttpServletRequest request) {
+        UserDetails userDetails = getUserDetails(request);
+        if (userDetails == null) {
+            return ResultBean.fail(ResponseStatus.NO_LOGIN);
+        }
+        return ResultBean.ok(new PageBean<>(bookFeignClient.listUserCommentByPage(userDetails.getId(),page,pageSize)));
     }
 
 

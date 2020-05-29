@@ -1,7 +1,10 @@
 package com.java2nb.novel.book.api;
 
 import com.java2nb.novel.book.entity.Book;
+import com.java2nb.novel.book.entity.BookComment;
+import com.java2nb.novel.book.vo.BookCommentVO;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -50,5 +53,21 @@ public interface BookApi {
     @GetMapping("api/book/queryBookById")
     Book queryBookById(@RequestParam("id") Long id);
 
+    /**
+     * 新增评论
+     * @param userId 用户ID
+     * @param comment 评论数据
+     * */
+    @PostMapping("api/book/addBookComment")
+    void addBookComment(@RequestParam("userId") Long userId,@RequestParam("comment") BookComment comment);
 
+    /**
+     * 分页查询用户评论
+     * @param userId 用户ID
+     * @param page 查询页码
+     * @param pageSize 分页大小
+     * @return 评论数据
+     * */
+    @GetMapping("api/book/listUserCommentByPage")
+    List<BookComment> listUserCommentByPage(@RequestParam("userId") Long userId,@RequestParam("page")  int page, @RequestParam("pageSize") int pageSize);
 }

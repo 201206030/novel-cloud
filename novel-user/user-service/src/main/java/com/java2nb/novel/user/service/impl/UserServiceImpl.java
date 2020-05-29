@@ -2,6 +2,7 @@ package com.java2nb.novel.user.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.java2nb.novel.book.entity.Book;
+import com.java2nb.novel.book.entity.BookComment;
 import com.java2nb.novel.common.bean.UserDetails;
 import com.java2nb.novel.common.enums.ResponseStatus;
 import com.java2nb.novel.common.exception.BusinessException;
@@ -42,6 +43,7 @@ import static org.mybatis.dynamic.sql.select.SelectDSL.select;
 
 /**
  * 小说服务接口实现
+ *
  * @author xiongxiaoyang
  * @version 1.0
  * @since 2020/5/28
@@ -79,7 +81,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails login(UserForm form) {
         //根据用户名密码查询记录
-        User user = queryByUsernameAndPassword(form.getUsername(),form.getPassword());
+        User user = queryByUsernameAndPassword(form.getUsername(), form.getPassword());
         if (user == null) {
             throw new BusinessException(ResponseStatus.USERNAME_PASS_ERROR);
         }
@@ -94,10 +96,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> queryById(List<Long> ids) {
         return userMapper.selectMany(
-                select(UserDynamicSqlSupport.id,UserDynamicSqlSupport.username,
+                select(UserDynamicSqlSupport.id, UserDynamicSqlSupport.username,
                         UserDynamicSqlSupport.userPhoto)
-        .from(UserDynamicSqlSupport.user)
-        .where(UserDynamicSqlSupport.id,isIn(ids)).build()
+                        .from(UserDynamicSqlSupport.user)
+                        .where(UserDynamicSqlSupport.id, isIn(ids)).build()
                         .render(RenderingStrategies.MYBATIS3));
     }
 
@@ -115,7 +117,7 @@ public class UserServiceImpl implements UserService {
             throw new BusinessException(ResponseStatus.USERNAME_EXIST);
         }
         User entity = new User();
-        BeanUtils.copyProperties(form,entity);
+        BeanUtils.copyProperties(form, entity);
         //数据库生成注册记录
         Long id = new IdWorker().nextId();
         entity.setId(id);
@@ -171,23 +173,23 @@ public class UserServiceImpl implements UserService {
     public List<BookShelfVO> listBookShelfByPage(Long userId, int page, int pageSize) {
         PageHelper.startPage(page, pageSize);
         List<UserBookshelf> userBookshelves = userBookshelfMapper.selectMany(
-                select(UserBookshelfDynamicSqlSupport.bookId,UserBookshelfDynamicSqlSupport.preContentId)
-        .from(userBookshelf)
-        .where(UserBookshelfDynamicSqlSupport.userId,isEqualTo(userId))
+                select(UserBookshelfDynamicSqlSupport.bookId, UserBookshelfDynamicSqlSupport.preContentId)
+                        .from(userBookshelf)
+                        .where(UserBookshelfDynamicSqlSupport.userId, isEqualTo(userId))
                         .orderBy(UserBookshelfDynamicSqlSupport.createTime.descending())
                         .build()
                         .render(RenderingStrategies.MYBATIS3));
 
         List<Book> books = bookFeignClient.queryBookByIds(userBookshelves.stream().map(UserBookshelf::getBookId).collect(Collectors.toList()));
-        Map<Long, Book> booksById = books.stream().collect(Collectors.toMap(Book::getId, Function.identity(),(key1, key2) -> key2));
+        Map<Long, Book> booksById = books.stream().collect(Collectors.toMap(Book::getId, Function.identity(), (key1, key2) -> key2));
 
         List<BookShelfVO> resultList = new ArrayList<>(booksById.size());
-        for(UserBookshelf bookshelf : userBookshelves){
+        for (UserBookshelf bookshelf : userBookshelves) {
             BookShelfVO bookShelfVO = new BookShelfVO();
-            BeanUtils.copyProperties(bookshelf,bookShelfVO);
+            BeanUtils.copyProperties(bookshelf, bookShelfVO);
             Book book = booksById.get(bookshelf.getBookId());
-            if(book != null){
-                BeanUtils.copyProperties(book,bookShelfVO);
+            if (book != null) {
+                BeanUtils.copyProperties(book, bookShelfVO);
                 resultList.add(bookShelfVO);
             }
 
@@ -201,24 +203,24 @@ public class UserServiceImpl implements UserService {
     public List<BookReadHistoryVO> listReadHistoryByPage(Long userId, int page, int pageSize) {
         PageHelper.startPage(page, pageSize);
         List<UserReadHistory> userReadHistories = userReadHistoryMapper.selectMany(
-                select(UserReadHistoryDynamicSqlSupport.bookId,UserReadHistoryDynamicSqlSupport.preContentId)
+                select(UserReadHistoryDynamicSqlSupport.bookId, UserReadHistoryDynamicSqlSupport.preContentId)
                         .from(userReadHistory)
-                        .where(UserReadHistoryDynamicSqlSupport.userId,isEqualTo(userId))
+                        .where(UserReadHistoryDynamicSqlSupport.userId, isEqualTo(userId))
                         .orderBy(UserReadHistoryDynamicSqlSupport.createTime.descending())
                         .build()
                         .render(RenderingStrategies.MYBATIS3));
 
         List<Book> books = bookFeignClient.queryBookByIds(userReadHistories.stream().map(UserReadHistory::getBookId).collect(Collectors.toList()));
 
-        Map<Long, Book> booksById = books.stream().collect(Collectors.toMap(Book::getId, Function.identity(),(key1, key2) -> key2));
+        Map<Long, Book> booksById = books.stream().collect(Collectors.toMap(Book::getId, Function.identity(), (key1, key2) -> key2));
 
         List<BookReadHistoryVO> resultList = new ArrayList<>(booksById.size());
-        for(UserReadHistory readHistory : userReadHistories){
+        for (UserReadHistory readHistory : userReadHistories) {
             BookReadHistoryVO readHistoryVO = new BookReadHistoryVO();
-            BeanUtils.copyProperties(readHistory,readHistoryVO);
+            BeanUtils.copyProperties(readHistory, readHistoryVO);
             Book book = booksById.get(readHistory.getBookId());
-            if(book != null){
-                BeanUtils.copyProperties(book,readHistoryVO);
+            if (book != null) {
+                BeanUtils.copyProperties(book, readHistoryVO);
                 resultList.add(readHistoryVO);
             }
 
@@ -287,10 +289,11 @@ public class UserServiceImpl implements UserService {
                 .build()
                 .render(RenderingStrategies.MYBATIS3));
     }
+
     @Override
     public User userInfo(Long userId) {
         SelectStatementProvider selectStatement = select(UserDynamicSqlSupport.username, UserDynamicSqlSupport.nickName,
-                UserDynamicSqlSupport.userPhoto,UserDynamicSqlSupport.userSex,UserDynamicSqlSupport.accountBalance)
+                UserDynamicSqlSupport.userPhoto, UserDynamicSqlSupport.userSex, UserDynamicSqlSupport.accountBalance)
                 .from(UserDynamicSqlSupport.user)
                 .where(UserDynamicSqlSupport.id, isEqualTo(userId))
                 .limit(1)
@@ -314,21 +317,22 @@ public class UserServiceImpl implements UserService {
     public void updatePassword(Long userId, String oldPassword, String newPassword) {
         SelectStatementProvider selectStatement = select(UserDynamicSqlSupport.password)
                 .from(UserDynamicSqlSupport.user)
-                .where(UserDynamicSqlSupport.id,isEqualTo(userId))
+                .where(UserDynamicSqlSupport.id, isEqualTo(userId))
                 .build()
                 .render(RenderingStrategies.MYBATIS3);
-        if(!userMapper.selectMany(selectStatement).get(0).getPassword().equals(MD5Util.MD5Encode(oldPassword, Charsets.UTF_8.name()))){
+        if (!userMapper.selectMany(selectStatement).get(0).getPassword().equals(MD5Util.MD5Encode(oldPassword, Charsets.UTF_8.name()))) {
             throw new BusinessException(ResponseStatus.OLD_PASSWORD_ERROR);
         }
         UpdateStatementProvider updateStatement = update(UserDynamicSqlSupport.user)
                 .set(UserDynamicSqlSupport.password)
                 .equalTo(MD5Util.MD5Encode(newPassword, Charsets.UTF_8.name()))
-                .where(UserDynamicSqlSupport.id,isEqualTo(userId))
+                .where(UserDynamicSqlSupport.id, isEqualTo(userId))
                 .build()
                 .render(RenderingStrategies.MYBATIS3);
         userMapper.update(updateStatement);
 
     }
+
 
 
 }

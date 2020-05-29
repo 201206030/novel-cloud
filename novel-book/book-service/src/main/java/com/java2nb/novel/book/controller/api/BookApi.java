@@ -1,10 +1,10 @@
 package com.java2nb.novel.book.controller.api;
 
 import com.java2nb.novel.book.entity.Book;
+import com.java2nb.novel.book.entity.BookComment;
 import com.java2nb.novel.book.service.BookService;
-import io.swagger.annotations.Api;
+import com.java2nb.novel.book.vo.BookCommentVO;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -68,5 +68,27 @@ public class BookApi {
     @GetMapping("queryBookById")
     Book queryBookById(@RequestParam("id") Long id){
         return bookService.queryBookDetail(id);
+    }
+
+    /**
+     * 新增评论
+     * @param userId 用户ID
+     * @param comment 评论数据
+     * */
+    @PostMapping("addBookComment")
+    void addBookComment(Long userId, BookComment comment){
+        bookService.addBookComment(userId,comment);
+    }
+
+    /**
+     * 分页查询用户评论
+     * @param userId 用户ID
+     * @param page 查询页码
+     * @param pageSize 分页大小
+     * @return 评论数据
+     * */
+    @GetMapping("listUserCommentByPage")
+    List<BookComment> listUserCommentByPage(@RequestParam("userId") Long userId,@RequestParam("page")  int page, @RequestParam("pageSize") int pageSize){
+        return bookService.listUserCommentByPage(userId,page,pageSize);
     }
 }
