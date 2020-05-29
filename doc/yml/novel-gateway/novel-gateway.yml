@@ -17,10 +17,34 @@ spring:
         namespace: 3960c71a-62ac-4b8f-8c30-bba8e8143a0c
     gateway:
       routes:
+        - id: home-route
+          uri: lb://novel-home 
+          predicates:
+            - Path=/api/home/** 
+          filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment} 
+        - id: news-route
+          uri: lb://news-service 
+          predicates:
+            - Path=/api/news/** 
+          filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment}
         - id: user-route
           uri: lb://user-service 
           predicates:
             - Path=/api/user/** 
+          filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment} 
+        - id: book-route
+          uri: lb://book-service 
+          predicates:
+            - Path=/api/book/** 
+          filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment}
+        - id: search-route
+          uri: lb://novel-search 
+          predicates:
+            - Path=/api/search/** 
           filters:
             - RewritePath=/api/(?<segment>.*), /$\{segment} 
         - id: monitor-route
