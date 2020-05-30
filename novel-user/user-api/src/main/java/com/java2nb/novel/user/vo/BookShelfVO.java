@@ -7,7 +7,10 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * @author 11797
+ * 小说书架VO对象
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 @Data
 public class BookShelfVO extends UserBookshelf {

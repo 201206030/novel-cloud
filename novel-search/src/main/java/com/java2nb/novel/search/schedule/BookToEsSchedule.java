@@ -7,7 +7,6 @@ import com.java2nb.novel.search.feign.BookFeignClient;
 import com.java2nb.novel.search.service.SearchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +15,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 小说导入搜索引擎
- *
- * @author Administrator
+ * 小说数据导入搜索引擎定时任务
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 @Service
 @RequiredArgsConstructor

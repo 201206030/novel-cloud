@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author 11797
+ * JWT工具类
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 @Component
 @ConditionalOnProperty(prefix = "jwt", name = "secret")

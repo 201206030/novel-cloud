@@ -9,13 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author 11797
+ * 基础Controller
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 public class BaseController {
 
     protected JwtTokenUtil jwtTokenUtil;
 
 
+    /**
+     * 获取登陆token
+     * */
     protected String getToken(HttpServletRequest request){
         String token = CookieUtil.getCookie(request,"Authorization");
         if(token != null){
@@ -24,6 +30,9 @@ public class BaseController {
         return request.getHeader("Authorization");
     }
 
+    /**
+     * 获取登陆用户信息
+     * */
     protected UserDetails getUserDetails(HttpServletRequest request) {
         String token = getToken(request);
         if(StringUtils.isBlank(token)){

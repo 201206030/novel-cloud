@@ -1,7 +1,10 @@
 package com.java2nb.novel.common.cache;
 
 /**
- * @author 11797
+ * 缓存服务接口
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 public interface CacheService {
 

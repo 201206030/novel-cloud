@@ -1,8 +1,10 @@
 package com.java2nb.novel.common.utils;
 
 /**
- * 常量类
- * @author Administrator
+ * 常量
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 public class Constants {
 

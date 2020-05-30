@@ -8,7 +8,10 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * @author Administrator
+ * 新闻VO对象
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 @Data
 public class NewsVO extends News {

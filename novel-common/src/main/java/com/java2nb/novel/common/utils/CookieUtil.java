@@ -5,7 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @author Administrator
+ * Cookie操作工具类
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 public class CookieUtil {
 

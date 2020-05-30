@@ -8,7 +8,10 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * @author 11797
+ * 小说评论VO对象
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/28
  */
 @Data
 public class BookCommentVO extends BookComment {

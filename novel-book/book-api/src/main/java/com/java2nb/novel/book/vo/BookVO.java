@@ -5,11 +5,13 @@ import com.java2nb.novel.book.entity.Book;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author Administrator
+ * 小说VO对象
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 @Data
 public class BookVO extends Book{

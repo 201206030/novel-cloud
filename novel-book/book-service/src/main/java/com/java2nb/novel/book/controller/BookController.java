@@ -1,6 +1,5 @@
 package com.java2nb.novel.book.controller;
 
-import com.github.pagehelper.PageInfo;
 import com.java2nb.novel.book.entity.Book;
 import com.java2nb.novel.book.entity.BookCategory;
 import com.java2nb.novel.book.entity.BookContent;
@@ -21,7 +20,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author 11797
+ * 小说微服务Controller
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 @RestController
 @RequestMapping("book")

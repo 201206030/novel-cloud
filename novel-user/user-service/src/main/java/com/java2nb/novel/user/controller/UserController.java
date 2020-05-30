@@ -30,7 +30,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author 11797
+ * 用户微服务Controller
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 @RestController
 @RequestMapping("user")

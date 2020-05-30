@@ -5,9 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * @author 11797
+ * 响应状态枚举
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
-
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor

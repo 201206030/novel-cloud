@@ -4,7 +4,10 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * @author Administrator
+ * 小说ES VO对象
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 @Data
 public class EsBookVO {

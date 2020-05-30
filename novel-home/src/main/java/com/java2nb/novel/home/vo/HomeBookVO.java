@@ -7,7 +7,10 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @author 11797
+ * 首页小说VO对象
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 @Data
 public class HomeBookVO extends HomeBook implements Serializable {

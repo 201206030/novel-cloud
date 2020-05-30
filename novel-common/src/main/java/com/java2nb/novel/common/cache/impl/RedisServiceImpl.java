@@ -10,7 +10,10 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author xxy
+ * Redis缓存服务实现
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 @ConditionalOnProperty(prefix = "spring.redis", name = "host", matchIfMissing = false)
 @RequiredArgsConstructor

@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author 11797
+ * 新闻微服务Controller
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/5/27
  */
 @RestController
 @RequestMapping("news")
