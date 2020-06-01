@@ -33,7 +33,7 @@ CREATE TABLE `author` (
   `status` tinyint(4) DEFAULT '0' COMMENT '0：正常，1：封禁',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='作者表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='作者表';
 
 -- ----------------------------
 -- Records of author
@@ -56,7 +56,7 @@ CREATE TABLE `author_code` (
   `create_user_id` bigint(20) DEFAULT NULL COMMENT '创建人ID',
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_code` (`invite_code`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='作家邀请码表';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='作家邀请码表';
 
 -- ----------------------------
 -- Records of author_code
@@ -101,7 +101,7 @@ CREATE TABLE `book` (
   UNIQUE KEY `key_uq_bookName_authorName` (`book_name`,`author_name`) USING BTREE,
   KEY `key_lastIndexUpdateTime` (`last_index_update_time`) USING BTREE,
   KEY `key_createTime` (`create_time`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1264156321856380929 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='小说表';
+) ENGINE=InnoDB AUTO_INCREMENT=1264156321856380929 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='小说表';
 
 -- ----------------------------
 -- Records of book
@@ -129,7 +129,7 @@ CREATE TABLE `book_category` (
   `update_user_id` bigint(20) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='小说类别表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='小说类别表';
 
 -- ----------------------------
 -- Records of book_category
@@ -158,7 +158,7 @@ CREATE TABLE `book_comment` (
   `create_user_id` bigint(20) DEFAULT NULL COMMENT '评价人',
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_uq_bookid_userid` (`book_id`,`create_user_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='小说评论表';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='小说评论表';
 
 -- ----------------------------
 -- Records of book_comment
@@ -180,7 +180,7 @@ CREATE TABLE `book_comment_reply` (
   `create_time` datetime DEFAULT NULL COMMENT '回复用户ID',
   `create_user_id` bigint(20) DEFAULT NULL COMMENT '回复时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='小说评论回复表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='小说评论回复表';
 
 -- ----------------------------
 -- Table structure for book_content
@@ -192,7 +192,7 @@ CREATE TABLE `book_content` (
   `content` mediumtext COMMENT '小说章节内容',
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_uq_indexId` (`index_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3347936 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='小说内容表';
+) ENGINE=InnoDB AUTO_INCREMENT=3347936 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='小说内容表';
 
 -- ----------------------------
 -- Records of book_content
@@ -488,7 +488,7 @@ CREATE TABLE `book_index` (
   UNIQUE KEY `key_uq_bookId_indexNum` (`book_id`,`index_num`) USING BTREE,
   KEY `key_bookId` (`book_id`) USING BTREE,
   KEY `key_indexNum` (`index_num`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1264159869247709185 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='小说目录表';
+) ENGINE=InnoDB AUTO_INCREMENT=1264159869247709185 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='小说目录表';
 
 -- ----------------------------
 -- Records of book_index
@@ -778,7 +778,7 @@ CREATE TABLE `book_screen_bullet` (
   `create_time` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`),
   KEY `key_contentId` (`content_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='小说弹幕表';
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='小说弹幕表';
 
 -- ----------------------------
 -- Table structure for crawl_batch_task
@@ -793,7 +793,7 @@ CREATE TABLE `crawl_batch_task` (
   `start_time` datetime DEFAULT NULL COMMENT '任务开始时间',
   `end_time` datetime DEFAULT NULL COMMENT '任务结束时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='批量抓取任务表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='批量抓取任务表';
 
 -- ----------------------------
 -- Table structure for crawl_single_task
@@ -807,7 +807,7 @@ CREATE TABLE `crawl_single_task` (
   `exc_count` tinyint(2) DEFAULT '0' COMMENT '已经执行次数，最多执行5次',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='抓取单本小说任务表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='抓取单本小说任务表';
 
 -- ----------------------------
 -- Table structure for crawl_source
@@ -821,7 +821,7 @@ CREATE TABLE `crawl_source` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='爬虫源表';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='爬虫源表';
 
 -- ----------------------------
 -- Records of crawl_source
@@ -848,7 +848,7 @@ CREATE TABLE `home_book` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `update_user_id` bigint(20) DEFAULT NULL COMMENT '更新人ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='首页小说设置表';
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='首页小说设置表';
 
 -- ----------------------------
 -- Records of home_book
@@ -903,7 +903,7 @@ CREATE TABLE `home_friend_link` (
   `update_user_id` bigint(20) DEFAULT NULL COMMENT '更新者用户id',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of home_friend_link
@@ -928,7 +928,7 @@ CREATE TABLE `news` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `update_user_id` bigint(20) DEFAULT NULL COMMENT '更新人ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='新闻表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='新闻表';
 
 -- ----------------------------
 -- Records of news
@@ -951,7 +951,7 @@ CREATE TABLE `news_category` (
   `update_user_id` bigint(20) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='新闻类别表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='新闻类别表';
 
 -- ----------------------------
 -- Records of news_category
@@ -973,11 +973,11 @@ CREATE TABLE `pay_log` (
   `pay_channel` tinyint(1) NOT NULL DEFAULT '1' COMMENT '支付渠道，1：支付宝，2：微信',
   `total_amount` int(11) NOT NULL COMMENT '交易金额(单位分)',
   `user_id` bigint(20) NOT NULL COMMENT '支付用户ID',
-  `pay_status` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '支付状态',
+  `pay_status` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '支付状态',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='充值记录';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='充值记录';
 
 -- ----------------------------
 -- Table structure for user
@@ -996,7 +996,7 @@ CREATE TABLE `user` (
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_uq_username` (`username`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1255664783722586113 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1255664783722586113 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of user
@@ -1024,7 +1024,7 @@ CREATE TABLE `user_bookshelf` (
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_uq_userid_bookid` (`user_id`,`book_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户书架表';
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户书架表';
 
 -- ----------------------------
 -- Records of user_bookshelf
@@ -1052,7 +1052,7 @@ CREATE TABLE `user_buy_record` (
   `create_time` datetime DEFAULT NULL COMMENT '购买时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_userId_indexId` (`user_id`,`book_index_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户消费记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户消费记录表';
 
 -- ----------------------------
 -- Records of user_buy_record
@@ -1072,7 +1072,7 @@ CREATE TABLE `user_feedback` (
   `content` varchar(512) DEFAULT NULL COMMENT '反馈内容',
   `create_time` datetime DEFAULT NULL COMMENT '反馈时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of user_feedback
@@ -1109,7 +1109,7 @@ CREATE TABLE `user_read_history` (
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_uq_userid_bookid` (`user_id`,`book_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户阅读记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户阅读记录表';
 
 -- ----------------------------
 -- Records of user_read_history
