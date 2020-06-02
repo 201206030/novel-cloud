@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -33,6 +34,8 @@ import java.util.Map;
 public class BookController {
 
     private final BookService bookService;
+
+    private final RabbitTemplate rabbitTemplate;
 
     /**
      * 小说分类列表查询接口
@@ -67,7 +70,7 @@ public class BookController {
     @ApiOperation("点击量新增接口")
     @PostMapping("addVisitCount")
     public ResultBean addVisitCount(@ApiParam("小说ID") @RequestParam("bookId") Long bookId) {
-        bookService.addVisitCount(bookId, 1);
+        rabbitTemplate.convertAndSend("ADD-BOOK-VISIT-EXCHANGE", null, bookId);
         return ResultBean.ok();
     }
 

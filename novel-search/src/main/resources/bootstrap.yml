@@ -10,3 +10,7 @@ spring:
           data‐id: novel-redis.yml
           group: novel-common
           refresh: true
+        ext‐config[1]:
+          data‐id: novel-rabbitmq.yml
+          group: novel-common
+          refresh: true
