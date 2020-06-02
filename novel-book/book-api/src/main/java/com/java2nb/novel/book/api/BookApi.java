@@ -70,4 +70,23 @@ public interface BookApi {
      * */
     @GetMapping("api/book/listUserCommentByPage")
     List<BookComment> listUserCommentByPage(@RequestParam("userId") Long userId,@RequestParam("page")  int page, @RequestParam("pageSize") int pageSize);
+
+    /**
+     * 查询网络图片的小说
+     *
+     * @param localPicPrefix
+     * @param limit 查询条数
+     * @return 返回小说集合
+     * */
+    @GetMapping("api/book/queryNetworkPicBooks")
+    List<Book> queryNetworkPicBooks(@RequestParam("localPicPrefix") String localPicPrefix,@RequestParam("limit") int limit);
+
+
+    /**
+     * 更新图片路径
+     * @param picUrl 图片路径
+     * @param bookId 小说ID
+     */
+    @PostMapping("api/book/updateBookPic")
+    void updateBookPic(@RequestParam("picUrl") String picUrl,@RequestParam("bookId") Long bookId);
 }

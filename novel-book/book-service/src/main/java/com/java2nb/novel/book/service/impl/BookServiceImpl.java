@@ -30,6 +30,7 @@ import static org.mybatis.dynamic.sql.select.SelectDSL.select;
 
 /**
  * 小说服务接口实现
+ *
  * @author xiongxiaoyang
  * @version 1.0
  * @since 2020/5/28
@@ -63,14 +64,14 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> queryBookByIds(List<Long> ids) {
-        return bookMapper.selectMany(select(BookDynamicSqlSupport.id,BookDynamicSqlSupport.catId,BookDynamicSqlSupport.catName,
-                BookDynamicSqlSupport.bookName,BookDynamicSqlSupport.authorName,
-                BookDynamicSqlSupport.lastIndexId,BookDynamicSqlSupport.lastIndexName,BookDynamicSqlSupport.lastIndexUpdateTime,
-                BookDynamicSqlSupport.picUrl,BookDynamicSqlSupport.bookDesc,BookDynamicSqlSupport.score)
+        return bookMapper.selectMany(select(BookDynamicSqlSupport.id, BookDynamicSqlSupport.catId, BookDynamicSqlSupport.catName,
+                BookDynamicSqlSupport.bookName, BookDynamicSqlSupport.authorName,
+                BookDynamicSqlSupport.lastIndexId, BookDynamicSqlSupport.lastIndexName, BookDynamicSqlSupport.lastIndexUpdateTime,
+                BookDynamicSqlSupport.picUrl, BookDynamicSqlSupport.bookDesc, BookDynamicSqlSupport.score)
                 .from(book)
-                .where(BookDynamicSqlSupport.id,isIn(ids))
-                        .build()
-                        .render(RenderingStrategies.MYBATIS3)
+                .where(BookDynamicSqlSupport.id, isIn(ids))
+                .build()
+                .render(RenderingStrategies.MYBATIS3)
         );
     }
 
@@ -104,12 +105,12 @@ public class BookServiceImpl implements BookService {
                         BookDynamicSqlSupport.authorId, BookDynamicSqlSupport.authorName,
                         BookDynamicSqlSupport.picUrl, BookDynamicSqlSupport.bookDesc,
                         BookDynamicSqlSupport.wordCount, BookDynamicSqlSupport.lastIndexUpdateTime)
-                .from(book)
-                .where(BookDynamicSqlSupport.wordCount, isGreaterThan(0))
-                .orderBy(sortSpecification)
-                .limit(limit)
-                .build()
-                .render(RenderingStrategies.MYBATIS3);
+                        .from(book)
+                        .where(BookDynamicSqlSupport.wordCount, isGreaterThan(0))
+                        .orderBy(sortSpecification)
+                        .limit(limit)
+                        .build()
+                        .render(RenderingStrategies.MYBATIS3);
         return bookMapper.selectMany(selectStatement);
     }
 
@@ -132,12 +133,12 @@ public class BookServiceImpl implements BookService {
                 .build()
                 .render(RenderingStrategies.MYBATIS3);
         List<Book> books = bookMapper.selectMany(selectStatement);
-        return books.size() >0 ? books.get(0) : null;
+        return books.size() > 0 ? books.get(0) : null;
     }
 
     @Override
     public void addVisitCount(Long bookId, int addCount) {
-        bookMapper.addVisitCount(bookId,addCount);
+        bookMapper.addVisitCount(bookId, addCount);
 
     }
 
@@ -173,12 +174,12 @@ public class BookServiceImpl implements BookService {
         //分页查询小说评论数据
         PageHelper.startPage(page, pageSize);
         List<BookComment> bookCommentList = bookCommentMapper.selectMany(
-                select(BookCommentDynamicSqlSupport.id,BookCommentDynamicSqlSupport.bookId,
+                select(BookCommentDynamicSqlSupport.id, BookCommentDynamicSqlSupport.bookId,
                         BookCommentDynamicSqlSupport.createUserId,
-                        BookCommentDynamicSqlSupport.commentContent,BookCommentDynamicSqlSupport.replyCount,
+                        BookCommentDynamicSqlSupport.commentContent, BookCommentDynamicSqlSupport.replyCount,
                         BookCommentDynamicSqlSupport.createTime)
                         .from(BookCommentDynamicSqlSupport.bookComment)
-                        .where(BookCommentDynamicSqlSupport.bookId,isEqualTo(bookId))
+                        .where(BookCommentDynamicSqlSupport.bookId, isEqualTo(bookId))
                         .orderBy(BookCommentDynamicSqlSupport.createTime.descending())
                         .build()
                         .render(RenderingStrategies.MYBATIS3));
@@ -190,11 +191,11 @@ public class BookServiceImpl implements BookService {
 
         //将评论数据和评论人数据关联起来
         List<BookCommentVO> resultList = new ArrayList<>(bookCommentList.size());
-        for(BookComment bookComment : bookCommentList){
+        for (BookComment bookComment : bookCommentList) {
             BookCommentVO bookCommentVO = new BookCommentVO();
-            BeanUtils.copyProperties(bookComment,bookCommentVO);
+            BeanUtils.copyProperties(bookComment, bookCommentVO);
             User user = userMap.get(bookComment.getCreateUserId());
-            if(user != null){
+            if (user != null) {
                 bookCommentVO.setCreateUserName(user.getUsername());
                 bookCommentVO.setCreateUserPhoto(user.getUserPhoto());
             }
@@ -260,9 +261,9 @@ public class BookServiceImpl implements BookService {
                 .render(RenderingStrategies.MYBATIS3);
         List<BookIndex> list = bookIndexMapper.selectMany(selectStatement);
         if (list.size() == 0) {
-            result.put("preBookIndexId",0L);
+            result.put("preBookIndexId", 0L);
         } else {
-            result.put("preBookIndexId",list.get(0).getId());
+            result.put("preBookIndexId", list.get(0).getId());
         }
 
         selectStatement = select(BookIndexDynamicSqlSupport.id)
@@ -275,9 +276,9 @@ public class BookServiceImpl implements BookService {
                 .render(RenderingStrategies.MYBATIS3);
         list = bookIndexMapper.selectMany(selectStatement);
         if (list.size() == 0) {
-            result.put("nextBookIndexId",0L);
+            result.put("nextBookIndexId", 0L);
         } else {
-            result.put("nextBookIndexId",list.get(0).getId());
+            result.put("nextBookIndexId", list.get(0).getId());
         }
 
 
@@ -310,14 +311,44 @@ public class BookServiceImpl implements BookService {
     public List<BookComment> listUserCommentByPage(Long userId, int page, int pageSize) {
         PageHelper.startPage(page, pageSize);
         return bookCommentMapper.selectMany(
-                select(BookCommentDynamicSqlSupport.id,BookCommentDynamicSqlSupport.bookId,
+                select(BookCommentDynamicSqlSupport.id, BookCommentDynamicSqlSupport.bookId,
                         BookCommentDynamicSqlSupport.createUserId,
-                        BookCommentDynamicSqlSupport.commentContent,BookCommentDynamicSqlSupport.replyCount,
+                        BookCommentDynamicSqlSupport.commentContent, BookCommentDynamicSqlSupport.replyCount,
                         BookCommentDynamicSqlSupport.createTime)
                         .from(BookCommentDynamicSqlSupport.bookComment)
-                        .where(BookCommentDynamicSqlSupport.createUserId,isEqualTo(userId))
+                        .where(BookCommentDynamicSqlSupport.createUserId, isEqualTo(userId))
                         .orderBy(BookCommentDynamicSqlSupport.createTime.descending())
                         .build()
                         .render(RenderingStrategies.MYBATIS3));
     }
+
+    @Override
+    public List<Book> queryNetworkPicBooks(String localPicPrefix, Integer limit) {
+
+
+        return bookMapper.selectMany(
+                select(BookDynamicSqlSupport.id, BookDynamicSqlSupport.picUrl)
+                        .from(book)
+                        .where(BookDynamicSqlSupport.picUrl, isLike("http%"))
+                        .and(BookDynamicSqlSupport.picUrl, isNotLike(localPicPrefix))
+                        .limit(limit)
+                        .build()
+                .render(RenderingStrategies.MYBATIS3));
+    }
+
+    @Override
+    public void updateBookPic(String picUrl, Long bookId) {
+
+        bookMapper.update(update(book)
+                .set(BookDynamicSqlSupport.picUrl)
+                .equalTo(picUrl)
+                .set(BookDynamicSqlSupport.updateTime)
+                .equalTo(new Date())
+                .where(BookDynamicSqlSupport.id, isEqualTo(bookId))
+                .build()
+                .render(RenderingStrategies.MYBATIS3));
+
+    }
+
+
 }

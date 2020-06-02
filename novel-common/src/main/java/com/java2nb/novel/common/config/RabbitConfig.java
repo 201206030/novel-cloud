@@ -9,7 +9,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author 11797
+ * rabbitmq配置类
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/6/2
  */
 @Configuration
 @ConditionalOnProperty(prefix = "spring.rabbitmq", name = "host", matchIfMissing = false)

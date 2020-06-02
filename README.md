@@ -26,6 +26,7 @@ novel-cloud
 ├── novel-gateway -- 基于Spring Cloud Gateway构建的网关服务
 ├── novel-monitor -- 基于Spring Boot Admin构建的监控中心
 ├── novel-search -- 基于Elastic Search构建的搜索微服务
+├── novel-file -- 基于阿里云OSS构建的文件微服务
 ├── novel-home -- 门户首页微服务
 ├── novel-news -- 新闻中心微服务
 ├── novel-user -- 用户中心微服务

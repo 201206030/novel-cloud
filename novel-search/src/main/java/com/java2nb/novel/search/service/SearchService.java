@@ -1,7 +1,6 @@
 package com.java2nb.novel.search.service;
 
 
-import com.github.pagehelper.PageInfo;
 import com.java2nb.novel.book.entity.Book;
 import com.java2nb.novel.common.bean.PageBean;
 import com.java2nb.novel.search.vo.EsBookVO;

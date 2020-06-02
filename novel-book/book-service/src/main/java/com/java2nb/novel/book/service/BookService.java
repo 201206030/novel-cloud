@@ -136,4 +136,21 @@ public interface BookService {
      * @return 评论数据
      * */
     List<BookComment> listUserCommentByPage(Long userId, int page, int pageSize);
+
+    /**
+     * 查询网络图片的小说
+     *
+     * @param localPicPrefix
+     * @param limit 查询条数
+     * @return 返回小说集合
+     * */
+    List<Book> queryNetworkPicBooks(String localPicPrefix, Integer limit);
+
+
+    /**
+     * 更新图片路径
+     * @param picUrl 图片路径
+     * @param bookId 小说ID
+     */
+    void updateBookPic(String picUrl, Long bookId);
 }

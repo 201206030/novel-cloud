@@ -19,6 +19,7 @@
         <module>novel-pay</module>
         <module>novel-search</module>
         <module>novel-author</module>
+        <module>novel-file</module>
 
     </modules>
     <packaging>pom</packaging>

@@ -15,7 +15,10 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * @author 11797
+ * 消息监听器
+ * @author xiongxiaoyang
+ * @version 1.0
+ * @since 2020/6/2
  */
 @Component
 @Slf4j

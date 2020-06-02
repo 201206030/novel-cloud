@@ -9,6 +9,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
+import javax.imageio.ImageIO;
 import java.io.*;
 import java.util.Date;
 import java.util.Objects;
@@ -23,23 +24,20 @@ import java.util.Objects;
 public class FileUtil {
 
     /**
-     * 网络图片转本地
+     * 网络图片转临时文件
      * */
-    public static String network2Local(String picSrc,String picSavePath,String visitPrefix) {
+    public static File networkPic2Temp(String picSrc) {
+        File picFile = null;
         InputStream input = null;
         OutputStream out = null;
         try {
-            //本地图片保存
             HttpHeaders headers = new HttpHeaders();
             HttpEntity<String> requestEntity = new HttpEntity<>(null, headers);
             ResponseEntity<Resource> resEntity = RestTemplateUtil.getInstance(Charsets.ISO_8859_1.name()).exchange(picSrc, HttpMethod.GET, requestEntity, Resource.class);
             input = Objects.requireNonNull(resEntity.getBody()).getInputStream();
-            Date currentDate = new Date();
-            picSrc = visitPrefix + DateUtils.formatDate(currentDate, "yyyy") + "/" + DateUtils.formatDate(currentDate, "MM") + "/" + DateUtils.formatDate(currentDate, "dd") + "/"
-                    + UUIDUtil.getUUID32()
-                    + picSrc.substring(picSrc.lastIndexOf("."));
-            File picFile = new File(picSavePath + picSrc);
+            picFile = File.createTempFile("temp",picSrc.substring(picSrc.lastIndexOf(".")));
             File parentFile = picFile.getParentFile();
+
             if (!parentFile.exists()) {
                 parentFile.mkdirs();
             }
@@ -49,10 +47,15 @@ public class FileUtil {
                 out.write(b, 0, n);
             }
 
+            out.flush();
+            if( ImageIO.read(picFile) == null){
+                return null;
+            }
+
         }catch (Exception e){
             log.error(e.getMessage(),e);
 
-            picSrc = "/images/default.gif";
+            return null;
         }finally {
             if(input != null){
                 try {
@@ -69,11 +72,15 @@ public class FileUtil {
                     }
                 }
             }
+            if(picFile != null) {
+                //程序退出时删除临时文件
+                picFile.deleteOnExit();
+            }
         }
 
 
 
-        return picSrc;
+        return picFile;
     }
 
 

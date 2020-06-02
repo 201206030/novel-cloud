@@ -91,4 +91,27 @@ public class BookApi {
     List<BookComment> listUserCommentByPage(@RequestParam("userId") Long userId,@RequestParam("page")  int page, @RequestParam("pageSize") int pageSize){
         return bookService.listUserCommentByPage(userId,page,pageSize);
     }
+
+    /**
+     * 查询网络图片的小说
+     *
+     * @param localPicPrefix
+     * @param limit 查询条数
+     * @return 返回小说集合
+     * */
+    @GetMapping("queryNetworkPicBooks")
+    List<Book> queryNetworkPicBooks(@RequestParam("localPicPrefix") String localPicPrefix,@RequestParam("limit") int limit){
+        return bookService.queryNetworkPicBooks(localPicPrefix,limit);
+    }
+
+    /**
+     * 更新图片路径
+     * @param picUrl 图片路径
+     * @param bookId 小说ID
+     */
+    @PostMapping("updateBookPic")
+    void updateBookPic(@RequestParam("picUrl") String picUrl,@RequestParam("bookId") Long bookId){
+        bookService.updateBookPic(picUrl,bookId);
+    }
+
 }
