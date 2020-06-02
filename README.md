@@ -113,7 +113,6 @@ novel-cloud
 2. 开发环境配置，请确保开发机器上已安装如下软件环境。
    - [x] Java开发工具包jdk1.8+
    - [x] IDE（Eclipse或IntelliJ IDEA）
-   - [ ] 
    - [x] 项目管理工具maven
    - [x] 微服务注册中心/配置中心nacos
    - [x] 分布式缓存服务Redis
@@ -121,7 +120,7 @@ novel-cloud
    - [x] ElasticSearch可视化客户端Kibana
    - [x] 消息中间件RabbitMq
    - [x] 数据库服务Mysql
-
+   
 3. 登陆nacos配置中心导入下载源码中的配置文件。
 
    ![image-20200529173322783](./assert/QQ20200529-180807.png)![image-20200529173322783](./assert/QQ20200529-181203.png)
@@ -189,6 +188,16 @@ novel-cloud
    http://<网关IP>:<网关端口号>/api/<接口路径>
 
    以小说小说分类列表查询接口为例：http://127.0.0.1:527/api/book/listBookCategory
+   
+10. 访问用户中心/作家中心等需要认证的接口。
+
+    - 访问登陆接口获取JWT![image-20200529173322783](./assert/QQ20200602-194556.png)![image-20200529173322783](./assert/QQ20200602-194713.png)
+
+    - 设置JWT认证![image-20200529173322783](./assert/QQ20200602-194859.png)
+
+    - 访问需要认证的接口![image-20200529173322783](./assert/QQ20200602-195025.png)
+
+      ![image-20200529173322783](./assert/QQ20200602-195114.png)
 
 #### 代码仓库
 
