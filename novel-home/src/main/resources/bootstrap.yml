@@ -3,3 +3,10 @@ spring:
     name: novel-home
   profiles:
     active: dev
+  cloud:
+    nacos:
+      config:
+        ext‐config[0]:
+          data‐id: novel-redis.yml
+          group: novel-common
+          refresh: true

@@ -8,6 +8,10 @@ spring:
           data‐id: novel-jwt.yml
           group: novel-common
           refresh: true
+        ext‐config[1]:
+          data‐id: novel-redis.yml
+          group: novel-common
+          refresh: true
   profiles:
     active: dev
 
