@@ -60,6 +60,8 @@
         <fastdfs-client.version>1.26.1-RELEASE</fastdfs-client.version>
         <alipay-sdk-java.version>4.9.153.ALL</alipay-sdk-java.version>
         <admin-starter-server.version>2.2.3</admin-starter-server.version>
+        <docker.maven.plugin.version>1.0.0</docker.maven.plugin.version>
+        <docker.host>http://47.106.243.172:2375</docker.host>
 
         <novel-common.version>1.0.0</novel-common.version>
         <novel-user-api.version>1.0.0</novel-user-api.version>
