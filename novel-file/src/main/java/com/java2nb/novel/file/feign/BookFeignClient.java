@@ -1,4 +1,4 @@
-package com.java2nb.novel.feign;
+package com.java2nb.novel.file.feign;
 
 
 import com.java2nb.novel.book.api.BookApi;

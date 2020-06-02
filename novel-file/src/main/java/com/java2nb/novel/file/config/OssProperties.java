@@ -1,4 +1,4 @@
-package com.java2nb.novel.config;
+package com.java2nb.novel.file.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,4 +1,4 @@
-package com.java2nb.novel.service.impl;
+package com.java2nb.novel.file.service.impl;
 
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.model.CannedAccessControlList;
@@ -6,13 +6,11 @@ import com.aliyun.oss.model.CreateBucketRequest;
 import com.aliyun.oss.model.PutObjectRequest;
 import com.aliyun.oss.model.PutObjectResult;
 import com.java2nb.novel.common.utils.Constants;
-import com.java2nb.novel.common.utils.FileUtil;
 import com.java2nb.novel.common.utils.UUIDUtil;
-import com.java2nb.novel.config.OssProperties;
-import com.java2nb.novel.service.FileService;
+import com.java2nb.novel.file.config.OssProperties;
+import com.java2nb.novel.file.service.FileService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import java.io.File;

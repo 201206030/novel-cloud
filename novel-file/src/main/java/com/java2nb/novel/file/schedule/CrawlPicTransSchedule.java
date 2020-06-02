@@ -1,10 +1,10 @@
-package com.java2nb.novel.schedule;
+package com.java2nb.novel.file.schedule;
 
 import com.java2nb.novel.book.entity.Book;
 import com.java2nb.novel.common.utils.Constants;
 import com.java2nb.novel.common.utils.FileUtil;
-import com.java2nb.novel.feign.BookFeignClient;
-import com.java2nb.novel.service.FileService;
+import com.java2nb.novel.file.feign.BookFeignClient;
+import com.java2nb.novel.file.service.FileService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
