@@ -48,7 +48,7 @@ novel-cloud
 | MyBatis Dynamic SQL | Mybatis动态sql
 | PageHelper          | MyBatis分页插件
 | MyBatisGenerator    | 持久层代码生成插件
-| Seata               | 分布式事务中间件
+| Seata               | 分布式事务中间件（待应用）
 | Sharding-Jdbc       | 代码层分库分表中间件
 | JJWT                | JWT登录支持  
 | Redis               | 分布式缓存                              
