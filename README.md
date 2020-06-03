@@ -60,7 +60,7 @@ novel-cloud
 | Lombok              | 简化对象封装工具  
 | Swagger             | API文档生成工具                                                                              
 | Docker              | 应用容器引擎   
-| ELK                 | 分布式日志分析   
+| Logstash                 | 分布式日志采集   
 | Vue                 | 前端开发框架
 
 #### 数据模型
