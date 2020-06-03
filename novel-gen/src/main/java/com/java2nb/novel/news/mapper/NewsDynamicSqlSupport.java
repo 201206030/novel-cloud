@@ -60,7 +60,7 @@ public final class NewsDynamicSqlSupport {
 
         public final SqlColumn<Long> updateUserId = column("update_user_id", JDBCType.BIGINT);
 
-        public final SqlColumn<String> content = column("content", JDBCType.LONGVARCHAR);
+        public final SqlColumn<String> content = column("content", JDBCType.VARCHAR);
 
         public News() {
             super("news");

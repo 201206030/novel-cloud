@@ -55,7 +55,7 @@ public interface NewsMapper {
         @Result(column="create_user_id", property="createUserId", jdbcType=JdbcType.BIGINT),
         @Result(column="update_time", property="updateTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="update_user_id", property="updateUserId", jdbcType=JdbcType.BIGINT),
-        @Result(column="content", property="content", jdbcType=JdbcType.LONGVARCHAR)
+        @Result(column="content", property="content", jdbcType=JdbcType.VARCHAR)
     })
     List<News> selectMany(SelectStatementProvider selectStatement);
 
