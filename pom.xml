@@ -62,6 +62,7 @@
         <admin-starter-server.version>2.2.3</admin-starter-server.version>
         <docker.maven.plugin.version>1.0.0</docker.maven.plugin.version>
         <docker.host>http://47.106.243.172:2375</docker.host>
+        <logstash.version>5.3</logstash.version>
 
         <novel-common.version>1.1.0</novel-common.version>
         <novel-user-api.version>1.1.0</novel-user-api.version>
@@ -231,7 +232,6 @@
             </dependency>
 
 
-
             <!-- jwt -->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
@@ -258,15 +258,15 @@
                 <optional>true</optional>
             </dependency>
 
+            <!--集成logstash-->
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
-
-
-
-
-
-
-
 
 
 </project>

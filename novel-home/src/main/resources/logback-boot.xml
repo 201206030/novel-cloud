@@ -49,10 +49,17 @@
             <charset>UTF-8</charset>
         </encoder>
     </appender>
+    <!--输出到logstash的appender-->
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <!--可以访问的logstash日志收集端口-->
+        <destination>198.245.61.51:4560</destination>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
+    </appender>
     <!-- 控制台输出日志级别 -->
     <root level="INFO">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
+        <appender-ref ref="LOGSTASH"/>
     </root>
     <!-- 指定项目中某个包，当有日志操作行为时的日志记录级别 -->
     <!-- com.maijinjie.springboot 为根包，也就是只要是发生在这个根包下面的所有日志操作行为的权限都是DEBUG -->
@@ -60,5 +67,6 @@
     <logger name="com.java2nb" level="DEBUG">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
+        <appender-ref ref="LOGSTASH"/>
     </logger>
 </configuration>
