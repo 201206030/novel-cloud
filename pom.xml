@@ -64,12 +64,12 @@
         <docker.host>http://47.106.243.172:2375</docker.host>
         <logstash.version>5.3</logstash.version>
 
-        <novel-common.version>1.1.0</novel-common.version>
-        <novel-user-api.version>1.1.0</novel-user-api.version>
-        <novel-book-api.version>1.1.0</novel-book-api.version>
-        <novel-news-api.version>1.1.0</novel-news-api.version>
-        <novel-pay-api.version>1.1.0</novel-pay-api.version>
-        <novel-author-api.version>1.1.0</novel-author-api.version>
+        <novel-common.version>1.2.0</novel-common.version>
+        <novel-user-api.version>1.2.0</novel-user-api.version>
+        <novel-book-api.version>1.2.0</novel-book-api.version>
+        <novel-news-api.version>1.2.0</novel-news-api.version>
+        <novel-pay-api.version>1.2.0</novel-pay-api.version>
+        <novel-author-api.version>1.2.0</novel-author-api.version>
     </properties>
 
     <dependencies>
