@@ -60,7 +60,7 @@ public interface BookApi {
      * @return true:评论成功，false:评论失败
      * */
     @PostMapping("api/book/addBookComment")
-    boolean addBookComment(@RequestParam("userId") Long userId,@RequestParam("comment") BookComment comment);
+    boolean addBookComment(@RequestParam("userId") Long userId,@RequestBody BookComment comment);
 
     /**
      * 分页查询用户评论

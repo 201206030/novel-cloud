@@ -76,7 +76,7 @@ public class BookApi {
      * @param comment 评论数据
      * */
     @PostMapping("addBookComment")
-    boolean addBookComment(Long userId, BookComment comment){
+    boolean addBookComment(@RequestParam("userId") Long userId, @RequestBody BookComment comment){
         bookService.addBookComment(userId,comment);
         return true;
     }
