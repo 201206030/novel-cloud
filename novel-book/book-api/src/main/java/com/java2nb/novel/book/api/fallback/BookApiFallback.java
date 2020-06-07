@@ -27,7 +27,7 @@ public class BookApiFallback implements BookApi {
 
     @Override
     public List<Book> listRank(Byte type, Integer limit) {
-        return null;
+        return new ArrayList<>();
     }
 
     @Override
@@ -36,22 +36,24 @@ public class BookApiFallback implements BookApi {
     }
 
     @Override
-    public void addBookComment(Long userId, BookComment comment) {
+    public boolean addBookComment(Long userId, BookComment comment) {
+
+        return false;
 
     }
 
     @Override
     public List<BookComment> listUserCommentByPage(Long userId, int page, int pageSize) {
-        return null;
+        return new ArrayList<>();
     }
 
     @Override
     public List<Book> queryNetworkPicBooks(String localPicPrefix, int limit) {
-        return null;
+        return new ArrayList<>();
     }
 
     @Override
-    public void updateBookPic(String picUrl, Long bookId) {
-
+    public boolean updateBookPic(String picUrl, Long bookId) {
+        return false;
     }
 }

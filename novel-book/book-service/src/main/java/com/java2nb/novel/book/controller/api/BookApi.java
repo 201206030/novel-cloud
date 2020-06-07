@@ -76,8 +76,9 @@ public class BookApi {
      * @param comment 评论数据
      * */
     @PostMapping("addBookComment")
-    void addBookComment(Long userId, BookComment comment){
+    boolean addBookComment(Long userId, BookComment comment){
         bookService.addBookComment(userId,comment);
+        return true;
     }
 
     /**
@@ -110,8 +111,9 @@ public class BookApi {
      * @param bookId 小说ID
      */
     @PostMapping("updateBookPic")
-    void updateBookPic(@RequestParam("picUrl") String picUrl,@RequestParam("bookId") Long bookId){
+    boolean updateBookPic(@RequestParam("picUrl") String picUrl,@RequestParam("bookId") Long bookId){
         bookService.updateBookPic(picUrl,bookId);
+        return true;
     }
 
 }

@@ -57,9 +57,10 @@ public interface BookApi {
      * 新增评论
      * @param userId 用户ID
      * @param comment 评论数据
+     * @return true:评论成功，false:评论失败
      * */
     @PostMapping("api/book/addBookComment")
-    void addBookComment(@RequestParam("userId") Long userId,@RequestParam("comment") BookComment comment);
+    boolean addBookComment(@RequestParam("userId") Long userId,@RequestParam("comment") BookComment comment);
 
     /**
      * 分页查询用户评论
@@ -86,7 +87,8 @@ public interface BookApi {
      * 更新图片路径
      * @param picUrl 图片路径
      * @param bookId 小说ID
+     * @return true:更新成功，false:更新失败
      */
     @PostMapping("api/book/updateBookPic")
-    void updateBookPic(@RequestParam("picUrl") String picUrl,@RequestParam("bookId") Long bookId);
+    boolean updateBookPic(@RequestParam("picUrl") String picUrl,@RequestParam("bookId") Long bookId);
 }
