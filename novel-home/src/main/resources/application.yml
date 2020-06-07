@@ -1,4 +1,6 @@
 spring:
   profiles:
     include: [common]
-
+feign:
+  sentinel:
+    enabled: true

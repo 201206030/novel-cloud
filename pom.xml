@@ -40,6 +40,7 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
         <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
+        <openfeign.version>2.2.0.RELEASE</openfeign.version>
         <nacos.version>0.2.2.RELEASE</nacos.version>
         <swagger.version>2.7.0</swagger.version>
         <maven.test.skip>true</maven.test.skip>
@@ -123,6 +124,23 @@
                 <version>${novel-author-api.version}</version>
             </dependency>
 
+            <!--在2.2.0.RELEASE里有一行注释描述，feign的SentinelContractHolder接口方法名parseAndValidatateMetadata拼写错误，
+          在2.2.2.RELEASE方法已修正了，即方法名发生了改变。
+          在spring-cloud-alibaba-sentinel中的SentinelContractHolder类，用到了该接口的这个方法
+          所以，要么降低SpringCloud版本，要么单独指定openfeign版本，否则启动报错
+          java.lang.AbstractMethodError:
+          com.alibaba.cloud.sentinel.feign.SentinelContractHolder.
+          parseAndValidateMetadata(Ljava/lang/Class;)Ljava/util/List
+          注意spring-cloud-openfeign-dependencies写在spring-cloud-dependencies前面，
+          因为dependency前面的优先生效。-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-openfeign-dependencies</artifactId>
+                <version>${openfeign.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
 
             <!-- springCloud -->
             <dependency>
@@ -140,6 +158,8 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+
 
 
             <!--swagger-->
