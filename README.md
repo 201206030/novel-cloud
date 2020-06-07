@@ -42,6 +42,7 @@ novel-cloud
 | SpringBoot          | Spring应用快速开发脚手架     
 | SpringCloud         | 微服务架构解决方案 
 | Nacos               | 注册中心和配置中心
+| Sentine              | 限流/熔断/降级
 | SpringCloud Gateway | 微服务网关
 | SpringBoot Admin    | 微服务监控
 | MyBatis             | 持久层ORM框架 
