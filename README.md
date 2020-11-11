@@ -1,3 +1,5 @@
+[![index]( https://s1.ax1x.com/2020/07/03/NOSA5q.jpg )]( https://cloud.tencent.com/act/cps/redirect?redirect=1052&cps_key=736e609d66e0ac4e57813316cec6fd0b&from=console )
+
 # novel-cloud
 
 #### 背景
@@ -8,13 +10,9 @@
 
 Novel-Cloud是基于[小说精品屋-plus](https://www.oschina.net/p/novel-plus)构建的Spring Cloud 微服务小说门户学习平台，致力于原创文学阅读与写作，提供了爬虫工具用于开发过程中测试数据的采集（爬虫项目和小说精品屋-plus通用）。采用了Spring Boot 2.2.5.RELEASE 、Spring Cloud Hoxton.SR4、 MyBatis3DynamicSql、Sharding-Jdbc、Redis、RabbitMq、Elasticsearch、Docker等流行技术，集成了Nacos注册中心/配置中心、Spring Cloud Gateway网关、Spring Boot Admin监控中心、ELK分布式日志分析等基础服务。前端计划使用Vue开发，后台接口一期开发已完成（充值/作家专区除外的所有接口）。
 
-#### 演示地址
-
-[点击前往](http://www.java2nb.com/)（前台门户）
-
 #### 软件架构
 
-![QQ20200520-215756](./assert/小说网站Springcloud架构设计.png)
+![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/Bvt3kD.png)
 
 
 #### 项目结构
@@ -66,47 +64,43 @@ novel-cloud
 
 #### 数据模型
 
-![QQ20200520-215756](./assert/QQ20200529-170006.png)
+![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvtUXt.png)
 
 #### 截图
 
 1. 注册中心截图
 
-![QQ20200520-215756](./assert/QQ20200528-020224.png)
+![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvtYpd.png)
 
 2. 配置中心截图
 
-   ![QQ20200520-215756](./assert/QQ20200528-020357.png)
+   ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/Bvtrtg.png)
 
 3. 监控中心截图
 
-   ![QQ20200520-215756](./assert/QQ20200528-020445.png)
+   ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/Bvt2Xq.png)
 
-   ![QQ20200520-215756](./assert/QQ20200531-194554.png)
+   ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvtjHK.png)
 
-   ![QQ20200520-215756](./assert/QQ20200528-020543.png)
+   ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvN99H.png)
 
    
 
    4. 接口文档
 
-      ![QQ20200520-215756](./assert/QQ20200528-200023.png)
-
+      ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNkut.png)
       
-
-      ![QQ20200520-215756](./assert/QQ20200528-221348.png)
-
+      ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNK3j.png)
       
-   
-      ![QQ20200520-215756](./assert/QQ20200529-082052.png)
+      ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNUC4.md.png)
    
    5. 分布式日志收集
    
-      ![QQ20200520-215756](./assert/QQ20200603-080655.png)
+      ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNd29.md.png)
    
    6. 门户网站
    
-   ![QQ20200520-215756](./assert/pc_index.png)
+   ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNBK1.md.png)
    
    
 
@@ -114,7 +108,7 @@ novel-cloud
 
 1. 下载源码，如果是ZIP包，下载后需要解压。
 
-   ![image-20200529173322783](./assert/image-20200529173322783.png)
+   ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvN6UO.md.png)
 
 2. 开发环境配置，请确保开发机器上已安装如下软件环境。
    - [x] Java开发工具包jdk1.8+
@@ -129,51 +123,53 @@ novel-cloud
    
 3. 登陆nacos配置中心导入下载源码中的配置文件。
 
-   ![image-20200529173322783](./assert/QQ20200529-180807.png)![image-20200529173322783](./assert/QQ20200529-181203.png)
+   ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvN2Pe.png)
+   
+   ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvN5rt.png)
 
-   ![image-20200529173322783](./assert/QQ20200529-181406.png)
+   ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvNHIS.png)
 
-   ![image-20200529173322783](./assert/QQ20200529-181531.png)
+   ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvNXxs.png)
 
 4. 使用IDE导入下载的源码（这里以IntelliJ IDEA为例）。
 
-   ![image-20200529173322783](./assert/QQ20200529-175108.png)
+   ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUCIU.png)
 
 5. 修改通用配置中的配置中心地址和命名空间ID。
 
-   ![image-20200529182810929](./assert/QQ20200529-182931.png)
+   ![image-20200529182810929](https://s3.ax1x.com/2020/11/11/BvUAz9.png)
 
-   ![image-20200529173322783](./assert/QQ20200529-182657.png)
+   ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUVMR.png)
 
 6. 启动微服务网关。
 
    - 修改网关服务的配置中心地址和命名空间ID
 
-     ![image-20200529173322783](./assert/QQ20200529-184805.png)
+     ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUJsI.png)
 
    - 修改网关配置文件注册中心地址和命名空间ID
 
-   ![image-20200529173322783](./assert/QQ20200529-0.png)
+   ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUwFS.jpg)
 
-   ![image-20200529173322783](./assert/QQ20200529-182356.png)
+   ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUDzj.png)
 
    - 启动网关服务novel-gateway
 
-     ![image-20200529173322783](./assert/QQ20200529-1.png)
+     ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvU6Lq.jpg)
 
-     ![image-20200529173322783](./assert/QQ20200529-183445.png)
+     ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvU2wV.png)
 
 7. 启动监控服务。
 
-   - 修改监控服务的配置中心地址和命名空间ID![image-20200529173322783](./assert/QQ20200529-185750.png)
+   - 修改监控服务的配置中心地址和命名空间ID![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvU4W4.png)
 
-   - 修改监控微服务的注册中心地址和命名空间ID以及登陆的用户名和密码![image-20200529173322783](./assert/QQ20200529-185912.png)
+   - 修改监控微服务的注册中心地址和命名空间ID以及登陆的用户名和密码![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUqw6.png)
 
    - 启动监控服务novel-monitor，启动方法和网关服务相同
 
    - 访问监控服务，因为网关中配置了监控服务的路由，所以可直接或通过网关来访问监控服务：http://<网关ip>:<网关端口号>/monitor
 
-     ![image-20200529173322783](./assert/QQ20200529-190730.png)
+     ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUXFO.png)
 
      
 
@@ -197,13 +193,14 @@ novel-cloud
    
 10. 访问用户中心/作家中心等需要认证的接口。
 
-    - 访问登陆接口获取JWT![image-20200529173322783](./assert/QQ20200602-194556.png)![image-20200529173322783](./assert/QQ20200602-194713.png)
+    - 访问登陆接口获取JWT![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUzSH.png)
+    ![image-20200529173322783](http://d1.027cgb.cn/633770/QQ20200602-194713.png)
 
-    - 设置JWT认证![image-20200529173322783](./assert/QQ20200602-194859.png)
+    - 设置JWT认证![image-20200529173322783](http://d1.027cgb.cn/633770/QQ20200602-194859.png)
 
-    - 访问需要认证的接口![image-20200529173322783](./assert/QQ20200602-195025.png)
+    - 访问需要认证的接口![image-20200529173322783](http://d1.027cgb.cn/633770/QQ20200602-195025.png)
 
-      ![image-20200529173322783](./assert/QQ20200602-195114.png)
+      ![image-20200529173322783](http://d1.027cgb.cn/633770/QQ20200602-195114.png)
 
 #### 代码仓库
 
@@ -213,10 +210,14 @@ GitHub仓库地址：  https://github.com/201206030/novel-cloud
 
 #### QQ交流群
 
-![mini-code](https://gitee.com/xiongxyang/novel-plus/raw/release_v2.5.0/assets/%E5%B0%8F%E8%AF%B4%E7%B2%BE%E5%93%81%E5%B1%8B%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E4%BA%A4%E6%B5%81%E7%BE%A4%E7%BE%A4%E8%81%8A%E4%BA%8C%E7%BB%B4%E7%A0%81.png)
+![mini-code](https://s1.ax1x.com/2020/10/31/BUQVeI.png)
 
 #### 捐赠支持
 
 开源项目不易，若此项目能得到你的青睐，可以捐赠支持作者持续开发与维护。
 
-![mini-code](https://gitee.com/xiongxyang/novel-plus/raw/release_v2.5.0/assets/jk.png)
+![mini-code](https://s1.ax1x.com/2020/10/31/BUQJwq.png)
+
+[![index](https://s1.ax1x.com/2020/07/03/NOSuMF.jpg)](https://www.aliyun.com/minisite/goods?userCode=uf4nasee )
+
+# 部分截图在github上可能无法正常显示，请下载到本地查看。
