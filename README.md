@@ -12,7 +12,7 @@ Novel-Cloud是基于[小说精品屋-plus](https://www.oschina.net/p/novel-plus)
 
 #### 软件架构
 
-![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/Bvt3kD.png)
+![QQ20200520-215756](https://s3.ax1x.com/2020/12/09/r92rrT.png)
 
 
 #### 项目结构
