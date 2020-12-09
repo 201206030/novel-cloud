@@ -1,4 +1,5 @@
-target/
-logs/
-.idea/
-*.iml
+**/logs
+**/.idea
+**/cachedata
+**/target
+**/*.iml
