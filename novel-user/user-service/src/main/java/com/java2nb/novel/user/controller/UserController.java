@@ -9,6 +9,8 @@ import com.java2nb.novel.common.bean.UserDetails;
 import com.java2nb.novel.common.cache.CacheService;
 import com.java2nb.novel.common.enums.ResponseStatus;
 import com.java2nb.novel.common.utils.RandomValidateCodeUtil;
+import com.java2nb.novel.common.valid.AddGroup;
+import com.java2nb.novel.common.valid.UpdateGroup;
 import com.java2nb.novel.user.entity.User;
 import com.java2nb.novel.user.entity.UserFeedback;
 import com.java2nb.novel.user.feign.BookFeignClient;
@@ -22,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,13 +57,7 @@ public class UserController extends BaseController {
      */
     @ApiOperation("用户登陆接口")
     @GetMapping("login")
-    public ResultBean<Map<String, Object>> login(@Valid UserForm user, BindingResult result) {
-        //判断参数是否合法
-        if (result.hasErrors()) {
-            log.info(result.getAllErrors().toString());
-            return ResultBean.fail(ResponseStatus.PARAM_ERROR);
-        }
-
+    public ResultBean login(User user) {
         //登陆
         UserDetails userDetails = userService.login(user);
 
@@ -77,13 +74,8 @@ public class UserController extends BaseController {
      */
     @ApiOperation("用户注册接口")
     @PostMapping("register")
-    public ResultBean<Map<String, Object>> register(@Valid UserForm user, @RequestParam(value = "velCode", defaultValue = "") String velCode, BindingResult result) {
+    public ResultBean register(@Validated({AddGroup.class}) User user, @RequestParam(value = "velCode", defaultValue = "") String velCode) {
 
-        //判断参数是否合法
-        if (result.hasErrors()) {
-            log.info(result.getAllErrors().toString());
-            return ResultBean.fail(ResponseStatus.PARAM_ERROR);
-        }
 
         //判断验证码是否正确
         if (!velCode.equals(cacheService.get(RandomValidateCodeUtil.RANDOM_CODE_KEY))) {
@@ -250,7 +242,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("人信息更新接口")
     @PostMapping("updateUserInfo")
-    public ResultBean updateUserInfo(User user, HttpServletRequest request) {
+    public ResultBean updateUserInfo(@Validated({UpdateGroup.class}) User user, HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);

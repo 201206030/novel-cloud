@@ -29,12 +29,18 @@ public interface UserService {
     User queryByUsernameAndPassword(String username, String password);
 
     /**
-     * 用户登陆
-     *
-     * @param form 用户登陆提交信息类
+     * 用户注册
+     * @param user 用户注册信息类
      * @return jwt载体信息类
-     */
-    UserDetails login(UserForm form);
+     * */
+    UserDetails register(User user);
+
+    /**
+     * 用户登陆
+     * @param user 用户登陆信息类
+     * @return jwt载体信息类
+     * */
+    UserDetails login(User user);
 
 
     /**
@@ -45,13 +51,6 @@ public interface UserService {
      */
     List<User> queryById(List<Long> ids);
 
-    /**
-     * 用户注册
-     *
-     * @param form 用户注册提交信息类
-     * @return jwt载体信息类
-     */
-    UserDetails register(UserForm form);
 
     /**
      * 查询小说是否已加入书架

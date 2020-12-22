@@ -79,9 +79,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDetails login(UserForm form) {
+    public UserDetails login(User user) {
         //根据用户名密码查询记录
-        User user = queryByUsernameAndPassword(form.getUsername(), form.getPassword());
+        user = queryByUsernameAndPassword(user.getUsername(), user.getPassword());
         if (user == null) {
             throw new BusinessException(ResponseStatus.USERNAME_PASS_ERROR);
         }
@@ -89,7 +89,7 @@ public class UserServiceImpl implements UserService {
         UserDetails userDetails = new UserDetails();
         userDetails.setId(user.getId());
         userDetails.setNickName(user.getNickName());
-        userDetails.setUsername(form.getUsername());
+        userDetails.setUsername(user.getUsername());
         return userDetails;
     }
 
@@ -104,11 +104,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDetails register(UserForm form) {
+    public UserDetails register(User user) {
         //查询用户名是否已注册
         SelectStatementProvider selectStatement = select(count(UserDynamicSqlSupport.id))
                 .from(UserDynamicSqlSupport.user)
-                .where(UserDynamicSqlSupport.username, isEqualTo(form.getUsername()))
+                .where(UserDynamicSqlSupport.username, isEqualTo(user.getUsername()))
                 .build()
                 .render(RenderingStrategies.MYBATIS3);
         long count = userMapper.count(selectStatement);
@@ -117,7 +117,7 @@ public class UserServiceImpl implements UserService {
             throw new BusinessException(ResponseStatus.USERNAME_EXIST);
         }
         User entity = new User();
-        BeanUtils.copyProperties(form, entity);
+        BeanUtils.copyProperties(user, entity);
         //数据库生成注册记录
         Long id = new IdWorker().nextId();
         entity.setId(id);
@@ -304,12 +304,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUserInfo(Long userId, User user) {
-        User updateUser = new User();
-        updateUser.setId(userId);
-        updateUser.setNickName(user.getNickName());
-        updateUser.setUserSex(user.getUserSex());
-        updateUser.setUpdateTime(new Date());
-        userMapper.updateByPrimaryKeySelective(updateUser);
+        user.setId(userId);
+        user.setUpdateTime(new Date());
+        userMapper.updateByPrimaryKeySelective(user);
 
     }
 
