@@ -1,11 +1,9 @@
 package com.java2nb.novel.user.service;
 
 
-import com.java2nb.novel.book.entity.BookComment;
 import com.java2nb.novel.common.bean.UserDetails;
 import com.java2nb.novel.user.entity.User;
 import com.java2nb.novel.user.entity.UserFeedback;
-import com.java2nb.novel.user.form.UserForm;
 import com.java2nb.novel.user.vo.BookReadHistoryVO;
 import com.java2nb.novel.user.vo.BookShelfVO;
 

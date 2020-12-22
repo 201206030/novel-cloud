@@ -2,7 +2,6 @@ package com.java2nb.novel.user.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.java2nb.novel.book.entity.Book;
-import com.java2nb.novel.book.entity.BookComment;
 import com.java2nb.novel.common.bean.UserDetails;
 import com.java2nb.novel.common.enums.ResponseStatus;
 import com.java2nb.novel.common.exception.BusinessException;
@@ -13,7 +12,6 @@ import com.java2nb.novel.user.entity.UserBookshelf;
 import com.java2nb.novel.user.entity.UserFeedback;
 import com.java2nb.novel.user.entity.UserReadHistory;
 import com.java2nb.novel.user.feign.BookFeignClient;
-import com.java2nb.novel.user.form.UserForm;
 import com.java2nb.novel.user.mapper.*;
 import com.java2nb.novel.user.service.UserService;
 import com.java2nb.novel.user.vo.BookReadHistoryVO;

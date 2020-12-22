@@ -1,6 +1,5 @@
 package com.java2nb.novel.user.controller;
 
-import com.github.pagehelper.PageInfo;
 import com.java2nb.novel.book.entity.BookComment;
 import com.java2nb.novel.common.base.BaseController;
 import com.java2nb.novel.common.bean.PageBean;
@@ -14,7 +13,6 @@ import com.java2nb.novel.common.valid.UpdateGroup;
 import com.java2nb.novel.user.entity.User;
 import com.java2nb.novel.user.entity.UserFeedback;
 import com.java2nb.novel.user.feign.BookFeignClient;
-import com.java2nb.novel.user.form.UserForm;
 import com.java2nb.novel.user.service.UserService;
 import com.java2nb.novel.user.vo.BookReadHistoryVO;
 import com.java2nb.novel.user.vo.BookShelfVO;
@@ -23,12 +21,10 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
