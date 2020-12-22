@@ -214,7 +214,7 @@ GitHub仓库地址：  https://github.com/201206030/novel-cloud
 
 #### QQ交流群
 
-![mini-code](https://s1.ax1x.com/2020/10/31/BUQVeI.png)
+[点击前往官网查看](https://xiongxyang.gitee.io/home/service.htm)
 
 #### 微信公众号（发布最新更新资讯）
 
