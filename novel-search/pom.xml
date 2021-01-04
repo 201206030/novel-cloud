@@ -28,9 +28,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.searchbox</groupId>
             <artifactId>jest</artifactId>
-            <version>${jest.version}</version>
         </dependency>
 
         <dependency>
@@ -42,7 +45,6 @@
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson-spring-boot-starter</artifactId>
-            <version>${redisson.version}</version>
         </dependency>
 
 
