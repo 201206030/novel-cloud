@@ -2,6 +2,12 @@
 
 # novel-cloud
 
+[![Github stars](https://img.shields.io/github/stars/201206030/novel-cloud?logo=github)](https://github.com/201206030/novel-cloud)
+[![Github forks](https://img.shields.io/github/forks/201206030/novel-cloud?logo=github)](https://github.com/201206030/novel-cloud)
+[![Gitee star](https://gitee.com/novel_dev_team/novel-cloud/badge/star.svg?theme=gitee)](https://gitee.com/novel_dev_team/novel-cloud)
+[![Gitee fork](https://gitee.com/novel_dev_team/novel-cloud/badge/fork.svg?theme=gitee)](https://gitee.com/novel_dev_team/novel-cloud)
+
+
 #### 官网
 
 https://xiongxyang.gitee.io/home/

@@ -19,7 +19,7 @@ public class EsConfig {
     @Value("${spring.elasticsearch.jest.uris}")
     private String esUris;
 
-    @Bean
+    @Bean(destroyMethod = "close")
     public RestHighLevelClient esClient(){
 
 
