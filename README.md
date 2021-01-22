@@ -10,7 +10,7 @@
 
 #### 官网
 
-https://xiongxyang.gitee.io/home/
+https://xiongxyang.gitee.io
 
 #### 背景
 
