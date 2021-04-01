@@ -2,6 +2,7 @@ package com.java2nb.novel.book.service;
 
 import com.java2nb.novel.book.entity.*;
 import com.java2nb.novel.book.vo.BookCommentVO;
+import com.java2nb.novel.common.bean.PageBean;
 
 import java.util.Date;
 import java.util.List;
@@ -84,9 +85,9 @@ public interface BookService {
      * @param bookId 书籍ID
      * @param page 页码
      * @param pageSize 分页大小
-     * @return 评论集合
+     * @return 评论集合分页数据
      * */
-    List<BookCommentVO> listBookCommentByPage( Long bookId, int page, int pageSize);
+    PageBean<BookComment> listBookCommentByPage(Long bookId, int page, int pageSize);
 
     /**
      * 查询目录列表
@@ -135,7 +136,7 @@ public interface BookService {
      * @param pageSize 分页大小
      * @return 评论数据
      * */
-    List<BookComment> listUserCommentByPage(Long userId, int page, int pageSize);
+    PageBean<BookComment> listUserCommentByPage(Long userId, int page, int pageSize);
 
     /**
      * 查询网络图片的小说

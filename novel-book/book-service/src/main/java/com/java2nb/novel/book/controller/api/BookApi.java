@@ -4,6 +4,7 @@ import com.java2nb.novel.book.entity.Book;
 import com.java2nb.novel.book.entity.BookComment;
 import com.java2nb.novel.book.service.BookService;
 import com.java2nb.novel.book.vo.BookCommentVO;
+import com.java2nb.novel.common.bean.PageBean;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
@@ -89,7 +90,7 @@ public class BookApi {
      * @return 评论数据
      * */
     @GetMapping("listUserCommentByPage")
-    List<BookComment> listUserCommentByPage(@RequestParam("userId") Long userId,@RequestParam("page")  int page, @RequestParam("pageSize") int pageSize){
+    PageBean<BookComment> listUserCommentByPage(@RequestParam("userId") Long userId, @RequestParam("page")  int page, @RequestParam("pageSize") int pageSize){
         return bookService.listUserCommentByPage(userId,page,pageSize);
     }
 

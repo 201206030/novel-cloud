@@ -161,7 +161,7 @@ public class UserController extends BaseController {
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
         }
-        return ResultBean.ok(new PageBean<>(userService.listBookShelfByPage(userDetails.getId(),page,pageSize)));
+        return ResultBean.ok(userService.listBookShelfByPage(userDetails.getId(),page,pageSize));
     }
 
     /**
@@ -174,7 +174,7 @@ public class UserController extends BaseController {
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
         }
-        return ResultBean.ok(new PageBean<>(userService.listReadHistoryByPage(userDetails.getId(),page,pageSize)));
+        return ResultBean.ok(userService.listReadHistoryByPage(userDetails.getId(),page,pageSize));
     }
 
     /**
@@ -215,7 +215,7 @@ public class UserController extends BaseController {
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
         }
-        return ResultBean.ok(new PageBean<>(userService.listUserFeedBackByPage(userDetails.getId(),page,pageSize)));
+        return ResultBean.ok(userService.listUserFeedBackByPage(userDetails.getId(),page,pageSize));
     }
 
 
@@ -294,7 +294,7 @@ public class UserController extends BaseController {
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
         }
-        return ResultBean.ok(new PageBean<>(bookFeignClient.listUserCommentByPage(userDetails.getId(),page,pageSize)));
+        return ResultBean.ok(bookFeignClient.listUserCommentByPage(userDetails.getId(),page,pageSize));
     }
 
 

@@ -2,6 +2,7 @@ package com.java2nb.novel.user.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.java2nb.novel.book.entity.Book;
+import com.java2nb.novel.common.bean.PageBean;
 import com.java2nb.novel.common.bean.UserDetails;
 import com.java2nb.novel.common.enums.ResponseStatus;
 import com.java2nb.novel.common.exception.BusinessException;
@@ -168,7 +169,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<BookShelfVO> listBookShelfByPage(Long userId, int page, int pageSize) {
+    public PageBean<UserBookshelf> listBookShelfByPage(Long userId, int page, int pageSize) {
         PageHelper.startPage(page, pageSize);
         List<UserBookshelf> userBookshelves = userBookshelfMapper.selectMany(
                 select(UserBookshelfDynamicSqlSupport.bookId, UserBookshelfDynamicSqlSupport.preContentId)
@@ -181,8 +182,9 @@ public class UserServiceImpl implements UserService {
         List<Book> books = bookFeignClient.queryBookByIds(userBookshelves.stream().map(UserBookshelf::getBookId).collect(Collectors.toList()));
         Map<Long, Book> booksById = books.stream().collect(Collectors.toMap(Book::getId, Function.identity(), (key1, key2) -> key2));
 
+        //TODO 书架表增加书籍相关的冗余字段，书籍信息更新后小说服务通过mq发送message，其他服务消费message更新所有的冗余字段
         List<BookShelfVO> resultList = new ArrayList<>(booksById.size());
-        for (UserBookshelf bookshelf : userBookshelves) {
+        userBookshelves.forEach(bookshelf->{
             BookShelfVO bookShelfVO = new BookShelfVO();
             BeanUtils.copyProperties(bookshelf, bookShelfVO);
             Book book = booksById.get(bookshelf.getBookId());
@@ -190,15 +192,15 @@ public class UserServiceImpl implements UserService {
                 BeanUtils.copyProperties(book, bookShelfVO);
                 resultList.add(bookShelfVO);
             }
+        });
+        PageBean<UserBookshelf> pageBean = new PageBean<>(userBookshelves);
+        pageBean.setList(resultList);
 
-        }
-
-
-        return resultList;
+        return pageBean;
     }
 
     @Override
-    public List<BookReadHistoryVO> listReadHistoryByPage(Long userId, int page, int pageSize) {
+    public PageBean<UserReadHistory> listReadHistoryByPage(Long userId, int page, int pageSize) {
         PageHelper.startPage(page, pageSize);
         List<UserReadHistory> userReadHistories = userReadHistoryMapper.selectMany(
                 select(UserReadHistoryDynamicSqlSupport.bookId, UserReadHistoryDynamicSqlSupport.preContentId)
@@ -213,7 +215,7 @@ public class UserServiceImpl implements UserService {
         Map<Long, Book> booksById = books.stream().collect(Collectors.toMap(Book::getId, Function.identity(), (key1, key2) -> key2));
 
         List<BookReadHistoryVO> resultList = new ArrayList<>(booksById.size());
-        for (UserReadHistory readHistory : userReadHistories) {
+        userReadHistories.forEach(readHistory->{
             BookReadHistoryVO readHistoryVO = new BookReadHistoryVO();
             BeanUtils.copyProperties(readHistory, readHistoryVO);
             Book book = booksById.get(readHistory.getBookId());
@@ -221,11 +223,10 @@ public class UserServiceImpl implements UserService {
                 BeanUtils.copyProperties(book, readHistoryVO);
                 resultList.add(readHistoryVO);
             }
-
-        }
-
-
-        return resultList;
+        });
+        PageBean<UserReadHistory> pageBean = new PageBean(userReadHistories);
+        pageBean.setList(resultList);
+        return pageBean;
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -278,14 +279,14 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public List<UserFeedback> listUserFeedBackByPage(Long userId, int page, int pageSize) {
+    public PageBean<UserFeedback> listUserFeedBackByPage(Long userId, int page, int pageSize) {
         PageHelper.startPage(page, pageSize);
-        return userFeedbackMapper.selectMany(select(UserFeedbackDynamicSqlSupport.content, UserFeedbackDynamicSqlSupport.createTime)
+        return new PageBean<>(userFeedbackMapper.selectMany(select(UserFeedbackDynamicSqlSupport.content, UserFeedbackDynamicSqlSupport.createTime)
                 .from(UserFeedbackDynamicSqlSupport.userFeedback)
                 .where(UserFeedbackDynamicSqlSupport.userId, isEqualTo(userId))
                 .orderBy(UserFeedbackDynamicSqlSupport.id.descending())
                 .build()
-                .render(RenderingStrategies.MYBATIS3));
+                .render(RenderingStrategies.MYBATIS3)));
     }
 
     @Override

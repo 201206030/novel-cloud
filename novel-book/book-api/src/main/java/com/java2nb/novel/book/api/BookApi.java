@@ -3,6 +3,7 @@ package com.java2nb.novel.book.api;
 import com.java2nb.novel.book.entity.Book;
 import com.java2nb.novel.book.entity.BookComment;
 import com.java2nb.novel.book.vo.BookCommentVO;
+import com.java2nb.novel.common.bean.PageBean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -70,7 +71,7 @@ public interface BookApi {
      * @return 评论数据
      * */
     @GetMapping("api/book/listUserCommentByPage")
-    List<BookComment> listUserCommentByPage(@RequestParam("userId") Long userId,@RequestParam("page")  int page, @RequestParam("pageSize") int pageSize);
+    PageBean<BookComment> listUserCommentByPage(@RequestParam("userId") Long userId, @RequestParam("page")  int page, @RequestParam("pageSize") int pageSize);
 
     /**
      * 查询网络图片的小说

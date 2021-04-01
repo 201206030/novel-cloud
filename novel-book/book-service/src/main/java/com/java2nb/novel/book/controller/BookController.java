@@ -107,7 +107,7 @@ public class BookController {
     @ApiOperation("书籍评论列表分页查询接口")
     @GetMapping("listCommentByPage")
     public ResultBean<List<BookCommentVO>> listCommentByPage(@ApiParam("小说ID") @RequestParam("bookId") Long bookId, @ApiParam("当前页码") @RequestParam(value = "curr", defaultValue = "1") int page, @ApiParam("分页大小") @RequestParam(value = "limit", defaultValue = "5") int pageSize) {
-        return ResultBean.ok(new PageBean<>(bookService.listBookCommentByPage(bookId,page,pageSize)));
+        return ResultBean.ok(bookService.listBookCommentByPage(bookId,page,pageSize));
     }
 
     /**

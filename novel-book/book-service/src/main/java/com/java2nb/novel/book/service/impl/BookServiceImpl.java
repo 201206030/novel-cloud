@@ -6,6 +6,7 @@ import com.java2nb.novel.book.feign.UserFeignClient;
 import com.java2nb.novel.book.mapper.*;
 import com.java2nb.novel.book.service.BookService;
 import com.java2nb.novel.book.vo.BookCommentVO;
+import com.java2nb.novel.common.bean.PageBean;
 import com.java2nb.novel.common.enums.ResponseStatus;
 import com.java2nb.novel.common.exception.BusinessException;
 import com.java2nb.novel.common.utils.BeanUtil;
@@ -170,7 +171,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookCommentVO> listBookCommentByPage(Long bookId, int page, int pageSize) {
+    public PageBean<BookComment> listBookCommentByPage(Long bookId, int page, int pageSize) {
         //分页查询小说评论数据
         PageHelper.startPage(page, pageSize);
         List<BookComment> bookCommentList = bookCommentMapper.selectMany(
@@ -189,9 +190,9 @@ public class BookServiceImpl implements BookService {
 
         Map<Long, User> userMap = users.stream().collect(Collectors.toMap(User::getId, Function.identity(), (key1, key2) -> key2));
 
-        //将评论数据和评论人数据关联起来
+        //将评论数据和评论人数据关联起来 TODO 评论表增加用户相关的冗余字段，用户信息更新后用户服务通过mq发送message，其他服务消费message更新所有的冗余字段
         List<BookCommentVO> resultList = new ArrayList<>(bookCommentList.size());
-        for (BookComment bookComment : bookCommentList) {
+        bookCommentList.forEach(bookComment->{
             BookCommentVO bookCommentVO = new BookCommentVO();
             BeanUtils.copyProperties(bookComment, bookCommentVO);
             User user = userMap.get(bookComment.getCreateUserId());
@@ -200,9 +201,11 @@ public class BookServiceImpl implements BookService {
                 bookCommentVO.setCreateUserPhoto(user.getUserPhoto());
             }
             resultList.add(bookCommentVO);
-        }
+        });
+        PageBean<BookComment> pageBean = new PageBean<>(bookCommentList);
+        pageBean.setList(resultList);
 
-        return resultList;
+        return pageBean;
     }
 
     @Override
@@ -308,9 +311,9 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookComment> listUserCommentByPage(Long userId, int page, int pageSize) {
+    public PageBean<BookComment> listUserCommentByPage(Long userId, int page, int pageSize) {
         PageHelper.startPage(page, pageSize);
-        return bookCommentMapper.selectMany(
+        return new PageBean<>(bookCommentMapper.selectMany(
                 select(BookCommentDynamicSqlSupport.id, BookCommentDynamicSqlSupport.bookId,
                         BookCommentDynamicSqlSupport.createUserId,
                         BookCommentDynamicSqlSupport.commentContent, BookCommentDynamicSqlSupport.replyCount,
@@ -319,7 +322,7 @@ public class BookServiceImpl implements BookService {
                         .where(BookCommentDynamicSqlSupport.createUserId, isEqualTo(userId))
                         .orderBy(BookCommentDynamicSqlSupport.createTime.descending())
                         .build()
-                        .render(RenderingStrategies.MYBATIS3));
+                        .render(RenderingStrategies.MYBATIS3)));
     }
 
     @Override

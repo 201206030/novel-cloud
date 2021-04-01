@@ -2,7 +2,6 @@ package com.java2nb.novel.home.controller;
 
 import com.java2nb.novel.book.entity.Book;
 import com.java2nb.novel.book.vo.BookVO;
-import com.java2nb.novel.common.bean.PageBean;
 import com.java2nb.novel.common.bean.ResultBean;
 import com.java2nb.novel.home.entity.HomeFriendLink;
 import com.java2nb.novel.home.service.HomeService;
@@ -10,10 +9,11 @@ import com.java2nb.novel.home.vo.HomeBookVO;
 import com.java2nb.novel.news.entity.News;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

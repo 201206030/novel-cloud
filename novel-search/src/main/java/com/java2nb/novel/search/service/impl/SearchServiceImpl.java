@@ -210,11 +210,7 @@ public class SearchServiceImpl implements SearchService {
                 }
             }
 
-            PageBean<EsBookVO> pageBean = new PageBean<>(bookList);
-            pageBean.setTotal(total.longValue());
-            pageBean.setPageNum(page);
-            pageBean.setPageSize(pageSize);
-            return pageBean;
+            return new PageBean<>(page,pageSize,total.longValue(), bookList);
         }
         throw new BusinessException(ResponseStatus.ES_SEARCH_FAIL);
     }

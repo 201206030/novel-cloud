@@ -1,9 +1,12 @@
 package com.java2nb.novel.user.service;
 
 
+import com.java2nb.novel.common.bean.PageBean;
 import com.java2nb.novel.common.bean.UserDetails;
 import com.java2nb.novel.user.entity.User;
+import com.java2nb.novel.user.entity.UserBookshelf;
 import com.java2nb.novel.user.entity.UserFeedback;
+import com.java2nb.novel.user.entity.UserReadHistory;
 import com.java2nb.novel.user.vo.BookReadHistoryVO;
 import com.java2nb.novel.user.vo.BookShelfVO;
 
@@ -82,9 +85,9 @@ public interface UserService {
      * @param userId   用户ID
      * @param page
      * @param pageSize
-     * @return 书架集合
+     * @return 书架分页集合
      */
-    List<BookShelfVO> listBookShelfByPage(Long userId, int page, int pageSize);
+    PageBean<UserBookshelf> listBookShelfByPage(Long userId, int page, int pageSize);
 
     /**
      * 分页查询阅读记录
@@ -94,7 +97,7 @@ public interface UserService {
      * @param pageSize 分页大小
      * @return
      */
-    List<BookReadHistoryVO> listReadHistoryByPage(Long userId, int page, int pageSize);
+    PageBean<UserReadHistory> listReadHistoryByPage(Long userId, int page, int pageSize);
 
     /**
      * 添加阅读记录
@@ -121,7 +124,7 @@ public interface UserService {
      * @param pageSize 分页大小
      * @return 反馈集合
      * */
-    List<UserFeedback> listUserFeedBackByPage(Long userId, int page, int pageSize);
+    PageBean<UserFeedback> listUserFeedBackByPage(Long userId, int page, int pageSize);
 
     /**
      * 查询个人信息

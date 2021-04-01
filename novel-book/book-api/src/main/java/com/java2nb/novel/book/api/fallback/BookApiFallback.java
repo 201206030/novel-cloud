@@ -3,6 +3,7 @@ package com.java2nb.novel.book.api.fallback;
 import com.java2nb.novel.book.api.BookApi;
 import com.java2nb.novel.book.entity.Book;
 import com.java2nb.novel.book.entity.BookComment;
+import com.java2nb.novel.common.bean.PageBean;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,8 +44,8 @@ public class BookApiFallback implements BookApi {
     }
 
     @Override
-    public List<BookComment> listUserCommentByPage(Long userId, int page, int pageSize) {
-        return new ArrayList<>();
+    public PageBean<BookComment> listUserCommentByPage(Long userId, int page, int pageSize) {
+        return new PageBean<>(new ArrayList<>());
     }
 
     @Override
