@@ -2,6 +2,7 @@ package com.java2nb.novel.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -20,13 +21,14 @@ import static com.google.common.collect.Lists.newArrayList;
 
 /**
  * Swagger2API文档的配置
- *
+ * 仅仅在dev环境下该配置才生效
  * @author xiongxiaoyang
  * @version 1.0
  * @since 2020/5/27
  */
 @Configuration
 @EnableSwagger2
+@Profile("dev")
 public class Swagger2Config {
     @Bean
     public Docket createRestApi() {
