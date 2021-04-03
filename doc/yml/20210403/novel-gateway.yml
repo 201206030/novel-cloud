@@ -1,0 +1,68 @@
+management: #开启SpringBoot Admin的监控
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+server:
+  port: 527
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.106.243.172:8848
+        namespace: 3960c71a-62ac-4b8f-8c30-bba8e8143a0c
+    gateway:
+      routes:
+        - id: home-route
+          uri: lb://novel-home 
+          predicates:
+            - Path=/api/home/** 
+          filters:
+            #注意过滤器按顺序执行，下面的顺序不能打乱
+            - SwaggerFilter
+            - RewritePath=/api/(?<segment>.*), /$\{segment}                       
+        - id: news-route
+          uri: lb://news-service 
+          predicates:
+            - Path=/api/news/** 
+          filters:
+            #注意过滤器按顺序执行，下面的顺序不能打乱
+            - SwaggerFilter
+            - RewritePath=/api/(?<segment>.*), /$\{segment}
+        - id: user-route
+          uri: lb://user-service 
+          predicates:
+            - Path=/api/user/** 
+          filters:
+            #注意过滤器按顺序执行，下面的顺序不能打乱
+            - SwaggerFilter
+            - RewritePath=/api/(?<segment>.*), /$\{segment} 
+        - id: book-route
+          uri: lb://book-service 
+          predicates:
+            - Path=/api/book/** 
+          filters:
+            #注意过滤器按顺序执行，下面的顺序不能打乱
+            - SwaggerFilter
+            - RewritePath=/api/(?<segment>.*), /$\{segment}
+        - id: search-route
+          uri: lb://novel-search 
+          predicates:
+            - Path=/api/search/** 
+          filters:
+            #注意过滤器按顺序执行，下面的顺序不能打乱
+            - SwaggerFilter
+            - RewritePath=/api/(?<segment>.*), /$\{segment} 
+        - id: monitor-route
+          uri: lb://novel-monitor  
+          predicates:
+            - Path=/monitor/**  
+          filters:
+            - RewritePath=/monitor/(?<segment>.*), /$\{segment}
+                                   
+
+        

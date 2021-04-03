@@ -9,6 +9,11 @@ spring:
         file-extension: yml
         group: ${spring.application.name}
         namespace: 3960c71a-62ac-4b8f-8c30-bba8e8143a0c
+    #关闭Spring自带的X-Forwarded-Prefix设置
+    gateway:
+      x-forwarded:
+        prefix-enabled: false
 
   main:
     allow-bean-definition-overriding: true
+
