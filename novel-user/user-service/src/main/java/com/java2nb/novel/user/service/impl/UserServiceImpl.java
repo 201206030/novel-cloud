@@ -224,7 +224,7 @@ public class UserServiceImpl implements UserService {
                 resultList.add(readHistoryVO);
             }
         });
-        PageBean<UserReadHistory> pageBean = new PageBean(userReadHistories);
+        PageBean<UserReadHistory> pageBean = new PageBean<>(userReadHistories);
         pageBean.setList(resultList);
         return pageBean;
     }
