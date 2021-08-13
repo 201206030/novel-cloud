@@ -2,7 +2,6 @@ package com.java2nb.novel.user.controller;
 
 import com.java2nb.novel.book.entity.BookComment;
 import com.java2nb.novel.common.base.BaseController;
-import com.java2nb.novel.common.bean.PageBean;
 import com.java2nb.novel.common.bean.ResultBean;
 import com.java2nb.novel.common.bean.UserDetails;
 import com.java2nb.novel.common.cache.CacheService;
@@ -11,11 +10,8 @@ import com.java2nb.novel.common.utils.RandomValidateCodeUtil;
 import com.java2nb.novel.common.valid.AddGroup;
 import com.java2nb.novel.common.valid.UpdateGroup;
 import com.java2nb.novel.user.entity.User;
-import com.java2nb.novel.user.entity.UserFeedback;
 import com.java2nb.novel.user.feign.BookFeignClient;
 import com.java2nb.novel.user.service.UserService;
-import com.java2nb.novel.user.vo.BookReadHistoryVO;
-import com.java2nb.novel.user.vo.BookShelfVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -53,7 +49,7 @@ public class UserController extends BaseController {
      */
     @ApiOperation("用户登陆接口")
     @GetMapping("login")
-    public ResultBean login(User user) {
+    public ResultBean<Map<String, Object>> login(User user) {
         //登陆
         UserDetails userDetails = userService.login(user);
 
@@ -70,7 +66,7 @@ public class UserController extends BaseController {
      */
     @ApiOperation("用户注册接口")
     @PostMapping("register")
-    public ResultBean register(@Validated({AddGroup.class}) User user, @RequestParam(value = "velCode", defaultValue = "") String velCode) {
+    public ResultBean<?> register(@Validated({AddGroup.class}) User user, @RequestParam(value = "velCode", defaultValue = "") String velCode) {
 
 
         //判断验证码是否正确
@@ -93,7 +89,7 @@ public class UserController extends BaseController {
      */
     @ApiOperation("token刷新接口")
     @PostMapping("refreshToken")
-    public ResultBean<Map<String, Object>> refreshToken(HttpServletRequest request) {
+    public ResultBean<?> refreshToken(HttpServletRequest request) {
         String token = getToken(request);
         if (jwtTokenUtil.canRefresh(token)) {
             token = jwtTokenUtil.refreshToken(token);
@@ -115,7 +111,7 @@ public class UserController extends BaseController {
      */
     @ApiOperation("小说加入书架状态查询接口")
     @GetMapping("queryIsInShelf")
-    public ResultBean queryIsInShelf(Long bookId, HttpServletRequest request) {
+    public ResultBean<?> queryIsInShelf(Long bookId, HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
@@ -128,7 +124,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("小说加入书架接口")
     @PostMapping("addToBookShelf")
-    public ResultBean addToBookShelf(Long bookId,Long preContentId, HttpServletRequest request) {
+    public ResultBean<?> addToBookShelf(Long bookId,Long preContentId, HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
@@ -142,7 +138,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("小说移出书架接口")
     @DeleteMapping("removeFromBookShelf")
-    public ResultBean removeFromBookShelf(Long bookId, HttpServletRequest request) {
+    public ResultBean<?> removeFromBookShelf(Long bookId, HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
@@ -156,7 +152,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("书架列表分页查询接口")
     @GetMapping("listBookShelfByPage")
-    public ResultBean<PageBean<BookShelfVO>> listBookShelfByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "10") int pageSize, HttpServletRequest request) {
+    public ResultBean<?> listBookShelfByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "10") int pageSize, HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
@@ -169,7 +165,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("阅读记录分页查询接口")
     @GetMapping("listReadHistoryByPage")
-    public ResultBean<PageBean<BookReadHistoryVO>> listReadHistoryByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "10") int pageSize, HttpServletRequest request) {
+    public ResultBean<?> listReadHistoryByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "10") int pageSize, HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
@@ -182,7 +178,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("阅读记录添加接口")
     @PostMapping("addReadHistory")
-    public ResultBean addReadHistory(Long bookId,Long preContentId, HttpServletRequest request) {
+    public ResultBean<?> addReadHistory(Long bookId,Long preContentId, HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
@@ -196,7 +192,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("反馈添加接口")
     @PostMapping("addFeedBack")
-    public ResultBean addFeedBack(String content, HttpServletRequest request) {
+    public ResultBean<?> addFeedBack(String content, HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
@@ -210,7 +206,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("反馈列表分页查询接口")
     @GetMapping("listUserFeedBackByPage")
-    public ResultBean<PageBean<UserFeedback>> listUserFeedBackByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "5") int pageSize, HttpServletRequest request){
+    public ResultBean<?> listUserFeedBackByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "5") int pageSize, HttpServletRequest request){
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
@@ -224,7 +220,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("人信息查询接口")
     @GetMapping("userInfo")
-    public ResultBean<User> userInfo(HttpServletRequest request) {
+    public ResultBean<?> userInfo(HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
@@ -238,7 +234,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("人信息更新接口")
     @PostMapping("updateUserInfo")
-    public ResultBean updateUserInfo(@Validated({UpdateGroup.class}) User user, HttpServletRequest request) {
+    public ResultBean<?> updateUserInfo(@Validated({UpdateGroup.class}) User user, HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
@@ -258,7 +254,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("更新密码接口")
     @PostMapping("updatePassword")
-    public ResultBean updatePassword(String oldPassword,String newPassword1,String newPassword2,HttpServletRequest request) {
+    public ResultBean<?> updatePassword(String oldPassword,String newPassword1,String newPassword2,HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
@@ -275,7 +271,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("发布评价接口")
     @PostMapping("addBookComment")
-    public ResultBean addBookComment(BookComment comment, HttpServletRequest request) {
+    public ResultBean<?> addBookComment(BookComment comment, HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);
@@ -289,7 +285,7 @@ public class UserController extends BaseController {
      * */
     @ApiOperation("用户书评分页查询接口")
     @GetMapping("listCommentByPage")
-    public ResultBean<PageBean<BookComment>> listCommentByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "5") int pageSize,HttpServletRequest request) {
+    public ResultBean<?> listCommentByPage(@RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "5") int pageSize,HttpServletRequest request) {
         UserDetails userDetails = getUserDetails(request);
         if (userDetails == null) {
             return ResultBean.fail(ResponseStatus.NO_LOGIN);

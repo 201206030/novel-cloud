@@ -1,6 +1,7 @@
 package com.java2nb.novel.news.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.java2nb.novel.common.bean.PageBean;
 import com.java2nb.novel.common.bean.ResultBean;
 import com.java2nb.novel.news.entity.News;
 import com.java2nb.novel.news.service.NewsService;
@@ -37,8 +38,8 @@ public class NewsController {
      * */
     @ApiOperation("分页查询新闻列表接口")
     @GetMapping("listByPage")
-    public ResultBean<List<NewsVO>> listByPage(@ApiParam("当前页码") @RequestParam(value = "curr", defaultValue = "1") int page, @ApiParam("每页大小") @RequestParam(value = "limit", defaultValue = "5") int pageSize){
-        return ResultBean.ok(new PageInfo<>(newsService.listByPage(page,pageSize)));
+    public ResultBean<PageBean<News>> listByPage(@ApiParam("当前页码") @RequestParam(value = "curr", defaultValue = "1") int page, @ApiParam("每页大小") @RequestParam(value = "limit", defaultValue = "5") int pageSize){
+        return ResultBean.ok(newsService.listByPage(page,pageSize));
     }
 
     /**

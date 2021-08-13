@@ -1,6 +1,7 @@
 package com.java2nb.novel.news.service;
 
 
+import com.java2nb.novel.common.bean.PageBean;
 import com.java2nb.novel.news.entity.News;
 import com.java2nb.novel.news.vo.NewsVO;
 
@@ -20,7 +21,7 @@ public interface NewsService {
      * @param pageSize 分页大小
      * @return 新闻列表集合
      * */
-    List<NewsVO> listByPage(int page, int pageSize);
+    PageBean<News> listByPage(int page, int pageSize);
 
     /**
      * 查询最新新闻集合

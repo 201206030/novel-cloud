@@ -1,9 +1,6 @@
 package com.java2nb.novel.book.controller;
 
-import com.java2nb.novel.book.entity.Book;
-import com.java2nb.novel.book.entity.BookCategory;
-import com.java2nb.novel.book.entity.BookContent;
-import com.java2nb.novel.book.entity.BookIndex;
+import com.java2nb.novel.book.entity.*;
 import com.java2nb.novel.book.service.BookService;
 import com.java2nb.novel.book.vo.BookCommentVO;
 import com.java2nb.novel.common.bean.PageBean;
@@ -106,7 +103,7 @@ public class BookController {
      * */
     @ApiOperation("书籍评论列表分页查询接口")
     @GetMapping("listCommentByPage")
-    public ResultBean<List<BookCommentVO>> listCommentByPage(@ApiParam("小说ID") @RequestParam("bookId") Long bookId, @ApiParam("当前页码") @RequestParam(value = "curr", defaultValue = "1") int page, @ApiParam("分页大小") @RequestParam(value = "limit", defaultValue = "5") int pageSize) {
+    public ResultBean<PageBean<BookComment>> listCommentByPage(@ApiParam("小说ID") @RequestParam("bookId") Long bookId, @ApiParam("当前页码") @RequestParam(value = "curr", defaultValue = "1") int page, @ApiParam("分页大小") @RequestParam(value = "limit", defaultValue = "5") int pageSize) {
         return ResultBean.ok(bookService.listBookCommentByPage(bookId,page,pageSize));
     }
 
