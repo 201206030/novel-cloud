@@ -1,6 +1,7 @@
 package com.java2nb.novel.news.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.java2nb.novel.common.bean.PageBean;
 import com.java2nb.novel.common.utils.BeanUtil;
 import com.java2nb.novel.news.entity.News;
 import com.java2nb.novel.news.mapper.NewsDynamicSqlSupport;
@@ -32,7 +33,7 @@ public class NewsServiceImpl implements NewsService {
 
 
     @Override
-    public List<NewsVO> listByPage(int page, int pageSize) {
+    public PageBean<News> listByPage(int page, int pageSize) {
         PageHelper.startPage(page,pageSize);
         SelectStatementProvider selectStatement =
                 select(NewsDynamicSqlSupport.id, NewsDynamicSqlSupport.catName,
@@ -42,7 +43,11 @@ public class NewsServiceImpl implements NewsService {
                 .build()
                 .render(RenderingStrategies.MYBATIS3);
 
-        return BeanUtil.copyList(newsMapper.selectMany(selectStatement), NewsVO.class);
+        List<News> news = newsMapper.selectMany(selectStatement);
+
+        PageBean<News> pageBean = new PageBean<>(news);
+        pageBean.setList(BeanUtil.copyList(newsMapper.selectMany(selectStatement), NewsVO.class));
+        return pageBean;
     }
 
     @Override
