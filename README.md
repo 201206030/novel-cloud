@@ -1,7 +1,3 @@
-[![index]( https://z3.ax1x.com/2021/11/11/IwNJAg.jpg )]( https://cloud.tencent.com/act/cps/redirect?redirect=1052&cps_key=736e609d66e0ac4e57813316cec6fd0b&from=console )
-
-# novel-cloud
-
 [![Github stars](https://img.shields.io/github/stars/201206030/novel-cloud?logo=github)](https://github.com/201206030/novel-cloud)
 [![Github forks](https://img.shields.io/github/forks/201206030/novel-cloud?logo=github)](https://github.com/201206030/novel-cloud)
 [![Gitee star](https://gitee.com/novel_dev_team/novel-cloud/badge/star.svg?theme=gitee)](https://gitee.com/novel_dev_team/novel-cloud)
@@ -11,6 +7,10 @@
 #### 官网
 
 https://201206030.github.io
+
+#### 学习版
+
+[基于 Sprint Boot 3 + Vue 3 开发的前后端分离学习型小说项目](https://github.com/201206030/novel)
 
 #### 背景
 
@@ -233,7 +233,5 @@ GitHub仓库地址：  https://github.com/201206030/novel-cloud
 开源项目不易，若此项目能得到你的青睐，可以捐赠支持作者持续开发与维护。
 
 ![mini-code](https://s1.ax1x.com/2020/10/31/BUQJwq.png)
-
-[![index](https://s1.ax1x.com/2020/07/03/NOSuMF.jpg)](https://www.aliyun.com/minisite/goods?userCode=uf4nasee )
 
 # 部分截图在github上可能无法正常显示，请下载到本地查看。
