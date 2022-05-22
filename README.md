@@ -1,3 +1,5 @@
+[![index]( https://s1.ax1x.com/2022/05/17/O5tgbR.png )]( https://curl.qcloud.com/kgMaOjoq )
+
 [![Github stars](https://img.shields.io/github/stars/201206030/novel-cloud?logo=github)](https://github.com/201206030/novel-cloud)
 [![Github forks](https://img.shields.io/github/forks/201206030/novel-cloud?logo=github)](https://github.com/201206030/novel-cloud)
 [![Gitee star](https://gitee.com/novel_dev_team/novel-cloud/badge/star.svg?theme=gitee)](https://gitee.com/novel_dev_team/novel-cloud)
@@ -18,23 +20,22 @@ https://201206030.github.io
 
 #### 介绍
 
-Novel-Cloud是基于[小说精品屋-plus](https://www.oschina.net/p/novel-plus)构建的Spring Cloud 微服务小说门户学习平台，致力于原创文学阅读与写作，提供了爬虫工具用于开发过程中测试数据的采集（爬虫项目和小说精品屋-plus通用）。采用了Spring Boot 2.2.5.RELEASE 、Spring Cloud Hoxton.SR4、 MyBatis3DynamicSql、Sharding-Jdbc、Redis、RabbitMq、Elasticsearch、Docker等流行技术，集成了Nacos注册中心/配置中心、Spring Cloud Gateway网关、Spring Boot Admin监控中心、ELK分布式日志分析等基础服务。前端计划使用Vue开发，后台接口一期开发已完成（充值/作家专区除外的所有接口）。
+novel-cloud 是基于 [novel-plus](https://www.oschina.net/p/novel-plus) 构建的 Spring Cloud 微服务小说门户学习平台，致力于原创文学阅读与写作，提供了爬虫工具用于开发过程中测试数据的采集（爬虫项目和 novel-plus 通用）。采用了 Spring Boot 2.2.5.RELEASE 、Spring Cloud Hoxton.SR4、 MyBatis3DynamicSql、Sharding-Jdbc、Redis、RabbitMQ、Elasticsearch、Docker 等流行技术，集成了 Nacos 注册中心/配置中心、Spring Cloud Gateway 网关、Spring Boot Admin 监控中心、ELK 分布式日志分析等基础服务。前端计划使用 Vue 开发，后台接口一期开发已完成（充值/作家专区除外的所有接口）。
 
 #### 软件架构
 
 ![QQ20200520-215756](https://s3.ax1x.com/2020/12/09/r92rrT.png)
-
 
 #### 项目结构
 
 ```
 novel-cloud
 ├── novel-common -- 通用模块，供其他业务微服务模块依赖
-├── novel-gen -- 持久层代码生成器，集成Swagger
-├── novel-gateway -- 基于Spring Cloud Gateway构建的网关服务
-├── novel-monitor -- 基于Spring Boot Admin构建的监控中心
-├── novel-search -- 基于Elastic Search构建的搜索微服务
-├── novel-file -- 基于阿里云OSS构建的文件微服务
+├── novel-gen -- 持久层代码生成器，集成 Swagger
+├── novel-gateway -- 基于 Spring Cloud Gateway 构建的网关服务
+├── novel-monitor -- 基于 Spring Boot Admin 构建的监控中心
+├── novel-search -- 基于 Elasticsearch 构建的搜索微服务
+├── novel-file -- 基于 Aliyun OSS 构建的文件微服务
 ├── novel-home -- 门户首页微服务
 ├── novel-news -- 新闻中心微服务
 ├── novel-user -- 用户中心微服务
@@ -45,32 +46,32 @@ novel-cloud
 
 #### 技术选型
 
-| 技术                 | 说明                                                         
-| --------------------| ---------------------------
-| SpringBoot          | Spring应用快速开发脚手架     
-| SpringCloud         | 微服务架构解决方案 
-| Nacos               | 注册中心和配置中心
+| 技术                   | 说明                                                         
+|----------------------| ---------------------------
+| Spring Boot          | Spring 应用快速开发脚手架     
+| Spring Cloud         | 微服务架构解决方案 
+| Nacos                | 注册中心和配置中心
 | Sentine              | 限流/熔断/降级
-| SpringCloud Gateway | 微服务网关
-| SpringBoot Admin    | 微服务监控
-| MyBatis             | 持久层ORM框架 
-| MyBatis Dynamic SQL | Mybatis动态sql
-| PageHelper          | MyBatis分页插件
-| MyBatisGenerator    | 持久层代码生成插件
-| Seata               | 分布式事务中间件（待应用）
-| Sharding-Jdbc       | 代码层分库分表中间件
-| JJWT                | JWT登录支持  
-| Redis               | 分布式缓存                              
-| ElasticSearch       | 搜索引擎                
-| RabbitMq            | 消息队列
-| OSS                 | 阿里云对象存储服务   
-| Mysql               | 数据库服务                 
-| Redisson            | 实现分布式锁                                       
-| Lombok              | 简化对象封装工具  
-| Swagger             | API文档生成工具                                                                              
-| Docker              | 应用容器引擎   
-| Logstash                 | 分布式日志采集   
-| Vue                 | 前端开发框架
+| Spring Cloud Gateway | 微服务网关
+| Spring Boot Admin    | 微服务监控
+| MyBatis              | 持久层 ORM 框架 
+| MyBatis Dynamic SQL  | Mybatis 动态 sql
+| PageHelper           | MyBatis 分页插件
+| MyBatisGenerator     | 持久层代码生成插件
+| Seata                | 分布式事务中间件（待应用）
+| Sharding-Jdbc        | 代码层分库分表中间件
+| JJWT                 | JWT 登录支持  
+| Redis                | 分布式缓存                              
+| Elasticsearch        | 搜索引擎                
+| RabbitMQ             | 消息队列
+| Aliyun OSS           | 阿里云对象存储服务   
+| MySQL                | 数据库服务                 
+| Redisson             | 实现分布式锁                                       
+| Lombok               | 简化对象封装工具  
+| Swagger              | API 文档生成工具                                                                              
+| Docker               | 应用容器引擎   
+| Logstash             | 分布式日志采集   
+| Vue                  | 前端开发框架
 
 #### 数据模型
 
@@ -116,22 +117,22 @@ novel-cloud
 
 #### 安装步骤
 
-1. 下载源码，如果是ZIP包，下载后需要解压。
+1. 下载源码，如果是 ZIP 包，下载后需要解压。
 
    ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvN6UO.md.png)
 
 2. 开发环境配置，请确保开发机器上已安装如下软件环境。
-   - [x] Java开发工具包jdk1.8+
-   - [x] IDE（Eclipse或IntelliJ IDEA）
-   - [x] 项目管理工具maven
-   - [x] 微服务注册中心/配置中心nacos
-   - [x] 分布式缓存服务Redis
-   - [x] 搜索引擎服务ElasticSearch
-   - [x] ElasticSearch可视化客户端Kibana
-   - [x] 消息中间件RabbitMq
-   - [x] 数据库服务Mysql
+   - [x] Java 开发工具包 jdk1.8+
+   - [x] IDE（Eclipse 或 IntelliJ IDEA）
+   - [x] 项目管理工具 maven
+   - [x] 微服务注册中心/配置中心 nacos
+   - [x] 分布式缓存服务 Redis
+   - [x] 搜索引擎服务 Elasticsearch
+   - [x] Elasticsearch 可视化客户端 Kibana
+   - [x] 消息中间件 RabbitMQ
+   - [x] 数据库服务 MySQL
    
-3. 登陆nacos配置中心导入下载源码中的配置文件。
+3. 登陆 nacos 配置中心导入下载源码中的配置文件。
 
    ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvN2Pe.png)
    
@@ -141,11 +142,11 @@ novel-cloud
 
    ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvNXxs.png)
 
-4. 使用IDE导入下载的源码（这里以IntelliJ IDEA为例）。
+4. 使用 IDE 导入下载的源码（这里以 IntelliJ IDEA 为例）。
 
    ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUCIU.png)
 
-5. 修改通用配置中的配置中心地址和命名空间ID。
+5. 修改通用配置中的配置中心地址和命名空间 ID。
 
    ![image-20200529182810929](https://s3.ax1x.com/2020/11/11/BvUAz9.png)
 
@@ -157,13 +158,13 @@ novel-cloud
 
      ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUJsI.png)
 
-   - 修改网关配置文件注册中心地址和命名空间ID
+   - 修改网关配置文件注册中心地址和命名空间 ID
 
    ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUwFS.jpg)
 
    ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUDzj.png)
 
-   - 启动网关服务novel-gateway
+   - 启动网关服务 novel-gateway
 
      ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvU6Lq.jpg)
 
@@ -171,11 +172,11 @@ novel-cloud
 
 7. 启动监控服务。
 
-   - 修改监控服务的配置中心地址和命名空间ID![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvU4W4.png)
+   - 修改监控服务的配置中心地址和命名空间 ID![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvU4W4.png)
 
-   - 修改监控微服务的注册中心地址和命名空间ID以及登陆的用户名和密码![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUqw6.png)
+   - 修改监控微服务的注册中心地址和命名空间 ID以及登陆的用户名和密码![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUqw6.png)
 
-   - 启动监控服务novel-monitor，启动方法和网关服务相同
+   - 启动监控服务 novel-monitor，启动方法和网关服务相同
 
    - 访问监控服务，因为网关中配置了监控服务的路由，所以可直接或通过网关来访问监控服务：http://<网关ip>:<网关端口号>/monitor
 
@@ -185,9 +186,9 @@ novel-cloud
 
 8. 启动业务微服务，这里以小说微服务为例。
 
-   - 修改网关配置文件book-service.yml中的注册中心地址和命名空间ID，以及其他配置（数据库/redis/elasticsearch/mq等），方法同上
+   - 修改网关配置文件 book-service.yml 中的注册中心地址和命名空间ID，以及其他配置（数据库/redis/elasticsearch/mq等），方法同上
 
-   - 启动novel-service服务，方法同上
+   - 启动 novel-service 服务，方法同上
 
    - 访问接口文档:http://<服务IP>:<服务端口号>/swagger-ui.html，
 
@@ -206,7 +207,7 @@ novel-cloud
     - 访问登陆接口获取JWT![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUzSH.png)
     ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvRtIJ.png)
 
-    - 设置JWT认证![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvRwxx.png)
+    - 设置 JWT 认证![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvRwxx.png)
 
     - 访问需要认证的接口![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvRBM6.png)
 
@@ -214,9 +215,9 @@ novel-cloud
 
 #### 代码仓库
 
-Gitee仓库地址： https://gitee.com/xiongxyang/novel-cloud
+Gitee 仓库地址： https://gitee.com/xiongxyang/novel-cloud
 
-GitHub仓库地址：  https://github.com/201206030/novel-cloud
+Github 仓库地址：  https://github.com/201206030/novel-cloud
 
 #### QQ交流群
 
@@ -226,12 +227,9 @@ GitHub仓库地址：  https://github.com/201206030/novel-cloud
 
 ![mini-code](https://s3.ax1x.com/2020/12/03/DoImOx.png)
 
-#### 
-
 #### 捐赠支持
 
 开源项目不易，若此项目能得到你的青睐，可以捐赠支持作者持续开发与维护。
 
 ![mini-code](https://s1.ax1x.com/2020/10/31/BUQJwq.png)
 
-# 部分截图在github上可能无法正常显示，请下载到本地查看。
