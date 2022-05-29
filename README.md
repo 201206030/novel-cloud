@@ -20,7 +20,7 @@ https://201206030.github.io
 
 #### 介绍
 
-novel-cloud 是基于 [novel-plus](https://www.oschina.net/p/novel-plus) 构建的 Spring Cloud 微服务小说门户学习平台，致力于原创文学阅读与写作，提供了爬虫工具用于开发过程中测试数据的采集（爬虫项目和 novel-plus 通用）。采用了 Spring Boot 2.2.5.RELEASE 、Spring Cloud Hoxton.SR4、 MyBatis3DynamicSql、Sharding-Jdbc、Redis、RabbitMQ、Elasticsearch、Docker 等流行技术，集成了 Nacos 注册中心/配置中心、Spring Cloud Gateway 网关、Spring Boot Admin 监控中心、ELK 分布式日志分析等基础服务。前端计划使用 Vue 开发，后台接口一期开发已完成（充值/作家专区除外的所有接口）。
+novel-cloud 是基于 [novel-plus](https://www.oschina.net/p/novel-plus) 构建的 Spring Cloud 微服务小说门户学习平台，致力于原创文学阅读与写作，提供了爬虫工具用于开发过程中测试数据的采集（爬虫项目和 novel-plus 通用）。采用了 Spring Boot 2.2.5.RELEASE 、Spring Cloud Hoxton.SR4、 MyBatis3 Dynamic SQL、Sharding-JDBC、Redis、RabbitMQ、Elasticsearch、Docker 等流行技术，集成了 Nacos 注册中心/配置中心、Spring Cloud Gateway 网关、Spring Boot Admin 监控中心、ELK 分布式日志分析等基础服务。前端计划使用 Vue 开发，后台接口一期开发已完成（充值/作家专区除外的所有接口）。
 
 #### 软件架构
 
@@ -51,15 +51,15 @@ novel-cloud
 | Spring Boot          | Spring 应用快速开发脚手架     
 | Spring Cloud         | 微服务架构解决方案 
 | Nacos                | 注册中心和配置中心
-| Sentine              | 限流/熔断/降级
+| Sentinel             | 限流/熔断/降级
 | Spring Cloud Gateway | 微服务网关
 | Spring Boot Admin    | 微服务监控
 | MyBatis              | 持久层 ORM 框架 
-| MyBatis Dynamic SQL  | Mybatis 动态 sql
+| MyBatis Dynamic SQL  | MyBatis 动态 SQL
 | PageHelper           | MyBatis 分页插件
-| MyBatisGenerator     | 持久层代码生成插件
+| MyBatis Generator    | 持久层代码生成插件
 | Seata                | 分布式事务中间件（待应用）
-| Sharding-Jdbc        | 代码层分库分表中间件
+| Sharding-JDBC        | 代码层分库分表中间件
 | JJWT                 | JWT 登录支持  
 | Redis                | 分布式缓存                              
 | Elasticsearch        | 搜索引擎                
@@ -71,7 +71,7 @@ novel-cloud
 | Swagger              | API 文档生成工具                                                                              
 | Docker               | 应用容器引擎   
 | Logstash             | 分布式日志采集   
-| Vue                  | 前端开发框架
+| Vue.js               | 前端开发框架
 
 #### 数据模型
 
@@ -95,21 +95,19 @@ novel-cloud
 
    ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvN99H.png)
 
-   
+4. 接口文档
 
-   4. 接口文档
-
-      ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNkut.png)
+   ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNkut.png)
       
-      ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNK3j.png)
+   ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNK3j.png)
       
-      ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNUC4.md.png)
+   ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNUC4.md.png)
    
-   5. 分布式日志收集
+5. 分布式日志收集
    
-      ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNd29.md.png)
+   ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNd29.md.png)
    
-   6. 门户网站
+6. 门户网站
    
    ![QQ20200520-215756](https://s3.ax1x.com/2020/11/11/BvNBK1.md.png)
    
@@ -124,15 +122,15 @@ novel-cloud
 2. 开发环境配置，请确保开发机器上已安装如下软件环境。
    - [x] Java 开发工具包 jdk1.8+
    - [x] IDE（Eclipse 或 IntelliJ IDEA）
-   - [x] 项目管理工具 maven
-   - [x] 微服务注册中心/配置中心 nacos
+   - [x] 项目管理工具 Maven
+   - [x] 微服务注册中心/配置中心 Nacos
    - [x] 分布式缓存服务 Redis
    - [x] 搜索引擎服务 Elasticsearch
    - [x] Elasticsearch 可视化客户端 Kibana
    - [x] 消息中间件 RabbitMQ
    - [x] 数据库服务 MySQL
    
-3. 登陆 nacos 配置中心导入下载源码中的配置文件。
+3. 登陆 Nacos 配置中心导入下载源码中的配置文件。
 
    ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvN2Pe.png)
    
@@ -154,7 +152,7 @@ novel-cloud
 
 6. 启动微服务网关。
 
-   - 修改网关服务的配置中心地址和命名空间ID
+   - 修改网关服务的配置中心地址和命名空间 ID
 
      ![image-20200529173322783](https://s3.ax1x.com/2020/11/11/BvUJsI.png)
 
