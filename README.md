@@ -1,9 +1,11 @@
-[![index]( https://s1.ax1x.com/2022/05/17/O5tgbR.png )]( https://curl.qcloud.com/kgMaOjoq )
-
-[![Github stars](https://img.shields.io/github/stars/201206030/novel-cloud?logo=github)](https://github.com/201206030/novel-cloud)
-[![Github forks](https://img.shields.io/github/forks/201206030/novel-cloud?logo=github)](https://github.com/201206030/novel-cloud)
-[![Gitee star](https://gitee.com/novel_dev_team/novel-cloud/badge/star.svg?theme=gitee)](https://gitee.com/novel_dev_team/novel-cloud)
-[![Gitee fork](https://gitee.com/novel_dev_team/novel-cloud/badge/fork.svg?theme=gitee)](https://gitee.com/novel_dev_team/novel-cloud)
+[![index]( https://youdoc.github.io/img/tencent.jpg )]( https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=736e609d66e0ac4e57813316cec6fd0b&from=console )
+<p align="center">
+    <a href='https://github.com/201206030/novel-cloud'><img alt="Github stars" src="https://img.shields.io/github/stars/201206030/novel-cloud?logo=github"></a>
+    <a href='https://github.com/201206030/novel-cloud'><img alt="Github forks" src="https://img.shields.io/github/forks/201206030/novel-cloud?logo=github"></a>
+    <a href='https://gitee.com/novel_dev_team/novel-cloud'><img alt="Gitee stars" src="https://gitee.com/novel_dev_team/novel-cloud/badge/star.svg?theme=gitee"></a>
+    <a href='https://gitee.com/novel_dev_team/novel-cloud'><img alt="Gitee forks" src="https://gitee.com/novel_dev_team/novel-cloud/badge/fork.svg?theme=gitee"></a>
+    <a href="https://github.com/201206030/novel-cloud"><img src="https://visitor-badge.glitch.me/badge?page_id=201206030.novel-cloud" alt="visitors"></a>
+</p>
 
 
 #### 官网
