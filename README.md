@@ -18,7 +18,7 @@ https://novel.xxyopen.com
 
 #### 快速开始
 
-https://docs.xxyopen.com/course/novelcloud
+[➡️ 快速开始](https://docs.xxyopen.com/course/novelcloud/)
 
 #### 代码仓库
 
