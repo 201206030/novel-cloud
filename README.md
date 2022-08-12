@@ -7,18 +7,14 @@
     <a href="https://github.com/201206030/novel-cloud"><img src="https://visitor-badge.glitch.me/badge?page_id=201206030.novel-cloud" alt="visitors"></a>
 </p>
 
-
-### 官网
-
-https://novel.xxyopen.com
+<p align="center">
+      [项目文档](https://docs.xxyopen.com/course/novelcloud/) | [官网](https://novel.xxyopen.com) | [演示站点](http://47.106.243.172:8888/)
+</p>   
 
 ### 学习版
 
 [基于 Sprint Boot 3 + Vue 3 开发的前后端分离学习型小说项目](https://github.com/201206030/novel)
 
-### 项目文档
-
-[➡️ 点此查看](https://docs.xxyopen.com/course/novelcloud/)
 
 ### 项目背景
 
@@ -89,7 +85,7 @@ GitHub 仓库地址：  https://github.com/201206030/novel-cloud
 
 ### QQ 交流群
 
-[点此前往官网查看](https://novel.xxyopen.com/service.htm)
+[前往官网查看↗️](https://novel.xxyopen.com/service.htm)
 
 ### 微信公众号（发布最新更新资讯）
 
