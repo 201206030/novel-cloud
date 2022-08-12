@@ -8,13 +8,12 @@
 </p>
 
 <p align="center">
-      [项目文档](https://docs.xxyopen.com/course/novelcloud/) | [官网](https://novel.xxyopen.com) | [演示站点](http://47.106.243.172:8888/)
+      <a href='https://docs.xxyopen.com/course/novelcloud/'>项目文档</a> | <a href='https://novel.xxyopen.com'>官网</a> | <a href='[https://novel.xxyopen.com](http://47.106.243.172:8888)'>演示站点</a>
 </p>   
 
 ### 学习版
 
 [基于 Sprint Boot 3 + Vue 3 开发的前后端分离学习型小说项目](https://github.com/201206030/novel)
-
 
 ### 项目背景
 
