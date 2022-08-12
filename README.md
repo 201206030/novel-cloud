@@ -28,7 +28,7 @@ https://novel.xxyopen.com
 
 ### 项目简介
 
-novel-cloud 是基于 [novel-plus](/course/novelplus/) 构建的 Spring Cloud 微服务架构小说门户平台，致力于原创文学阅读与写作，提供了爬虫工具用于开发过程中测试数据的采集（爬虫项目和 novel-plus 通用）。采用了 Spring Boot 2.2.5.RELEASE 、Spring Cloud Hoxton.SR4、 MyBatis3 Dynamic SQL、Sharding-JDBC、Redis、RabbitMQ、Elasticsearch、Docker 等流行技术，集成了 Nacos 注册中心/配置中心、Spring Cloud Gateway 网关、Spring Boot Admin 监控中心、ELK 分布式日志分析等基础服务。
+novel-cloud 是基于 [novel-plus](https://github.com/201206030/novel-plus) 构建的 Spring Cloud 微服务架构小说门户平台，致力于原创文学阅读与写作，提供了爬虫工具用于开发过程中测试数据的采集（爬虫项目和 novel-plus 通用）。采用了 Spring Boot 2.2.5.RELEASE 、Spring Cloud Hoxton.SR4、 MyBatis3 Dynamic SQL、Sharding-JDBC、Redis、RabbitMQ、Elasticsearch、Docker 等流行技术，集成了 Nacos 注册中心/配置中心、Spring Cloud Gateway 网关、Spring Boot Admin 监控中心、ELK 分布式日志分析等基础服务。
 
 ### 项目结构
 
