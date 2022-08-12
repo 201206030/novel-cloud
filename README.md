@@ -8,29 +8,29 @@
 </p>
 
 
-#### 官网
+### 官网
 
 https://novel.xxyopen.com
 
-#### 学习版
+### 学习版
 
 [基于 Sprint Boot 3 + Vue 3 开发的前后端分离学习型小说项目](https://github.com/201206030/novel)
 
-#### 项目文档
+### 项目文档
 
-[➡️ 快速开始](https://docs.xxyopen.com/course/novelcloud/)
+[➡️ 点此查看](https://docs.xxyopen.com/course/novelcloud/)
 
-#### 项目背景
+### 项目背景
 
 小说网站业务难度适中，没有商城系统那种复杂的业务。但是作为互联网项目，一样需要面对大规模用户和海量数据的处理，所以高并发、高可用、高性能、高容错、可扩展性、可维护性也是小说网站设计需要考虑的问题，商城系统中所用到的技术同样适用于小说网站。
 
 综上所述，使用微服务架构来构建一个小说门户平台是非常有必要的，利用微服务技术栈构建的小说门户平台学习时下流行技术相较于业务比较复杂的商城系统来说也是比较容易的，非常适合没有实际微服务项目经验的同学用来学习和入门微服务技术栈。
 
-#### 项目简介
+### 项目简介
 
 novel-cloud 是基于 [novel-plus](/course/novelplus/) 构建的 Spring Cloud 微服务架构小说门户平台，致力于原创文学阅读与写作，提供了爬虫工具用于开发过程中测试数据的采集（爬虫项目和 novel-plus 通用）。采用了 Spring Boot 2.2.5.RELEASE 、Spring Cloud Hoxton.SR4、 MyBatis3 Dynamic SQL、Sharding-JDBC、Redis、RabbitMQ、Elasticsearch、Docker 等流行技术，集成了 Nacos 注册中心/配置中心、Spring Cloud Gateway 网关、Spring Boot Admin 监控中心、ELK 分布式日志分析等基础服务。
 
-#### 项目结构
+### 项目结构
 
 ```
 novel-cloud
@@ -48,7 +48,7 @@ novel-cloud
 └── novel-pay -- 支付微服务
 ```
 
-#### 技术选型
+### 技术选型
 
 | 技术                   | 说明                                                         
 |----------------------| ---------------------------
@@ -77,25 +77,25 @@ novel-cloud
 | Logstash             | 分布式日志采集   
 | Vue.js               | 前端开发框架
 
-#### 项目架构
+### 项目架构
 
-![QQ20200520-215756](https://s3.ax1x.com/2020/12/09/r92rrT.png)
+![](https://s3.ax1x.com/2020/12/09/r92rrT.png)
 
-#### 代码仓库
+### 代码仓库
 
 Gitee 仓库地址： https://gitee.com/novel_dev_team/novel-cloud
 
 GitHub 仓库地址：  https://github.com/201206030/novel-cloud
 
-#### QQ 交流群
+### QQ 交流群
 
 [点此前往官网查看](https://novel.xxyopen.com/service.htm)
 
-#### 微信公众号（发布最新更新资讯）
+### 微信公众号（发布最新更新资讯）
 
 ![](https://docs.xxyopen.com/img/qrcode_for_gh.jpg)
 
-#### 捐赠支持
+### 捐赠支持
 
 开源项目不易，若此项目能得到你的青睐，可以捐赠支持作者持续开发与维护。
 
