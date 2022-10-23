@@ -107,6 +107,7 @@
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-httpclient</artifactId>
+            <version>11.1</version>
         </dependency>
 
         <dependency>
