@@ -1,5 +1,0 @@
-spring:
-  application:
-    name: pay-service
-  profiles:
-    active: dev

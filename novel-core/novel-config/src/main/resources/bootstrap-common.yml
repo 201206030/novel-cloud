@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.10.110:8848
+        file-extension: yml
+        extension-configs[0]:
+          data‐id: novel-mysql.yml
+          refresh: true
+        extension-configs[1]:
+          data‐id: novel-redis.yml
+          refresh: true
+        extension-configs[2]:
+          data‐id: novel-rabbitmq.yml
+          refresh: true

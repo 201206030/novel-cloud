@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: novel-user-service
+  profiles:
+    include: common
+

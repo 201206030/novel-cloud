@@ -1,0 +1,15 @@
+server:
+  port: 9010
+spring:
+  profiles:
+    include: common
+    active: dev
+
+management:
+  # 端点启用配置
+  endpoint:
+    logfile:
+      # 启用返回日志文件内容的端点
+      enabled: true
+      # 外部日志文件路径
+      external-file: logs/novel-author-service.log

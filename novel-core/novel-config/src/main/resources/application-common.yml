@@ -1,0 +1,142 @@
+#--------------------- Spring Cloud 配置-------------------
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.10.110:8848
+    openfeign:
+      lazy-attributes-resolution: true
+
+feign:
+  sentinel:
+    enabled: true
+
+--- #--------------------------通用配置-------------------------
+spring:
+  jackson:
+    generator:
+      # JSON 序列化时，将所有 Number 类型的属性都转为 String 类型返回，避免前端数据精度丢失的问题。
+      # 由于 Javascript 标准规定所有数字处理都应使用 64 位 IEEE 754 浮点值完成，
+      # 结果是某些 64 位整数值无法准确表示（尾数只有 51 位宽）
+      write-numbers-as-strings: true
+
+--- #---------------------数据库配置---------------------------
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/novel_test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: test123456
+  # ShardingSphere-JDBC 配置
+  # 配置是 ShardingSphere-JDBC 中唯一与应用开发者交互的模块，
+  # 通过它可以快速清晰的理解 ShardingSphere-JDBC 所提供的功能。
+  shardingsphere:
+    # 是否开启分库分表
+    enabled: false
+    props:
+      # 是否在日志中打印 SQL
+      sql-show: true
+    # 模式配置
+    mode:
+      # 单机模式
+      type: Standalone
+      repository:
+        # 文件持久化
+        type: File
+        props:
+          # 元数据存储路径
+          path: .shardingsphere
+      # 使用本地配置覆盖持久化配置
+      overwrite: true
+    # 数据源配置
+    datasource:
+      names: ds_0
+      ds_0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://localhost:3306/novel_test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+        username: root
+        password: test123456
+    # 规则配置
+    rules:
+      # 数据分片
+      sharding:
+        tables:
+          # book_content 表
+          book_content:
+            # 数据节点
+            actual-data-nodes: ds_$->{0}.book_content$->{0..9}
+            # 分表策略
+            table-strategy:
+              standard:
+                # 分片列名称
+                sharding-column: chapter_id
+                # 分片算法名称
+                sharding-algorithm-name: bookContentSharding
+        sharding-algorithms:
+          bookContentSharding:
+            # 行表达式分片算法，使用 Groovy 的表达式，提供对 SQL 语句中的 = 和 IN 的分片操作支持
+            type: INLINE
+            props:
+              # 分片算法的行表达式
+              algorithm-expression: book_content$->{chapter_id % 10}
+
+--- #---------------------中间件配置---------------------------
+spring:
+  data:
+    # Redis 配置
+    redis:
+      host: 127.0.0.1
+      port: 6379
+#      password: 123456
+
+  # RabbitMQ 配置
+  rabbitmq:
+    addresses: "amqp://xxyopen:test123456@192.168.10.110"
+    virtual-host: novel
+    template:
+      retry:
+        # 开启重试
+        enabled: true
+        # 最大重试次数
+        max-attempts: 3
+        # 第一次和第二次重试之间的持续时间
+        initial-interval: "3s"
+
+--- #----------------------安全配置---------------------------
+# Actuator 端点管理
+management:
+  # 端点公开配置
+  endpoints:
+    # 通过 HTTP 公开的 Web 端点
+    web:
+      exposure:
+        # 公开所有的 Web 端点
+        include: "*"
+  info:
+    env:
+      # 公开所有以 info. 开头的环境属性
+      enabled: true
+  health:
+    rabbit:
+      # 关闭 rabbitmq 的健康检查
+      enabled: true
+    elasticsearch:
+      # 关闭 elasticsearch 的健康检查
+      enabled: true
+
+--- #---------------------自定义配置----------------------------
+novel:
+  # XSS 过滤配置
+  xss:
+    # 过滤开关
+    enabled: true
+    # 排除链接
+    excludes:
+      - /system/notice/*
+
+
+
+
+
+
+

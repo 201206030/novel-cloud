@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: novel-news-service
+  profiles:
+    include: common
+

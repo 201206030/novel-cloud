@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>novel-cloud</artifactId>
-        <groupId>com.java2nb.novel</groupId>
-        <version>1.3.0</version>
+        <groupId>io.github.xxyopen</groupId>
+        <version>2.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,62 +13,37 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.java2nb.novel</groupId>
-            <artifactId>book-api</artifactId>
+            <groupId>io.github.xxyopen</groupId>
+            <artifactId>novel-config</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.java2nb.novel</groupId>
-            <artifactId>news-api</artifactId>
-        </dependency>
-
-
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <groupId>io.github.xxyopen</groupId>
+            <artifactId>novel-book-api</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
-
-
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <!--<plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>${docker.maven.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>build-image</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
                 <configuration>
-                    <imageName>201206030/${project.artifactId}:${project.version}</imageName>
-                    <dockerHost>${docker.host}</dockerHost>
-                    <baseImage>java:8</baseImage>
-                    <entryPoint>["java", "-jar","/${project.build.finalName}.jar"]</entryPoint>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
                 </configuration>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
-
-
 
 </project>

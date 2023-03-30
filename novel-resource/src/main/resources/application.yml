@@ -1,0 +1,26 @@
+server:
+  port: 9040
+spring:
+  profiles:
+    include: common
+    active: dev
+  servlet:
+    multipart:
+      # 上传文件最大大小
+      max-file-size: 5MB
+
+novel:
+  file:
+    # 文件上传配置
+    upload:
+      # 上传路径
+      path: /Users/xiongxiaoyang/upload
+
+management:
+  # 端点启用配置
+  endpoint:
+    logfile:
+      # 启用返回日志文件内容的端点
+      enabled: true
+      # 外部日志文件路径
+      external-file: logs/novel-resource-service.log

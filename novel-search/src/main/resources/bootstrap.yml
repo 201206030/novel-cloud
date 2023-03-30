@@ -1,16 +1,5 @@
 spring:
   application:
-    name: novel-search
+    name: novel-search-service
   profiles:
-    active: dev
-  cloud:
-    nacos:
-      config:
-        ext‐config[0]:
-          data‐id: novel-redis.yml
-          group: novel-common
-          refresh: true
-        ext‐config[1]:
-          data‐id: novel-rabbitmq.yml
-          group: novel-common
-          refresh: true
+    include: common

@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: novel-book-service
+  profiles:
+    include: common
+

@@ -1,148 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.java2nb.novel</groupId>
-    <artifactId>novel-cloud</artifactId>
-    <version>1.3.0</version>
     <modules>
-        <module>novel-common</module>
-        <module>novel-gateway</module>
         <module>novel-monitor</module>
-        <module>novel-user</module>
-        <module>novel-gen</module>
         <module>novel-book</module>
-        <module>novel-news</module>
-        <module>novel-home</module>
-        <module>novel-pay</module>
+        <module>novel-core</module>
         <module>novel-search</module>
+        <module>novel-gateway</module>
+        <module>novel-resource</module>
+        <module>novel-news</module>
         <module>novel-author</module>
-        <module>novel-file</module>
-
+        <module>novel-user</module>
+        <module>novel-home</module>
     </modules>
-    <packaging>pom</packaging>
-
-    <name>novel-cloud</name>
-    <description>小说精品屋-微服务版</description>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.5.RELEASE</version>
-        <relativePath/>
+        <version>3.0.5</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
+    <groupId>io.github.xxyopen</groupId>
+    <artifactId>novel-cloud</artifactId>
+    <packaging>pom</packaging>
+    <version>2.0.0-SNAPSHOT</version>
+    <name>novel-cloud</name>
+    <description>基于 Spring Cloud 2022 构建的微服务小说系统</description>
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
-        <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
-        <openfeign.version>2.2.0.RELEASE</openfeign.version>
-        <nacos.version>0.2.2.RELEASE</nacos.version>
-        <swagger.version>2.9.2</swagger.version>
-        <maven.test.skip>true</maven.test.skip>
-        <mysql.version>8.0.16</mysql.version>
-        <mybatis.version>1.3.2</mybatis.version>
-        <mybatis-generator.version>1.3.7</mybatis-generator.version>
-        <mybatis-dynamic-sql.version>1.1.4</mybatis-dynamic-sql.version>
-        <pagehelper.version>1.2.5</pagehelper.version>
-        <orderbyhelper.version>1.0.2</orderbyhelper.version>
-        <commons-lang3.version>3.4</commons-lang3.version>
-        <jjwt.version>0.10.6</jjwt.version>
-        <elasticsearch.version>7.9.3</elasticsearch.version>
-        <jest.version>6.3.1</jest.version>
-        <redis.version>1.4.1.RELEASE</redis.version>
-        <redisson.version>3.12.5</redisson.version>
-        <sharding.jdbc.version>3.0.0</sharding.jdbc.version>
-        <aliyun-sdk-oss.version>2.4.0</aliyun-sdk-oss.version>
-        <commons-fileupload.version>1.3.1</commons-fileupload.version>
-        <fastdfs-client.version>1.26.1-RELEASE</fastdfs-client.version>
-        <alipay-sdk-java.version>4.9.153.ALL</alipay-sdk-java.version>
-        <admin-starter-server.version>2.2.3</admin-starter-server.version>
-        <docker.maven.plugin.version>1.0.0</docker.maven.plugin.version>
-        <docker.host>http://47.106.243.172:2375</docker.host>
-        <logstash.version>5.3</logstash.version>
-
-        <novel-common.version>1.3.0</novel-common.version>
-        <novel-user-api.version>1.3.0</novel-user-api.version>
-        <novel-book-api.version>1.3.0</novel-book-api.version>
-        <novel-news-api.version>1.3.0</novel-news-api.version>
-        <novel-pay-api.version>1.3.0</novel-pay-api.version>
-        <novel-author-api.version>1.3.0</novel-author-api.version>
+        <java.version>17</java.version>
+        <spring-cloud.version>2022.0.1</spring-cloud.version>
+        <spring-cloud-alibaba.version>2022.0.0.0-RC1</spring-cloud-alibaba.version>
+        <mybatis-plus.version>3.5.3</mybatis-plus.version>
+        <jjwt.version>0.11.5</jjwt.version>
+        <xxl-job.version>2.3.1</xxl-job.version>
+        <elasticsearch.version>8.2.0</elasticsearch.version>
+        <shardingsphere-jdbc.version>5.1.1</shardingsphere-jdbc.version>
+        <redisson.version>3.19.1</redisson.version>
+        <spring-boot-admin.version>3.0.2</spring-boot-admin.version>
+        <springdoc-openapi.version>2.0.0</springdoc-openapi.version>
+        <spring-cloud-starter-bootstrap.version>3.1.1</spring-cloud-starter-bootstrap.version>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
     <dependencyManagement>
         <dependencies>
-            <!--novel-cloud相关模块-->
-            <dependency>
-                <groupId>com.java2nb.novel</groupId>
-                <artifactId>novel-common</artifactId>
-                <version>${novel-common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.java2nb.novel</groupId>
-                <artifactId>user-api</artifactId>
-                <version>${novel-user-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.java2nb.novel</groupId>
-                <artifactId>book-api</artifactId>
-                <version>${novel-book-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.java2nb.novel</groupId>
-                <artifactId>news-api</artifactId>
-                <version>${novel-news-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.java2nb.novel</groupId>
-                <artifactId>pay-api</artifactId>
-                <version>${novel-pay-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.java2nb.novel</groupId>
-                <artifactId>author-api</artifactId>
-                <version>${novel-author-api.version}</version>
-            </dependency>
-
-            <!--在2.2.0.RELEASE里有一行注释描述，feign的SentinelContractHolder接口方法名parseAndValidatateMetadata拼写错误，
-          在2.2.2.RELEASE方法已修正了，即方法名发生了改变。
-          在spring-cloud-alibaba-sentinel中的SentinelContractHolder类，用到了该接口的这个方法
-          所以，要么降低SpringCloud版本，要么单独指定openfeign版本，否则启动报错
-          java.lang.AbstractMethodError:
-          com.alibaba.cloud.sentinel.feign.SentinelContractHolder.
-          parseAndValidateMetadata(Ljava/lang/Class;)Ljava/util/List
-          注意spring-cloud-openfeign-dependencies写在spring-cloud-dependencies前面，
-          因为dependency前面的优先生效。-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-openfeign-dependencies</artifactId>
-                <version>${openfeign.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-
-            <!-- springCloud -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -159,101 +58,18 @@
                 <scope>import</scope>
             </dependency>
 
-
-
-
-            <!--swagger-->
             <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${swagger.version}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-bootstrap</artifactId>
+                <version>${spring-cloud-starter-bootstrap.version}</version>
             </dependency>
 
-            <!--swagger ui-->
             <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${swagger.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
 
-
-            <!--集成SpringBoot Admin监控-->
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-server</artifactId>
-                <version>${admin-starter-server.version}</version>
-            </dependency>
-
-
-            <!--redis-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-redis</artifactId>
-                <version>${redis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.redisson</groupId>
-                <artifactId>redisson-spring-boot-starter</artifactId>
-                <version>${redisson.version}</version>
-            </dependency>
-
-            <!--mysql驱动-->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
-            </dependency>
-
-            <!--mybatis-->
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-
-            <!--mybatis动态sql-->
-            <dependency>
-                <groupId>org.mybatis.dynamic-sql</groupId>
-                <artifactId>mybatis-dynamic-sql</artifactId>
-                <version>${mybatis-dynamic-sql.version}</version>
-            </dependency>
-
-            <!-- sharding jdbc依赖 -->
-            <dependency>
-                <groupId>io.shardingsphere</groupId>
-                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
-                <version>${sharding.jdbc.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.shardingsphere</groupId>
-                <artifactId>sharding-jdbc-spring-namespace</artifactId>
-                <version>${sharding.jdbc.version}</version>
-            </dependency>
-
-
-            <!--分页助手启动器-->
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>${pagehelper.version}</version>
-            </dependency>
-
-            <!--排序助手启动器-->
-            <dependency>
-                <groupId>com.cuisongliu</groupId>
-                <artifactId>orderbyhelper-spring-boot-starter</artifactId>
-                <version>${orderbyhelper.version}</version>
-            </dependency>
-
-            <!--apache的通用工具包-->
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
-            </dependency>
-
-
-            <!-- jwt -->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-api</artifactId>
@@ -263,43 +79,86 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-impl</artifactId>
                 <version>${jjwt.version}</version>
+                <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-jackson</artifactId>
-                <scope>runtime</scope>
                 <version>${jjwt.version}</version>
+                <scope>runtime</scope>
             </dependency>
 
-            <!-- MyBatis 生成器 -->
             <dependency>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-core</artifactId>
-                <version>${mybatis-generator.version}</version>
-                <optional>true</optional>
-            </dependency>
-
-            <!--elasticsearch -->
-            <dependency>
-                <groupId>org.elasticsearch.client</groupId>
-                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <groupId>co.elastic.clients</groupId>
+                <artifactId>elasticsearch-java</artifactId>
                 <version>${elasticsearch.version}</version>
             </dependency>
+
             <dependency>
-                <groupId>io.searchbox</groupId>
-                <artifactId>jest</artifactId>
-                <version>${jest.version}</version>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
             </dependency>
 
-            <!--集成logstash-->
             <dependency>
-                <groupId>net.logstash.logback</groupId>
-                <artifactId>logstash-logback-encoder</artifactId>
-                <version>${logstash.version}</version>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
+                <version>${shardingsphere-jdbc.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc-openapi.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <!--指定 Java 编译器的 -source 参数 -->
+                        <source>${java.version}</source>
+                        <!--指定 Java 编译器的 -target 参数 -->
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>aliyun</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>

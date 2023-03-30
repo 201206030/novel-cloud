@@ -1,4 +1,34 @@
+server:
+  port: 9050
 spring:
   profiles:
-    include: [common]
+    include: common
+    active: dev
+  elasticsearch:
+    uris:
+      - https://127.0.0.1:9200
+    username: elastic
+    password: Fy2JWjJ1hcO2mi1USFLR
 
+# XXL-JOB 配置
+xxl:
+  job:
+    admin:
+      ### 调度中心部署根地址 [选填]：如调度中心集群部署存在多个地址则用逗号分隔。执行器将会使用该地址进行"执行器心跳注册"和"任务结果回调"；为空则关闭自动注册；
+      addresses: http://127.0.0.1:8080/xxl-job-admin
+    executor:
+      ### 执行器AppName [选填]：执行器心跳注册分组依据；为空则关闭自动注册
+      appname: xxl-job-executor-novel
+      ### 执行器运行日志文件存储磁盘路径 [选填] ：需要对该路径拥有读写权限；为空则使用默认路径；
+      logpath: logs/xxl-job/jobhandler
+    ### xxl-job, access token
+    accessToken: 123
+
+management:
+  # 端点启用配置
+  endpoint:
+    logfile:
+      # 启用返回日志文件内容的端点
+      enabled: true
+      # 外部日志文件路径
+      external-file: logs/novel-search-service.log

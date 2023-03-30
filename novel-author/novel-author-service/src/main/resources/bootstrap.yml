@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: novel-author-service
+  profiles:
+    include: common
+

@@ -1,0 +1,22 @@
+server:
+  port: 8898
+spring:
+  application:
+    name: novel-monitor
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.10.110:8848
+  boot:
+    admin:
+      discovery:
+        services:
+          - novel-home-service
+          - novel-news-service
+          - novel-resource-service
+          - novel-book-service
+          - novel-user-service
+          - novel-author-service
+          - novel-search-service
+          - novel-gateway
+
