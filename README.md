@@ -99,6 +99,10 @@ novel-cloud
 └── novel-resource -- 资源微服务 
 ```
 
+## 项目演示
+
+<iframe src="//player.bilibili.com/player.html?aid=654318531&bvid=BV1Xa4y1T7CF&cid=1076137902&page=1" width="100%" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 ## 捐赠支持
 
 开源项目不易，若此项目能得到你的青睐，可以捐赠支持作者持续开发与维护。
