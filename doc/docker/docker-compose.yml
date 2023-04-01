@@ -142,6 +142,20 @@ services:
     networks:
       - novelnet
 
+  novel-monitor:
+    build: ./novel-monitor
+    image: novel-monitor:2.0.1
+    container_name: novel-monitor
+    restart: "always"
+    environment:
+      - NACOS_ADDR=novel-nacos-server:8848
+    ports:
+      - "8898:8898"
+    depends_on:
+      - novel-nacos-server
+    networks:
+      - novelnet
+
 networks:
   novelnet:
     driver: bridge
