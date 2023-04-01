@@ -37,7 +37,7 @@ public class InnerBookController {
      */
     @Operation(summary = "查询下一批保存到 ES 中的小说列表")
     @PostMapping("listNextEsBooks")
-    RestResp<List<BookEsRespDto>> listNextEsBooks(@Parameter(description = "已查询的最大小说ID") Long maxBookId) {
+    RestResp<List<BookEsRespDto>> listNextEsBooks(@Parameter(description = "已查询的最大小说ID") @RequestBody Long maxBookId) {
         return bookService.listNextEsBooks(maxBookId);
     }
 
