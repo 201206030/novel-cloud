@@ -3,76 +3,92 @@ version: '3.9'
 services:
   novel-mysql:
     container_name: novel-mysql
-    image: mysql:8.0
+    image: mysql:${MYSQL_VERSION}
     restart: always
     hostname: novel-mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=test123456
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes:
       - "/data/docker/mysql/data:/var/lib/mysql"
       - "/data/docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql"
     command: mysqld --max_allowed_packet=100M
     ports:
-      - 3306:3306
+      - "3306:3306"
     networks:
       - novelnet
 
   novel-redis:
     container_name: novel-redis
-    image: redis:7.0
+    image: redis:${REDIS_VERSION}
     restart: always
     hostname: novel-redis
-    command: redis-server --save 60 1 --loglevel warning
+    command: redis-server --save 60 1 --loglevel warning --requirepass "${REDIS_PASSWORD}"
     ports:
-      - 6379:6379
+      - "6379:6379"
     networks:
       - novelnet
 
   novel-rabbitmq:
     container_name: novel-rabbitmq
-    image: rabbitmq:3-management
+    image: rabbitmq:${RABBITMQ_VERSION}
     restart: always
     hostname: novel-rabbitmq
     environment:
-      - RABBITMQ_DEFAULT_USER=xxyopen
-      - RABBITMQ_DEFAULT_PASS=test123456
-      - RABBITMQ_DEFAULT_VHOST=novel
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+      - RABBITMQ_DEFAULT_VHOST=${RABBITMQ_DEFAULT_VHOST}
     ports:
-      - 15672:15672
-      - 5672:5672
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - novelnet
+
+  novel-elasticsearch-setup:
+    container_name: novel-elasticsearch-setup
+    image: elasticsearch:${ELASTIC_VERSION}
+    hostname: novel-elasticsearch-setup
+    user: "0"
+    command: >
+      bash -c '
+        echo "Waiting for Elasticsearch availability";
+        until curl -s http://novel-elasticsearch:9200 | grep -q "missing authentication credentials"; do sleep 30; done;
+        echo "Setting kibana_system password";
+        until curl -s -X POST -u "elastic:${ELASTIC_PASSWORD}" -H "Content-Type: application/json" http://novel-elasticsearch:9200/_security/user/kibana_system/_password -d "{\"password\":\"${KIBANA_PASSWORD}\"}" | grep -q "^{}"; do sleep 10; done;
+        echo "All done!";
+      '
     networks:
       - novelnet
 
   novel-elasticsearch:
     container_name: novel-elasticsearch
-    image: elasticsearch:8.6.2
+    image: elasticsearch:${ELASTIC_VERSION}
     restart: always
     hostname: novel-elasticsearch
     environment:
-      # 内存不够用的话最好不要配置这个
-      # - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "ES_JAVA_OPTS=-Xms125m -Xmx512m"
       - discovery.type=single-node
-    # 挂载本地目录时需要修改该目录的读写权限才能正常启动
-    # volumes:
-    #   - /data/docker/elasticsearch/data:/usr/share/elasticsearch/data
-    #   - /data/docker/elasticsearch/logs:/usr/share/elasticsearch/logs
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - KIBANA_PASSWORD=${KIBANA_PASSWORD}
+      - xpack.security.http.ssl.enabled=false
     ports:
-      - 9200:9200
-      - 9300:9300
+      - "9200:9200"
+    depends_on:
+      - novel-elasticsearch-setup
     networks:
       - novelnet
 
   novel-kibana:
     container_name: novel-kibana
-    image: kibana:8.6.2
+    image: kibana:${KIBANA_VERSION}
     restart: always
     hostname: novel-kibana
     environment:
-      ELASTICSEARCH_HOSTS: '["https://novel-elasticsearch:9200"]'
-    volumes:
-      - /data/docker/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+      - ELASTICSEARCH_HOSTS=http://novel-elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=kibana_system
+      - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}
+#      - ELASTICSEARCH_SSL_VERIFICATIONMODE=none
     ports:
-      - 5601:5601
+      - "5601:5601"
     depends_on:
       - novel-elasticsearch
     networks:
@@ -80,16 +96,16 @@ services:
 
   novel-xxl-job-admin:
     container_name: novel-xxl-job-admin
-    image: xuxueli/xxl-job-admin:2.3.1
+    image: xuxueli/xxl-job-admin:${XXLJOB_VERSION}
     restart: always
     hostname: novel-xxl-job-admin
     environment:
-      - PARAMS=--spring.datasource.url=jdbc:mysql://novel-mysql:3306/xxl_job?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai --spring.datasource.username=root --spring.datasource.password=test123456 --xxl.job.accessToken=123
+      - PARAMS=--spring.datasource.url=jdbc:mysql://novel-mysql:3306/xxl_job?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai --spring.datasource.username=root --spring.datasource.password=${MYSQL_ROOT_PASSWORD} --xxl.job.accessToken=${XXLJOB_ACCESSTOKEN}
       - JAVA_OPTS=-Xmx512m
     volumes:
       - /data/docker/xxl-job-admin/data/applogs:/data/applogs
     ports:
-      - 8080:8080
+      - "8080:8080"
     depends_on:
       - novel-mysql
     networks:
@@ -97,7 +113,7 @@ services:
 
   novel-nacos-server:
     container_name: novel-nacos-server
-    image: nacos/nacos-server:v2.2.1
+    image: nacos/nacos-server:${NACOS_VERSION}
     restart: always
     hostname: novel-nacos-server
     environment:
@@ -108,7 +124,7 @@ services:
       - MYSQL_SERVICE_DB_NAME=nacos
       - MYSQL_SERVICE_PORT=3306
       - MYSQL_SERVICE_USER=root
-      - MYSQL_SERVICE_PASSWORD=test123456
+      - MYSQL_SERVICE_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
       - NACOS_AUTH_IDENTITY_KEY=xxyopen
       - NACOS_AUTH_IDENTITY_VALUE=xxyopen

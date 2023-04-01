@@ -9,16 +9,13 @@ PUT /book
         "type" : "long"
       },
       "authorName" : {
-        "type" : "text",
-        "analyzer": "ik_smart"
+        "type" : "text"
       },
       "bookName" : {
-        "type" : "text",
-        "analyzer": "ik_smart"
+        "type" : "text"
       },
       "bookDesc" : {
-        "type" : "text",
-        "analyzer": "ik_smart"
+        "type" : "text"
       },
       "bookStatus" : {
         "type" : "short"
@@ -27,15 +24,13 @@ PUT /book
         "type" : "integer"
       },
       "categoryName" : {
-        "type" : "text",
-        "analyzer": "ik_smart"
+        "type" : "text"
       },
       "lastChapterId" : {
         "type" : "long"
       },
       "lastChapterName" : {
-        "type" : "text",
-        "analyzer": "ik_smart"
+        "type" : "text"
       },
       "lastChapterUpdateTime" : {
         "type": "long"
