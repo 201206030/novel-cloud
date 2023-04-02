@@ -1,5 +1,6 @@
 FROM hzkjhub/java17:17.0.4
-ADD novel-monitor-2.0.0-SNAPSHOT.jar /
+ENV JAR_VERSION=""
+ADD novel-monitor-*.jar /
 ENV NACOS_ADDR=""
 
-ENTRYPOINT ["sh","-c","java -jar -Dspring.cloud.nacos.config.server-addr=${NACOS_ADDR} -Dspring.cloud.nacos.discovery.server-addr=${NACOS_ADDR} novel-monitor-2.0.0-SNAPSHOT.jar"]
+ENTRYPOINT ["sh","-c","java -jar -Dspring.cloud.nacos.config.server-addr=${NACOS_ADDR} -Dspring.cloud.nacos.discovery.server-addr=${NACOS_ADDR} novel-monitor-${JAR_VERSION}.jar"]
