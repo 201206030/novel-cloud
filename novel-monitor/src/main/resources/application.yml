@@ -6,7 +6,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.10.110:8848
+        server-addr: 192.168.0.151:8848
   boot:
     admin:
       discovery:

@@ -3,7 +3,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.10.110:8848
+        server-addr: 192.168.0.151:8848
     openfeign:
       lazy-attributes-resolution: true
 
@@ -23,7 +23,7 @@ spring:
 --- #---------------------数据库配置---------------------------
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/novel_test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://192.168.0.151:3306/novel-cloud?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: test123456
   # ShardingSphere-JDBC 配置
@@ -53,7 +53,7 @@ spring:
       ds_0:
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.cj.jdbc.Driver
-        jdbcUrl: jdbc:mysql://localhost:3306/novel_test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+        jdbcUrl: jdbc:mysql://192.168.0.151:3306/novel-cloud?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
         username: root
         password: test123456
     # 规则配置
@@ -85,13 +85,13 @@ spring:
   data:
     # Redis 配置
     redis:
-      host: 127.0.0.1
+      host: 192.168.0.151
       port: 6379
-#      password: 123456
+      password: test123456
 
   # RabbitMQ 配置
   rabbitmq:
-    addresses: "amqp://xxyopen:test123456@192.168.10.110"
+    addresses: "amqp://xxyopen:test123456@192.168.0.151"
     virtual-host: novel
     template:
       retry:
@@ -112,6 +112,13 @@ management:
       exposure:
         # 公开所有的 Web 端点
         include: "*"
+  # 端点启用配置
+  endpoint:
+    logfile:
+      # 启用返回日志文件内容的端点
+      enabled: true
+      # 外部日志文件路径
+      external-file: logs/novel.log
   info:
     env:
       # 公开所有以 info. 开头的环境属性
