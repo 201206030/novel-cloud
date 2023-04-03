@@ -9,6 +9,8 @@ spring:
       - https://127.0.0.1:9200
     username: elastic
     password: Fy2JWjJ1hcO2mi1USFLR
+#    ssl:
+#      verification-mode: none
 
 # XXL-JOB 配置
 xxl:

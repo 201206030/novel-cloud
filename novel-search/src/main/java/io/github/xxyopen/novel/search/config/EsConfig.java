@@ -6,6 +6,7 @@ import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.elasticsearch.RestClientBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,6 +41,7 @@ public class EsConfig {
      * fix `sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException:
      * unable to find valid certification path to requested target`
      */
+    @ConditionalOnProperty(value = "spring.elasticsearch.ssl.verification-mode",havingValue = "none")
     @Bean
     RestClient elasticsearchRestClient(RestClientBuilder restClientBuilder,
         ObjectProvider<RestClientBuilderCustomizer> builderCustomizers) {
