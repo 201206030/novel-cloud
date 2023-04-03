@@ -2,21 +2,12 @@ package io.github.xxyopen.novel.search.config;
 
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.elasticsearch.RestClientBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.X509Certificate;
 
 /**
  * Elasticsearch 相关配置
@@ -42,8 +33,9 @@ public class EsConfig {
      */
     @Bean
     RestClient elasticsearchRestClient(RestClientBuilder restClientBuilder,
-        ObjectProvider<RestClientBuilderCustomizer> builderCustomizers) {
-        restClientBuilder.setHttpClientConfigCallback((HttpAsyncClientBuilder clientBuilder) -> {
+                                       ObjectProvider<RestClientBuilderCustomizer> builderCustomizers) {
+        //注释ssl报错 elasticsearch Unrecognized SSL message, plaintext connection?
+        /*restClientBuilder.setHttpClientConfigCallback((HttpAsyncClientBuilder clientBuilder) -> {
             TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
                 @Override
                 public void checkClientTrusted(X509Certificate[] chain, String authType) {
@@ -73,7 +65,8 @@ public class EsConfig {
 
             builderCustomizers.orderedStream().forEach((customizer) -> customizer.customize(clientBuilder));
             return clientBuilder;
-        });
+        });*/
+
         return restClientBuilder.build();
     }
 
