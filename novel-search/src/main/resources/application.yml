@@ -9,6 +9,7 @@ spring:
       - https://127.0.0.1:9200
     username: elastic
     password: Fy2JWjJ1hcO2mi1USFLR
+     # 设置 ssl 的认证模式，如果该配置项为 none ，说明不需要认证，信任所有的 ssl 证书。
 #    ssl:
 #      verification-mode: none
 
