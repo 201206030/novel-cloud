@@ -30,6 +30,9 @@ novel-cloud 是 novel 项目的微服务版本，基于 `Spring Cloud 2022` & `S
 - 微服务架构后端项目：[GitHub](https://github.com/201206030/novel-cloud) ｜ [码云](https://gitee.com/novel_dev_team/novel-cloud) ｜ [文档](https://docs.xxyopen.com/course/novelcloud)
 - 前端项目：[GitHub](https://github.com/201206030/novel-front-web) ｜ [码云](https://gitee.com/novel_dev_team/novel-front-web)
 - 线上应用版：[GitHub](https://github.com/201206030/novel-plus) ｜ [码云](https://gitee.com/novel_dev_team/novel-plus)
+- 多端应用版（H5 / Android / iOS / 微信小程序）：[👉 点此获取](https://mp.weixin.qq.com/s/7aKaG-ztpew1jEA15V3Vpw)
+> novel-app 基于 **uni-app（Vue 3 + Vite）** 开发，一套代码即可编译为 H5、Android、iOS 和微信小程序。与 novel-plus 后端共用数据库和接口，实现数据互通，降低多端开发、部署与维护成本。
+
 
 ## 开发环境
 
